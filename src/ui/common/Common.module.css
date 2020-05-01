@@ -1,0 +1,19 @@
+.forLinks{
+    color: black;
+    text-decoration: none;
+}
+
+.forInput{
+    background-color: #9c9c9c;
+    border: 1px solid blanchedalmond;
+    margin: 1px;
+    padding: 6px;
+}
+
+.forButton{
+    background-color: #282c34;
+    color: whitesmoke;
+    border: 0px;
+    margin: 5px 0px;
+    padding: 6px;
+}
