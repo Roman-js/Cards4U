@@ -1,15 +1,16 @@
 import axios from 'axios'
 
 const instance = axios.create({
-    baseURL: 'https://tic-tic/'
+    withCredentials: true,
+    baseURL:"https://neko-cafe-back.herokuapp.com/auth/"
 })
 
 export const authApi = {
 
-
-    register(email: string, password: string){
-        return instance.post('auth/register', {email, password})
-            .then(res=>{return {res}})
+    login(email: string, password: string, rememberMe: boolean){
+        debugger
+        return instance.post("login", {email, password, rememberMe})
+            .then(res=>{return console.log(res)})
             .catch(fal=>fal)
     },
 
@@ -28,6 +29,4 @@ export const authApi = {
     setNewPass(resetPasswordToken: string, password: string){
         return instance.post('auth/set-new-password', {resetPasswordToken, password})
     }
-
-
 }

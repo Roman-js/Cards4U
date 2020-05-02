@@ -4,13 +4,13 @@ import Link from "../common/LInk";
 import Button from "../common/Button";
 import Title from "../common/Title";
 import styles from "./Auth.module.css";
-import {useDispatch, useSelector} from "react-redux";
-import {AppStoreType} from "../../bll/store";
+
+type OwnPropsType = {
+    setSignInFormValues: (email: string, password: string, rememberMe: boolean)=>void
+}
 
 
-
-
-const SignIn: React.FC<{}> = () => {
+const SignIn: React.FC<OwnPropsType> = (props) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -19,7 +19,7 @@ const SignIn: React.FC<{}> = () => {
     //пример UseSelector Достаем данные из store
     //const valueOfInputEmail = useSelector((state: AppStoreType) => state.signIn.email);
 
-    const dispatch = useDispatch();
+    //const dispatch = useDispatch();
 
     const changeEmail = (e: ChangeEvent<HTMLInputElement>) =>{
        return setEmail(e.currentTarget.value)
@@ -33,12 +33,8 @@ const SignIn: React.FC<{}> = () => {
 
     const sendSignInFormValues = () =>{
         return(
-            dispatch({type: 'SET-SIGN-IN-FORM-VALUES',
-                email: email,
-                password: password,
-                rememberMe: rememberMe})
-        )
-    }
+            props.setSignInFormValues(email,password,rememberMe))
+    };
 
     return (
 
