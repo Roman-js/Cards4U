@@ -11,9 +11,11 @@ const rootReducer = combineReducers({
     register: registerReducer,
     setNewPass: setNewPassReducer,
     signIn: signInReducer,
-    profile:profileReducer,
+    profile: profileReducer,
 })
 
 const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
 
 export default store
+
+export type AppStoreType = ReturnType<typeof rootReducer>
