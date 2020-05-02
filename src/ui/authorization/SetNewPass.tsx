@@ -11,8 +11,8 @@ const SetNewPass = () => {
 
             <div className={styles.wrapperOfAuth}>
                 <Title title='Set New Password'/>
-                <div><Input placeholder={'new pass'} type={'text'}/></div>
-                <div><Input placeholder={'repeat pass'} type={'text'}/></div>
+                <div><Input placeholder={'new pass'} type={'text'} value={''} onChange={()=>{}}/></div>
+                <div><Input placeholder={'repeat pass'} type={'text'} value={''} onChange={()=>{}}/></div>
                 <div><Button typeOfButton={"button"} actionOfButton={() => {
                 }} nameOfButton='Set new password'/></div>
                 <div><Link way={'/sign-in'} wordOfLink='Sign In'/></div>

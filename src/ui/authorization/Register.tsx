@@ -11,9 +11,9 @@ const Register = () => {
 
             <div className={styles.wrapperOfAuth}>
                 <Title title='register'/>
-                <div><Input placeholder={'email'} type={"text"}/></div>
-                <div><Input placeholder={'password'} type={"text"}/></div>
-                <div><Input placeholder={'repeat password'} type={"text"}/></div>
+                <div><Input placeholder={'email'} type={"text"} value={''} onChange={()=>{}}/></div>
+                <div><Input placeholder={'password'} type={"text"} value={''} onChange={()=>{}}/></div>
+                <div><Input placeholder={'repeat password'} type={"text"} value={''} onChange={()=>{}}/></div>
                 <div><Button typeOfButton={"button"} actionOfButton={() => {
                 }} nameOfButton={'Register'}/></div>
                 <Link way={'/sign-in'} wordOfLink='Sign In'/>

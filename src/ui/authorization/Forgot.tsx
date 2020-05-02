@@ -11,7 +11,7 @@ const Forgot = () => {
 
             <div className={styles.wrapperOfAuth}>
                 <Title title='forgot'/>
-                <div><Input placeholder='email address' type={"text"}/></div>
+                <div><Input placeholder='email address' type={"text"} value={''} onChange={()=>{}}/></div>
                 <div><Button typeOfButton={"button"} actionOfButton={() => {
                 }} nameOfButton='Send email'/></div>
                 <div><Link way={'/sign-in'} wordOfLink='Sign In'/></div>
