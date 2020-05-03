@@ -1,6 +1,13 @@
 import React, {ChangeEvent} from "react";
 import styles from './Common.module.css'
 
+type OwnPropsType = {
+    value?: string,
+    checked?: boolean,
+    placeholder?: string,
+    onChange: (e: ChangeEvent<HTMLInputElement>) => void,
+    type: 'text' | 'password' | 'radio' | 'checkbox'
+}
 
 const Input = (props: OwnPropsType) => {
 
@@ -13,13 +20,7 @@ const Input = (props: OwnPropsType) => {
                placeholder={props.placeholder}
                type={props.type}/>
     )
-}
+};
+
 export default Input
 
-type OwnPropsType = {
-    value?: string
-    checked?: boolean,
-    placeholder?: string,
-    onChange: (e: ChangeEvent<HTMLInputElement>) => void,
-    type: 'text' | 'password' | 'radio' | 'checkbox'
-}

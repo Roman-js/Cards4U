@@ -1,7 +1,7 @@
 import React from "react";
 import SignIn from "./SignIn";
 import {useDispatch} from "react-redux";
-import {authApi} from "../../dal/api";
+import {authApi} from "../../../dal/api";
 
 
 const SignInContainer = () => {

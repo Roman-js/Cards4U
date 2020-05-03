@@ -8,6 +8,7 @@ const Button = (props: OwnPropsType) =>{
             className={styles.forButton}
             type={props.typeOfButton}
             onClick={props.actionOfButton}
+            disabled={props.disabled}
         >
             {props.nameOfButton}
         </button>
@@ -19,5 +20,7 @@ export default Button
 type OwnPropsType = {
     typeOfButton: "button" | "submit" | "reset" | undefined,
     actionOfButton: ()=>void,
-    nameOfButton: string
+    nameOfButton: string,
+    disabled?: boolean
+
 }
