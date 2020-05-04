@@ -7,6 +7,8 @@ import styles from "../Auth.module.css";
 
 type OwnPropsType = {
     setSignInFormValues: (email: string, password: string, rememberMe: boolean)=>void
+    loading: boolean
+    disabled: boolean
 }
 
 
@@ -19,7 +21,6 @@ const SignIn: React.FC<OwnPropsType> = (props) => {
     //пример UseSelector Достаем данные из store
     //const valueOfInputEmail = useSelector((state: AppStoreType) => state.signIn.email);
 
-    //const dispatch = useDispatch();
 
     const changeEmail = (e: ChangeEvent<HTMLInputElement>) =>{
        return setEmail(e.currentTarget.value)
@@ -40,6 +41,7 @@ const SignIn: React.FC<OwnPropsType> = (props) => {
 
             <div className={styles.wrapperOfAuth}>
                 <Title title={'sign-in'}/>
+                {props.loading?<div>loading...</div>: null}
                 <div><Input type="text"
                             placeholder='email'
                             value={email}
@@ -55,7 +57,7 @@ const SignIn: React.FC<OwnPropsType> = (props) => {
                             onChange={changeRememberMe}/>Remember Me</div>
                 <div><Button typeOfButton={"button"}
                              actionOfButton={sendSignInFormValues}
-                             disabled={false}
+                             disabled={props.disabled}
                              nameOfButton='Sign In'/></div>
                 <div><Link way={'/register'} wordOfLink='Registration'/></div>
             </div>

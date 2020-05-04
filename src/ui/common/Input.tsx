@@ -6,15 +6,17 @@ type OwnPropsType = {
     checked?: boolean,
     placeholder?: string,
     onChange: (e: ChangeEvent<HTMLInputElement>) => void,
-    type: 'text' | 'password' | 'radio' | 'checkbox'
+    type: 'text' | 'password' | 'radio' | 'checkbox',
+    onBlur?: ()=>void,
+    onFocus?: (e: React.FocusEvent)=>void
 }
 
 const Input = (props: OwnPropsType) => {
 
     return (
         <input className={styles.forInput}
-            //onFocus={true}
-            //onBlur={()=>{}}
+               onFocus={props.onFocus}
+               onBlur={props.onBlur}
                value={props.value}
                onChange={props.onChange}
                placeholder={props.placeholder}

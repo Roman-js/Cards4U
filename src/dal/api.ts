@@ -10,13 +10,13 @@ export const authApi = {
     login(email: string, password: string, rememberMe: boolean){
         return instance.post("login", {email, password, rememberMe})
             .then(res=>{return console.log(res)})
-            .catch(fal=>console.log(fal))
+            //.catch(fal=>console.log(fal))
     },
 
     forgotPass(email: string, html1: string, html2: string){
         return instance.post('forgot', {email, html1, html2})
             .then(res=>{return console.log(res)})
-            .catch(fal=>console.log(fal))
+            //.catch(fal=>console.log(fal))
     },
 
     authMe(){

@@ -7,6 +7,10 @@ import styles from '../Auth.module.css'
 
 type OwnPropsType = {
     setForgotPassword: (email: string) => void
+    toCleanError: () => void
+    loading: boolean
+    disabled: boolean
+    error: string | null
 }
 const Forgot = (props: OwnPropsType) => {
 
@@ -16,20 +20,29 @@ const Forgot = (props: OwnPropsType) => {
         setEmail(e.currentTarget.value)
     };
     const restoreForgotPassword = () => {
-        return props.setForgotPassword(email)
-    }
+        props.setForgotPassword(email)
+        setEmail('')
+    };
+    const toCleanError = () => {
+        return props.toCleanError()
+    };
+
     return (
 
         <div className={styles.wrapperOfAuth}>
             <Title title='forgot'/>
+            {props.loading ? <div>Loading...</div> : null}
+            {props.error ? <div>{props.error}</div> : null}
             <div><Input placeholder='email address'
                         type={"text"}
                         value={email}
+                        onBlur={toCleanError}
+                        onFocus={toCleanError}
                         onChange={valueOfInputEmail}/></div>
             <div><Button typeOfButton={"button"}
                          actionOfButton={restoreForgotPassword}
                          nameOfButton='Send email'
-                         disabled={false}/></div>
+                         disabled={props.disabled}/></div>
             <div><Link way={'/sign-in'} wordOfLink='Sign In'/></div>
         </div>
 

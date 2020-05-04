@@ -3,13 +3,17 @@ import React from "react";
 const initialState: signInitialStateType = {
     email: '',
     password: '',
-    rememberMe: false
+    rememberMe: false,
+    loading: false,
+    disabled: false
 }
 
 export type signInitialStateType = {
     email: string
     password: string
-    rememberMe: boolean
+    rememberMe: boolean,
+    loading: boolean
+    disabled: boolean
 }
 
 const signInReducer = (state = initialState, action: any) => {
@@ -20,9 +24,17 @@ const signInReducer = (state = initialState, action: any) => {
                 ...state,
                 email: action.email,
                 password: action.password,
-                rememberMe: action.rememberMe
+                rememberMe: action.rememberMe,
             }
         }
+        case 'SET-LOADING-DATA': {
+            return{
+                ...state,
+                loading: action.loading,
+                disabled: action.disabled
+            }
+        }
+
 
     }
 
