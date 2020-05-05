@@ -22,7 +22,7 @@ const signInReducer = (state = initialState, action: any) => {
 
     switch (action.type) {
         case 'SET-SIGN-IN-FORM-VALUES': {
-            return{
+            return {
                 ...state,
                 email: action.email,
                 password: action.password,
@@ -30,7 +30,7 @@ const signInReducer = (state = initialState, action: any) => {
             }
         }
         case 'SET-LOADING-DATA': {
-            return{
+            return {
                 ...state,
                 loading: action.loading,
                 disabled: action.disabled
@@ -46,7 +46,6 @@ const signInReducer = (state = initialState, action: any) => {
 
 
     }
-
     return state
 }
 

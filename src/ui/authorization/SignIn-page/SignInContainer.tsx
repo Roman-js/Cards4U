@@ -5,7 +5,7 @@ import {authApi} from "../../../dal/api";
 import {AppStoreType} from "../../../bll/store";
 
 
-const SignInContainer = () => {
+const SignInContainer =  () => {
 
     const dispatch = useDispatch();
 
@@ -36,10 +36,10 @@ const SignInContainer = () => {
             })
         )
     };
-   const toCleanErrorField = () =>{
-       dispatch({type: 'SET-ERROR-SIGN-IN-PAGE', error: null})
+    const toCleanErrorField = () => {
+        dispatch({type: 'SET-ERROR-SIGN-IN-PAGE', error: null})
 
-   }
+    }
     return (
         <>
             <SignIn setSignInFormValues={setSignInFormValues}
