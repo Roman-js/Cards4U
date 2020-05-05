@@ -13,7 +13,6 @@ const RegisterContainer:React.FC = () => {
     const state = useSelector((state: AppStoreType) => state.register)
     //const disable = useSelector((state: AppStoreType) => state.signIn.disabled)
 
-
     const setRegisterFormValues = (email: string, password: string) => {
         dispatch({type: REGISTER_SUCCESS})
         authApi.register(email, password)

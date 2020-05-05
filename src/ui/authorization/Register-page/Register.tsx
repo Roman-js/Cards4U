@@ -36,7 +36,6 @@ const [repeatPassword, setRepeatPassword] = useState('')
                 <div><Button typeOfButton={"button"} actionOfButton={sendSignInFormValues} nameOfButton={'Register'}/></div>
                 <Link way={SIGN_IN} wordOfLink='Sign In'/>
             </div>
-
     )
 }
 
