@@ -34,5 +34,4 @@ const RegisterContainer:React.FC = () => {
         </>
     )
 };
-
 export default RegisterContainer
