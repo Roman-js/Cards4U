@@ -1,4 +1,5 @@
 import axios from 'axios'
+import {log} from "util";
 
 const instance = axios.create({
     // withCredentials: true,
@@ -36,19 +37,8 @@ export const authApi = {
     },
 
     register(email: string, password: string) {
-        return instance.post('auth/register', {email, password})
-
-            .then(res => {
-                debugger
-                return {
-                    res
-                }
-            })
-            .catch(err => {
-                debugger
-                return {
-                    err
-                }
-            })
+        return instance.post('/register', {email, password})
+            .then(res => console.log(res.data))
+            .catch(err => console.log(err.data))
     }
 }

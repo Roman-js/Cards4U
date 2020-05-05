@@ -10,7 +10,6 @@ const initialState:registerInitialState = {
 const registerReducer = (state: registerInitialState = initialState, action: registerActionType):registerInitialState => {
     switch (action.type) {
         case REGISTER_SUCCESS: {
-            debugger
             return {
                 ...state,
                 email: action.email,
