@@ -5,7 +5,8 @@ const initialState: signInitialStateType = {
     password: '',
     rememberMe: false,
     loading: false,
-    disabled: false
+    disabled: false,
+    error: null
 }
 
 export type signInitialStateType = {
@@ -14,6 +15,7 @@ export type signInitialStateType = {
     rememberMe: boolean,
     loading: boolean
     disabled: boolean
+    error: string | null
 }
 
 const signInReducer = (state = initialState, action: any) => {
@@ -32,6 +34,13 @@ const signInReducer = (state = initialState, action: any) => {
                 ...state,
                 loading: action.loading,
                 disabled: action.disabled
+            }
+        }
+        case 'SET-ERROR-SIGN-IN-PAGE': {
+            return {
+                ...state,
+                error: action.error
+
             }
         }
 

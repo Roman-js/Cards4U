@@ -6,10 +6,13 @@ import Title from "../../common/Title";
 import styles from "../Auth.module.css";
 
 type OwnPropsType = {
-    setSignInFormValues: (email: string, password: string, rememberMe: boolean)=>void
+    setSignInFormValues: (email: string, password: string, rememberMe: boolean) => void
     loading: boolean
     disabled: boolean
+    error: string | null
+    toCleanErrorField: () => void
 }
+
 
 
 const SignIn: React.FC<OwnPropsType> = (props) => {
@@ -36,19 +39,27 @@ const SignIn: React.FC<OwnPropsType> = (props) => {
         return(
             props.setSignInFormValues(email,password,rememberMe))
     };
+    const toCleanErrorField = () =>{
+        return props.toCleanErrorField()
+    }
 
     return (
 
             <div className={styles.wrapperOfAuth}>
                 <Title title={'sign-in'}/>
                 {props.loading?<div>loading...</div>: null}
+                {props.error?<div>{props.error}</div>:null}
                 <div><Input type="text"
                             placeholder='email'
                             value={email}
+                            onFocus={toCleanErrorField}
+                            onBlur={toCleanErrorField}
                             onChange={changeEmail}/></div>
                 <div><Input type="password"
                             placeholder='password'
                             value={password}
+                            onFocus={toCleanErrorField}
+                            onBlur={toCleanErrorField}
                             onChange={changePassword}/></div>
                 <div><Link way={'/forgot'}
                            wordOfLink={'Forgot password?'}/></div>
