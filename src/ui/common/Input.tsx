@@ -5,8 +5,8 @@ type OwnPropsType = {
     value?: string,
     checked?: boolean,
     placeholder?: string,
-    onChange: (e: ChangeEvent<HTMLInputElement>) => void,
-    type: 'text' | 'password' | 'radio' | 'checkbox',
+    onChange?: (e: ChangeEvent<HTMLInputElement>) => void, ////add '?' for
+    type: 'text' | 'password' | 'radio' | 'checkbox' | 'email',
     onBlur?: ()=>void,
     onFocus?: (e: React.FocusEvent)=>void
 }
