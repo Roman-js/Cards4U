@@ -23,7 +23,7 @@ const forgotReducer = (state = initialState, action: any) =>{
                emailApproved: action.emailApproved
            }
        }
-       case 'SET-VALUE-ERROR': {
+       case 'SET-VALUE-ERROR-FORGOT-PAGE': {
            return {
                ...state,
                error: action.error

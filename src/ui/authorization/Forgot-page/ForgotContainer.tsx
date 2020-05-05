@@ -26,7 +26,7 @@ const ForgotContainer = () => {
             .catch(fal => {
                 console.log(fal.response.data.error);
                 const error = fal.response.data.error;
-                dispatch({type: 'SET-VALUE-ERROR', error: error})
+                dispatch({type: 'SET-VALUE-ERROR-FORGOT-PAGE', error: error})
                 dispatch({type: 'SET-LOADING-DATA-FORGOT-PAGE', loading: false, disabled: false})
             });
 
@@ -35,7 +35,7 @@ const ForgotContainer = () => {
         )
     };
     const toCleanError = () => {
-        dispatch({type: 'SET-VALUE-ERROR', error: null})
+        dispatch({type: 'SET-VALUE-ERROR-FORGOT-PAGE', error: null})
     };
     return (
         !state.emailApproved ?

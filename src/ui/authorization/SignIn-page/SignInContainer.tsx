@@ -9,9 +9,9 @@ const SignInContainer = () => {
 
     const dispatch = useDispatch();
 
-    const loading = useSelector((state: AppStoreType) => state.signIn.loading)
-    const disable = useSelector((state: AppStoreType) => state.signIn.disabled)
-    //const valueOfInputEmail = useSelector((state: AppStoreType) => state.signIn.email);
+    const state = useSelector((state: AppStoreType) => state.signIn)
+    //const disable = useSelector((state: AppStoreType) => state.signIn.disabled)
+
 
     const setSignInFormValues = (email: string, password: string, rememberMe: boolean) => {
         dispatch({type: 'SET-LOADING-DATA', loading: true, disabled: true})
@@ -21,8 +21,10 @@ const SignInContainer = () => {
                 dispatch({type: 'SET-LOADING-DATA', loading: false, disabled: false})
             })
             .catch(fal => {
-                    console.log(fal);
+                    console.log(fal.response);
+                    const error = fal.response.data.error;
                     dispatch({type: 'SET-LOADING-DATA', loading: false, disabled: false})
+                    dispatch({type: 'SET-ERROR-SIGN-IN-PAGE', error})
                 }
             );
         return (
@@ -34,14 +36,19 @@ const SignInContainer = () => {
             })
         )
     };
+   const toCleanErrorField = () =>{
+       dispatch({type: 'SET-ERROR-SIGN-IN-PAGE', error: null})
+
+   }
     return (
         <>
             <SignIn setSignInFormValues={setSignInFormValues}
-                    loading={loading}
-                    disabled={disable}/>
+                    loading={state.loading}
+                    disabled={state.disabled}
+                    error={state.error}
+                    toCleanErrorField={toCleanErrorField}/>
         </>
     )
-
 };
 
 export default SignInContainer
