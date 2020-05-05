@@ -1,31 +1,44 @@
 import axios from 'axios'
+import {log} from "util";
 
 const instance = axios.create({
-   // withCredentials: true,
-    baseURL:"https://neko-cafe-back.herokuapp.com/auth/",
+    // withCredentials: true,
+    baseURL: "https://neko-cafe-back.herokuapp.com/auth/",
 })
 
 export const authApi = {
 
-    login(email: string, password: string, rememberMe: boolean){
+    login(email: string, password: string, rememberMe: boolean) {
         return instance.post("login", {email, password, rememberMe})
-            .then(res=>{return console.log(res)})
-            //.catch(fal=>console.log(fal))
+            .then(res => {
+                return console.log(res)
+            })
+        //.catch(fal=>console.log(fal))
     },
 
-    forgotPass(email: string, html1: string, html2: string){
+    forgotPass(email: string, html1: string, html2: string) {
         return instance.post('forgot', {email, html1, html2})
-            .then(res=>{return console.log(res)})
-            //.catch(fal=>console.log(fal))
+            .then(res => {
+                return console.log(res)
+            })
+        //.catch(fal=>console.log(fal))
     },
 
-    authMe(){
+    authMe() {
         return instance.post('auth/me', {token: ''})
-            .then(res=>res)
-            .catch((fal)=>{return fal})
+            .then(res => res)
+            .catch((fal) => {
+                return fal
+            })
     },
 
-    setNewPass(resetPasswordToken: string, password: string){
+    setNewPass(resetPasswordToken: string, password: string) {
         return instance.post('auth/set-new-password', {resetPasswordToken, password})
+    },
+
+    register(email: string, password: string) {
+        return instance.post('/register', {email, password})
+            .then(res => console.log(res.data))
+            .catch(err => console.log(err.data))
     }
-};
+}

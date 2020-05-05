@@ -2,6 +2,10 @@ import React from "react";
 import {NavLink} from "react-router-dom";
 import styles from './Common.module.css'
 
+type OwnPropsType = {
+    way: string,
+    wordOfLink: string
+}
 const Link = (props: OwnPropsType) =>{
 
     return(
@@ -11,7 +15,3 @@ const Link = (props: OwnPropsType) =>{
 
 export default Link
 
-type OwnPropsType = {
-    way: string,
-    wordOfLink: string
-}

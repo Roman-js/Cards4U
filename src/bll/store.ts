@@ -2,7 +2,7 @@ import {applyMiddleware, combineReducers, createStore} from "redux";
 import thunkMiddleware from "redux-thunk"
 import forgotReducer from "./reducers/forgot-reducer";
 import profileReducer from "./reducers/profile-reducer";
-import registerReducer from "./reducers/registser-reducer";
+import registerReducer from "./reducers/register-reducer";
 import setNewPassReducer from "./reducers/setNewPass-reducer";
 import signInReducer from "./reducers/signIn-reducer";
 
