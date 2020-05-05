@@ -1,8 +1,10 @@
 import React from "react";
 
-const initialState = {}
+const initialState = {
+    header:'Register'
+}
 
-const registerReducer = (state = initialState) =>{
+const registerReducer = (state = initialState, action:any) =>{
 
     return state
 }
