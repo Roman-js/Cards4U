@@ -6,7 +6,8 @@ const initialState: signInitialStateType = {
     rememberMe: false,
     loading: false,
     disabled: false,
-    error: null
+    error: null,
+    token: false
 }
 
 export type signInitialStateType = {
@@ -16,6 +17,7 @@ export type signInitialStateType = {
     loading: boolean
     disabled: boolean
     error: string | null
+    token: boolean
 }
 
 const signInReducer = (state = initialState, action: any) => {
@@ -27,6 +29,7 @@ const signInReducer = (state = initialState, action: any) => {
                 email: action.email,
                 password: action.password,
                 rememberMe: action.rememberMe,
+                token: action.token
             }
         }
         case 'SET-LOADING-DATA': {
@@ -43,10 +46,9 @@ const signInReducer = (state = initialState, action: any) => {
 
             }
         }
-
-
+            default: return state
     }
-    return state
+
 }
 
 export default signInReducer

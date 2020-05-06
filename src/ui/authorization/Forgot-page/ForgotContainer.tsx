@@ -20,8 +20,9 @@ const ForgotContainer = () => {
         authApi.forgotPass(email,
             html1, html2)
             .then(result => {
-                return result;
+console.log(result)
                 dispatch({type: 'SET-LOADING-DATA-FORGOT-PAGE', loading: false, disabled: false, emailApproved: true});
+                //dispatch({type: 'RESTORE-FORGOT-PASSWORD', email: result.email})
             })
             .catch(fal => {
                 console.log(fal.response.data.error);

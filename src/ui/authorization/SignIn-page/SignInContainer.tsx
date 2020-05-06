@@ -3,6 +3,7 @@ import SignIn from "./SignIn";
 import {useDispatch, useSelector} from "react-redux";
 import {authApi} from "../../../dal/api";
 import {AppStoreType} from "../../../bll/store";
+import {Redirect} from "react-router";
 
 
 const SignInContainer =  () => {
@@ -17,8 +18,15 @@ const SignInContainer =  () => {
         dispatch({type: 'SET-LOADING-DATA', loading: true, disabled: true})
         authApi.login(email, password, rememberMe)
             .then(res => {
-                return res;
-                dispatch({type: 'SET-LOADING-DATA', loading: false, disabled: false})
+                console.log(res);
+                dispatch({type: 'SET-LOADING-DATA', loading: false, disabled: false});
+                dispatch({
+                    type: 'SET-SIGN-IN-FORM-VALUES',
+                    email: res.email,
+                    password: password,
+                    rememberMe: res.rememberMe,
+                    token: true
+                })
             })
             .catch(fal => {
                     console.log(fal.response);
@@ -27,27 +35,18 @@ const SignInContainer =  () => {
                     dispatch({type: 'SET-ERROR-SIGN-IN-PAGE', error})
                 }
             );
-        return (
-            dispatch({
-                type: 'SET-SIGN-IN-FORM-VALUES',
-                email: email,
-                password: password,
-                rememberMe: rememberMe,
-            })
-        )
     };
     const toCleanErrorField = () => {
         dispatch({type: 'SET-ERROR-SIGN-IN-PAGE', error: null})
-
     }
     return (
-        <>
+
+            state.token ? <Redirect to='/profile' />:
             <SignIn setSignInFormValues={setSignInFormValues}
                     loading={state.loading}
                     disabled={state.disabled}
                     error={state.error}
                     toCleanErrorField={toCleanErrorField}/>
-        </>
     )
 };
 

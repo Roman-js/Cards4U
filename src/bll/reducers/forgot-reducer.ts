@@ -29,9 +29,9 @@ const forgotReducer = (state = initialState, action: any) =>{
                error: action.error
            }
        }
-
+           default: return state
    }
-   return state
+
 }
 
 export default forgotReducer

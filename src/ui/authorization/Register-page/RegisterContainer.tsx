@@ -18,7 +18,7 @@ const RegisterContainer:React.FC = () => {
         authApi.register(email, password)
             .then(res => {
                 return res;
-                dispatch({type: REGISTER_SUCCESS, email, password})
+                dispatch({type: REGISTER_SUCCESS, email: email,password: password})
             })
         return (
             dispatch({
