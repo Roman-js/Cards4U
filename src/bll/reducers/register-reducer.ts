@@ -10,7 +10,8 @@ const initialState:registerInitialState = {
     email: '',
     password: '',
     loading:false,
-    error:false
+    error:false,
+    redirect:false
 }
 
 const registerReducer = (state: registerInitialState = initialState, action: registerActionType):registerInitialState => {
@@ -19,7 +20,8 @@ const registerReducer = (state: registerInitialState = initialState, action: reg
             return {
                 ...state,
                 email: action.email,
-                password: action.password
+                password: action.password,
+                redirect:true
             }
         }
         case WAITING_FOR_RESPONSE: {
@@ -34,11 +36,9 @@ const registerReducer = (state: registerInitialState = initialState, action: reg
                 error: action.error
             }
         }
-
     }
     return state
 }
-type registerActionType = registerSuccessActionType | waitingForResponseActionType
-    | setErrorRegisterPageActionType
+type registerActionType = registerSuccessActionType | waitingForResponseActionType | setErrorRegisterPageActionType
 
 export default registerReducer
