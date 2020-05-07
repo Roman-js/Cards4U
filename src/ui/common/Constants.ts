@@ -9,3 +9,5 @@ export const PROFILE = '/profile';
 //constants for reducers
 
 export const REGISTER_SUCCESS = 'auth/register/REGISTER-SUCCESS';
+export const WAITING_FOR_RESPONSE = 'auth/register/WAITING-FOR-RESPONSE';
+export const SET_ERROR_REGISTER_PAGE = 'auth/register/SET-ERROR-REGISTER-PAGE';

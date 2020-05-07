@@ -1,10 +1,16 @@
-import {REGISTER_SUCCESS} from "../../ui/common/Constants";
-import {registerInitialState, registerSuccessActionType} from "../../ui/authorization/authTypes/registerTypes";
+import {REGISTER_SUCCESS, SET_ERROR_REGISTER_PAGE, WAITING_FOR_RESPONSE} from "../../ui/common/Constants";
+import {
+    registerInitialState,
+    registerSuccessActionType, setErrorRegisterPageActionType,
+    waitingForResponseActionType
+} from "../../ui/authorization/authTypes/registerTypes";
 
 
 const initialState:registerInitialState = {
     email: '',
-    password: ''
+    password: '',
+    loading:false,
+    error:false
 }
 
 const registerReducer = (state: registerInitialState = initialState, action: registerActionType):registerInitialState => {
@@ -16,10 +22,23 @@ const registerReducer = (state: registerInitialState = initialState, action: reg
                 password: action.password
             }
         }
+        case WAITING_FOR_RESPONSE: {
+            return {
+                ...state,
+                loading: action.loading
+            }
+        }
+        case SET_ERROR_REGISTER_PAGE: {
+            return {
+                ...state,
+                error: action.error
+            }
+        }
+
     }
     return state
 }
-
-type registerActionType = registerSuccessActionType
+type registerActionType = registerSuccessActionType | waitingForResponseActionType
+    | setErrorRegisterPageActionType
 
 export default registerReducer
