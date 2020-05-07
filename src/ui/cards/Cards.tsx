@@ -7,13 +7,14 @@ import {FORGOT, REGISTER, SET_NEW_PASS, SIGN_IN} from "../common/Constants";
 import SignInContainer from "../authorization/SignIn-page/SignInContainer";
 import ForgotContainer from "../authorization/Forgot-page/ForgotContainer";
 import RegisterContainer from "../authorization/Register-page/RegisterContainer";
+import HeaderContainer from "../authorization/Header/HeaderContainer";
 
 
 const Cards = () => {
 
     return (
         <>
-        <Header/>
+        <HeaderContainer/>
         <div className={styles.wrapperOfAuth}>
             <Route path={SIGN_IN} render={() => <SignInContainer/>}/>
             <Route path={REGISTER} render={() => <RegisterContainer/>}/>

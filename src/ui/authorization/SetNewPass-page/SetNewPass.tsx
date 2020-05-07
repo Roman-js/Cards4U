@@ -57,6 +57,6 @@ const SetNewPass = (props: OwnPropsType) => {
             <div><Link way={'/sign-in'} wordOfLink='Sign In'/></div>
         </div>
     )
-}
+};
 
 export default SetNewPass

@@ -26,6 +26,7 @@ const signInReducer = (state = initialState, action: any) => {
 
     switch (action.type) {
         case 'SET-SIGN-IN-FORM-VALUES': {
+            debugger
             return {
                 ...state,
                 email: action.email,
