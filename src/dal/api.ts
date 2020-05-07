@@ -29,7 +29,8 @@ export const authApi = {
             .catch((fal)=>{return fal})
     },
 
-    setNewPass(resetPasswordToken: string, password: string){
+    setNewPass(resetPasswordToken: string | undefined, password: string){
         return instance.post('auth/set-new-password', {resetPasswordToken, password})
+            .then(res=>res)
     }
 };

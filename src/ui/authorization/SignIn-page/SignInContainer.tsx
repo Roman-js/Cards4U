@@ -25,13 +25,14 @@ const SignInContainer =  () => {
                     email: res.email,
                     password: password,
                     rememberMe: res.rememberMe,
-                    token: true
+                    token: res.token,
+                    redirect: true
                 })
             })
             .catch(fal => {
                     console.log(fal.response);
                     const error = fal.response.data.error;
-                    dispatch({type: 'SET-LOADING-DATA', loading: false, disabled: false})
+                    dispatch({type: 'SET-LOADING-DATA', loading: false, disabled: false, redirect: false})
                     dispatch({type: 'SET-ERROR-SIGN-IN-PAGE', error})
                 }
             );
@@ -41,7 +42,7 @@ const SignInContainer =  () => {
     }
     return (
 
-            state.token ? <Redirect to='/profile' />:
+            state.redirect ? <Redirect to='/profile' />:
             <SignIn setSignInFormValues={setSignInFormValues}
                     loading={state.loading}
                     disabled={state.disabled}

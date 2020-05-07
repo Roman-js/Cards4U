@@ -1,6 +1,6 @@
 import React from "react";
 import {Route} from "react-router";
-import SetNewPass from "../authorization/SetNewPass-page/SetNewPass";
+import SetNewPassContainer from "../authorization/SetNewPass-page/SetNewPassContainer";
 import styles from "../authorization/Auth.module.css";
 import Header from "../authorization/Header/Header";
 import {FORGOT, REGISTER, SET_NEW_PASS, SIGN_IN} from "../common/Constants";
@@ -18,7 +18,7 @@ const Cards = () => {
             <Route path={SIGN_IN} render={() => <SignInContainer/>}/>
             <Route path={REGISTER} render={() => <RegisterContainer/>}/>
             <Route path={FORGOT} render={() => <ForgotContainer/>}/>
-            <Route path={SET_NEW_PASS} render={() => <SetNewPass/>}/>
+            <Route path={SET_NEW_PASS} render={() => <SetNewPassContainer />}/>
         </div>
             </>
     )
