@@ -23,13 +23,15 @@ export const authApi = {
             .then(res =>res)
     },
 
-    authMe(){
-        return instance.post('auth/me', {token: ''})
+    authMe(token: string){
+        debugger
+        return instance.post('auth/me', {token: token})
             .then(res=>res)
             .catch((fal)=>{return fal})
     },
 
-    setNewPass(resetPasswordToken: string, password: string){
+    setNewPass(resetPasswordToken: string | undefined, password: string){
         return instance.post('auth/set-new-password', {resetPasswordToken, password})
+            .then(res=>res)
     }
 };

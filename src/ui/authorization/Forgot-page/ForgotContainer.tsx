@@ -11,7 +11,7 @@ const ForgotContainer = () => {
     const dispatch = useDispatch();
     const state = useSelector((state: AppStoreType) => state.forgot);
 
-    const html1 = "<a href='http://localhost:3000/template-typescript#/set-new-pass'";
+    const html1 = "<a href=http://localhost:3000/template-typescript#/set-new-pass/";
     const html2 = ">reset-password-link</a>";
 
 
@@ -20,9 +20,9 @@ const ForgotContainer = () => {
         authApi.forgotPass(email,
             html1, html2)
             .then(result => {
-console.log(result)
+                console.log(result)
                 dispatch({type: 'SET-LOADING-DATA-FORGOT-PAGE', loading: false, disabled: false, emailApproved: true});
-                //dispatch({type: 'RESTORE-FORGOT-PASSWORD', email: result.email})
+
             })
             .catch(fal => {
                 console.log(fal.response.data.error);
@@ -45,7 +45,7 @@ console.log(result)
                     loading={state.loading}
                     disabled={state.disabled}
                     error={state.error}/> :
-            <Redirect to='/set-new-pass'/>
+            <Redirect to='/set-new-pass/:token'/>
     )
 };
 
