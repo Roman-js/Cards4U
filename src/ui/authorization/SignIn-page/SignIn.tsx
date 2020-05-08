@@ -78,7 +78,6 @@ const SignIn: React.FC<OwnPropsType> = (props) => {
                          nameOfButton='Sign In'/></div>
             <div><Link way={'/register'} wordOfLink='Registration'/></div>
         </div>
-
     )
 
 }

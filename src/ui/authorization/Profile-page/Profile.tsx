@@ -1,19 +1,23 @@
 import React, {useEffect} from "react";
 import {useSelector} from "react-redux";
 import {authApi} from "../../../dal/api";
+import {Redirect} from "react-router";
+import {SIGN_IN} from "../../common/Constants";
 
 
 const Profile = () => {
-    debugger
-    // const state = useSelector((state:any)=>state.profile.authToken)
-    let authToken = localStorage.getItem('auth-token')
-    useEffect(()=>{
 
+    let authToken = localStorage.getItem('auth-token');
+    console.log(authToken);
+    useEffect(()=>{
         authApi.authMe(authToken)
     },[]);
+
     return (
 
-        <div></div>
+        <div>
+            {!authToken? <Redirect to={SIGN_IN}/>:<div></div>}
+        </div>
     )
 }
 

@@ -1,15 +1,21 @@
-import React from "react";
+import React, {useState} from "react";
 import Link from "../../common/LInk";
 import styles from './Header.module.css'
 import {FORGOT, PROFILE, REGISTER, SET_NEW_PASS, SIGN_IN} from "../../common/Constants";
-import {NavLink} from "react-router-dom";
 import Button from "../../common/Button";
-
+import {Redirect} from "react-router";
 
 
 const Header = () => {
 
+    const [login, setLogin] = useState(true);
     let tokenIsClear = () => {
+        debugger
+        localStorage.removeItem('auth-token');
+        setLogin(false)
+    };
+    const newToken = () =>{
+        setLogin(true)
     }
     return (
         <div className={styles.wrapperOfHeader}>
@@ -19,6 +25,8 @@ const Header = () => {
             <Link way={SET_NEW_PASS} wordOfLink={'set-new-pass'}/>
             <Link way={PROFILE} wordOfLink={'profile'}/>
             <Button typeOfButton={'button'} actionOfButton={tokenIsClear} nameOfButton={'logout'}/>
+           {/*{ login? <Button typeOfButton={'button'} actionOfButton={tokenIsClear} nameOfButton={'logout'}/>:*/}
+           {/* <Button typeOfButton={'button'} actionOfButton={newToken} nameOfButton={'login'}/>}*/}
         </div>
     )
 }

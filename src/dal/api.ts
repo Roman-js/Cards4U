@@ -24,7 +24,6 @@ export const authApi = {
     },
 
     authMe(authToken: string|null){
-        debugger
         return instance.post('auth/me', {authToken: authToken})
             .then(res=>res)
             .catch((fal)=>{return fal})
