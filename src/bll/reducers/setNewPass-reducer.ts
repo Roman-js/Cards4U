@@ -46,7 +46,6 @@ const setNewPassReducer = (state = initialState, action: any ) =>{
         default: return state
     }
 
-
-}
+};
 
 export default setNewPassReducer

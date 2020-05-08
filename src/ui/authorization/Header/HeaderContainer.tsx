@@ -9,6 +9,7 @@ const HeaderContainer = () =>{
     const token = useSelector((state: AppStoreType) => state.signIn.token)
 
    useEffect(()=>{
+
         authApi.authMe(token)
     },[]);
 
