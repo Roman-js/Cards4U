@@ -8,7 +8,8 @@ const initialState: signInitialStateType = {
     disabled: false,
     error: null,
     token: '',
-    redirect: false
+    redirect: false,
+    authToken: ''
 }
 
 export type signInitialStateType = {
@@ -19,7 +20,8 @@ export type signInitialStateType = {
     disabled: boolean
     error: string | null
     token: string
-    redirect: false
+    redirect: false,
+    authToken?:string
 }
 
 const signInReducer = (state = initialState, action: any) => {
@@ -49,6 +51,13 @@ const signInReducer = (state = initialState, action: any) => {
                 ...state,
                 error: action.error
 
+            }
+        }
+        case 'IS-TOKEN-HAS': {
+            debugger
+            return {
+                ...state,
+                authToken: action.authToken
             }
         }
             default: return state

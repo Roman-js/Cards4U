@@ -3,15 +3,16 @@ import {REGISTER_SUCCESS, SET_ERROR_REGISTER_PAGE, WAITING_FOR_RESPONSE} from ".
 export type registerInitialState = {
     email: string,
     password: string,
-    rememberMe?: boolean,
     id?: string,
     error: boolean,
-    loading: boolean
+    loading: boolean,
+    redirect:boolean
 }
 export type registerSuccessActionType = {
     type: typeof REGISTER_SUCCESS,
     email: string
-    password: string
+    password: string,
+    redirect:boolean
 }
 export type waitingForResponseActionType = {
     type: typeof WAITING_FOR_RESPONSE,
