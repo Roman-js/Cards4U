@@ -1,9 +1,10 @@
-import React, {ChangeEvent, useState} from "react";
+import React, {ChangeEvent, useEffect, useState} from "react";
 import Input from "../../common/Input";
 import Link from "../../common/LInk";
 import Button from "../../common/Button";
 import Title from "../../common/Title";
 import styles from "../Auth.module.css";
+import {authApi} from "../../../dal/api";
 
 type OwnPropsType = {
     setSignInFormValues: (email: string, password: string, rememberMe: boolean) => void
@@ -15,6 +16,11 @@ type OwnPropsType = {
 
 
 const SignIn: React.FC<OwnPropsType> = (props) => {
+
+    let authToken = localStorage.getItem('auth-token')
+    useEffect(()=>{
+        authApi.authMe(authToken)
+    },[]);
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');

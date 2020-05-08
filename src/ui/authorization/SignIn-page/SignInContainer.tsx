@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import SignIn from "./SignIn";
 import {useDispatch, useSelector} from "react-redux";
 import {authApi} from "../../../dal/api";
@@ -6,7 +6,7 @@ import {AppStoreType} from "../../../bll/store";
 import {Redirect} from "react-router";
 
 
-const SignInContainer =  () => {
+const SignInContainer = () => {
 
     const dispatch = useDispatch();
 
@@ -28,6 +28,10 @@ const SignInContainer =  () => {
                     token: res.token,
                     redirect: true
                 })
+                localStorage.setItem('auth-token', res.token)
+                let authToken = localStorage.getItem('auth-token')
+                dispatch({type: 'IS-TOKEN-HAS', authToken})
+
             })
             .catch(fal => {
                     console.log(fal.response);
@@ -37,12 +41,13 @@ const SignInContainer =  () => {
                 }
             );
     };
+
     const toCleanErrorField = () => {
         dispatch({type: 'SET-ERROR-SIGN-IN-PAGE', error: null})
     }
     return (
 
-            state.redirect ? <Redirect to='/profile' />:
+        state.redirect ? <Redirect to='/profile'/> :
             <SignIn setSignInFormValues={setSignInFormValues}
                     loading={state.loading}
                     disabled={state.disabled}

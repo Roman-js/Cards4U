@@ -23,9 +23,9 @@ export const authApi = {
             .then(res =>res)
     },
 
-    authMe(token: string){
+    authMe(authToken: string|null){
         debugger
-        return instance.post('auth/me', {token: token})
+        return instance.post('auth/me', {authToken: authToken})
             .then(res=>res)
             .catch((fal)=>{return fal})
     },

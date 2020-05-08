@@ -5,16 +5,18 @@ import {useSelector} from "react-redux";
 import {AppStoreType} from "../../../bll/store";
 
 const HeaderContainer = () =>{
+debugger
+    // const token = useSelector((state: AppStoreType) => state.signIn)
 
-    const token = useSelector((state: AppStoreType) => state.signIn.token)
+    let authToken = localStorage.getItem('auth-token')
 
    useEffect(()=>{
 
-        authApi.authMe(token)
+        authApi.authMe(authToken)
     },[]);
 
     return(
-        <Header/>
+        <Header />
     )
 }
 
