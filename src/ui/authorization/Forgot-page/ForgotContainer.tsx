@@ -4,6 +4,11 @@ import {useDispatch, useSelector} from "react-redux";
 import {authApi} from "../../../dal/api";
 import {AppStoreType} from "../../../bll/store";
 import {Redirect} from "react-router";
+import {
+    RESTORE_FORGOT_PASSWORD,
+    SET_LOADING_DATA_FORGOT_PAGE,
+    SET_VALUE_ERROR_FORGOT_PAGE
+} from "../../common/Constants";
 
 
 const ForgotContainer = () => {
@@ -16,27 +21,26 @@ const ForgotContainer = () => {
 
 
     const setForgotPassword = (email: string) => {
-        dispatch({type: 'SET-LOADING-DATA-FORGOT-PAGE', loading: true, disabled: true});
+        dispatch({type: SET_LOADING_DATA_FORGOT_PAGE, loading: true, disabled: true});
         authApi.forgotPass(email,
             html1, html2)
             .then(result => {
-                console.log(result)
-                dispatch({type: 'SET-LOADING-DATA-FORGOT-PAGE', loading: false, disabled: false, emailApproved: true});
-
+                console.log(result);
+                dispatch({type: SET_LOADING_DATA_FORGOT_PAGE, loading: false, disabled: false, emailApproved: true});
             })
             .catch(fal => {
                 console.log(fal.response.data.error);
                 const error = fal.response.data.error;
-                dispatch({type: 'SET-VALUE-ERROR-FORGOT-PAGE', error: error})
-                dispatch({type: 'SET-LOADING-DATA-FORGOT-PAGE', loading: false, disabled: false})
+                dispatch({type: SET_VALUE_ERROR_FORGOT_PAGE, error: error})
+                dispatch({type: SET_LOADING_DATA_FORGOT_PAGE, loading: false, disabled: false})
             });
 
         return (
-            dispatch({type: 'RESTORE-FORGOT-PASSWORD', email})
+            dispatch({type: RESTORE_FORGOT_PASSWORD, email})
         )
     };
     const toCleanError = () => {
-        dispatch({type: 'SET-VALUE-ERROR-FORGOT-PAGE', error: null})
+        dispatch({type: SET_VALUE_ERROR_FORGOT_PAGE, error: null})
     };
     return (
         !state.emailApproved ?

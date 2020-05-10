@@ -1,4 +1,5 @@
 import React from "react";
+import {SET_LOADING_VALUE, SET_NEW_TOKEN, SHOW_ERROR, TO_CLEAN_ERROR_FIELD} from "../../ui/common/Constants";
 
 const initialState: initialStateType = {
     error: '',
@@ -18,25 +19,25 @@ const setNewPassReducer = (state = initialState, action: any ) =>{
 
     switch (action.type) {
 
-        case 'SHOW-ERROR': {
+        case SHOW_ERROR: {
             return {
                 ...state,
                 error: action.error
             }
         }
-        case 'SET-NEW-TOKEN': {
+        case SET_NEW_TOKEN: {
             return {
                 ...state,
                 token: action.token
             }
         }
-        case 'SET-LOADING-VALUE': {
+        case SET_LOADING_VALUE: {
             return {
                 ...state,
                 loading: action.loading
             }
         }
-        case 'TO-CLEAN-ERROR-FIELD': {
+        case TO_CLEAN_ERROR_FIELD: {
             return {
                 ...state,
                 error: action.error
@@ -47,5 +48,7 @@ const setNewPassReducer = (state = initialState, action: any ) =>{
     }
 
 };
+
+
 
 export default setNewPassReducer

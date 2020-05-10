@@ -1,4 +1,9 @@
 import React from "react";
+import {
+    RESTORE_FORGOT_PASSWORD,
+    SET_LOADING_DATA_FORGOT_PAGE,
+    SET_VALUE_ERROR_FORGOT_PAGE
+} from "../../ui/common/Constants";
 
 const initialState = {
     email: '',
@@ -10,12 +15,12 @@ const initialState = {
 
 const forgotReducer = (state = initialState, action: any) =>{
    switch (action.type) {
-       case 'RESTORE-FORGOT-PASSWORD': {
+       case RESTORE_FORGOT_PASSWORD: {
          return {
              ...state, email: action.email
          }
        }
-       case 'SET-LOADING-DATA-FORGOT-PAGE': {
+       case SET_LOADING_DATA_FORGOT_PAGE: {
            return {
                ...state,
                loading: action.loading,
@@ -23,7 +28,7 @@ const forgotReducer = (state = initialState, action: any) =>{
                emailApproved: action.emailApproved
            }
        }
-       case 'SET-VALUE-ERROR-FORGOT-PAGE': {
+       case SET_VALUE_ERROR_FORGOT_PAGE: {
            return {
                ...state,
                error: action.error

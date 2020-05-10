@@ -1,21 +1,22 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import Header from "./Header";
-import {authApi} from "../../../dal/api";
-import {useSelector} from "react-redux";
-import {AppStoreType} from "../../../bll/store";
 
 const HeaderContainer = () =>{
 
 
-    let authToken = localStorage.getItem('auth-token')
+    const [login, setLogin] = useState(false);
 
-   useEffect(()=>{
+    let authToken = localStorage.getItem('auth-token');
+    useEffect(()=>{authToken?setLogin(true):setLogin(false)}, []);
 
-        authApi.authMe(authToken)
-    },[]);
 
+    let tokenIsClear = () => {
+        const clear = localStorage.removeItem('auth-token');
+        setLogin(false)
+        console.log(clear)
+    };
     return(
-        <Header />
+        <Header login={login} tokenIsClear={tokenIsClear}/>
     )
 };
 

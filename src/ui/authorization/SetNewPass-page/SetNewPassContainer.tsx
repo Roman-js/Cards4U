@@ -4,6 +4,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {AppStoreType} from "../../../bll/store";
 import {authApi} from "../../../dal/api";
 import {useParams} from "react-router";
+import {SET_LOADING_VALUE, SET_NEW_TOKEN, SHOW_ERROR, TO_CLEAN_ERROR_FIELD} from "../../common/Constants";
+
 
 
 const SetNewPassContainer = () => {
@@ -16,29 +18,30 @@ const SetNewPassContainer = () => {
     const setValueOfSetNewPassForm = (password: string, repeatPassword: string) => {
 
         if (password === repeatPassword && password.length > 7) {
-            dispatch({type: 'SET-LOADING-VALUE', loading: true, disabled: true});
+            dispatch({type: SET_LOADING_VALUE, loading: true, disabled: true});
             authApi.setNewPass(token, password)
                 .then(res => {
-                    dispatch({type: 'SET-NEW-TOKEN', token: token});
-                    dispatch({type: 'SET-LOADING-VALUE', loading: false, disabled: false})
+                    dispatch({type: SET_NEW_TOKEN, token: token});
+                    dispatch({type: SET_LOADING_VALUE, loading: false, disabled: false})
                 })
 
                 .catch(fal => {
                         console.log(fal.response);
-                        dispatch({type: 'SHOW-ERROR', error: fal.response.data.error})
-                        dispatch({type: 'SET-LOADING-VALUE', loading: false, disabled: false})
+                        dispatch({type: SHOW_ERROR, error: fal.response.data.error})
+                        dispatch({type: SET_LOADING_VALUE, loading: false, disabled: false})
                     }
                 )
         } else {
             dispatch({
-                type: 'SHOW-ERROR',
+                type: SHOW_ERROR,
                 error: 'Incorrect Password! Password should have min 8 values and each one fields should be same!'
             })
         }
     };
     const toCleanErrorField = () => {
-        dispatch({type: 'TO-CLEAN-ERROR-FIELD', error: null})
+        dispatch({type: TO_CLEAN_ERROR_FIELD, error: null})
     };
+
 
     return (
         <SetNewPass

@@ -1,4 +1,10 @@
 import React from "react";
+import {
+    IS_TOKEN_HAS,
+    SET_ERROR_SIGN_IN_PAGE,
+    SET_LOADING_DATA,
+    SET_SIGN_IN_FORM_VALUES
+} from "../../ui/common/Constants";
 
 const initialState: signInitialStateType = {
     email: '',
@@ -27,8 +33,7 @@ export type signInitialStateType = {
 const signInReducer = (state = initialState, action: any) => {
 
     switch (action.type) {
-        case 'SET-SIGN-IN-FORM-VALUES': {
-            debugger
+        case SET_SIGN_IN_FORM_VALUES: {
             return {
                 ...state,
                 email: action.email,
@@ -38,7 +43,7 @@ const signInReducer = (state = initialState, action: any) => {
                 redirect: action.redirect
             }
         }
-        case 'SET-LOADING-DATA': {
+        case SET_LOADING_DATA: {
             return {
                 ...state,
                 loading: action.loading,
@@ -46,15 +51,14 @@ const signInReducer = (state = initialState, action: any) => {
                 redirect: action.redirect
             }
         }
-        case 'SET-ERROR-SIGN-IN-PAGE': {
+        case SET_ERROR_SIGN_IN_PAGE: {
             return {
                 ...state,
                 error: action.error
 
             }
         }
-        case 'IS-TOKEN-HAS': {
-            debugger
+        case IS_TOKEN_HAS: {
             return {
                 ...state,
                 authToken: action.authToken
@@ -63,6 +67,6 @@ const signInReducer = (state = initialState, action: any) => {
             default: return state
     }
 
-}
+};
 
 export default signInReducer

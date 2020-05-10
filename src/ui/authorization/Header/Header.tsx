@@ -1,22 +1,21 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Link from "../../common/LInk";
 import styles from './Header.module.css'
 import {FORGOT, PROFILE, REGISTER, SET_NEW_PASS, SIGN_IN} from "../../common/Constants";
 import Button from "../../common/Button";
-import {Redirect} from "react-router";
 
 
-const Header = () => {
+type OwnPropsType = {
+    login: boolean,
+    tokenIsClear: ()=>void
+}
+const Header = (props: OwnPropsType) => {
 
-    const [login, setLogin] = useState(true);
-    let tokenIsClear = () => {
-        debugger
-        localStorage.removeItem('auth-token');
-        setLogin(false)
-    };
-    const newToken = () =>{
-        setLogin(true)
-    }
+  const tokenIsClear = () =>{
+      props.tokenIsClear();
+  };
+
+
     return (
         <div className={styles.wrapperOfHeader}>
             <Link way={SIGN_IN} wordOfLink={'sign-in'}/>
@@ -24,9 +23,9 @@ const Header = () => {
             <Link way={FORGOT} wordOfLink={'forgot'}/>
             <Link way={SET_NEW_PASS} wordOfLink={'set-new-pass'}/>
             <Link way={PROFILE} wordOfLink={'profile'}/>
-            <Button typeOfButton={'button'} actionOfButton={tokenIsClear} nameOfButton={'logout'}/>
-           {/*{ login? <Button typeOfButton={'button'} actionOfButton={tokenIsClear} nameOfButton={'logout'}/>:*/}
-           {/* <Button typeOfButton={'button'} actionOfButton={newToken} nameOfButton={'login'}/>}*/}
+            {/*<Button typeOfButton={'button'} actionOfButton={tokenIsClear} nameOfButton={'logout'}/>*/}
+           { props.login? <Button typeOfButton={'button'} actionOfButton={tokenIsClear} nameOfButton={'logout'}/>:null}
+
         </div>
     )
 }

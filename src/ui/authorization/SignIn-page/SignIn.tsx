@@ -1,10 +1,9 @@
-import React, {ChangeEvent, useEffect, useState} from "react";
+import React, {ChangeEvent, useState} from "react";
 import Input from "../../common/Input";
 import Link from "../../common/LInk";
 import Button from "../../common/Button";
 import Title from "../../common/Title";
 import styles from "../Auth.module.css";
-import {authApi} from "../../../dal/api";
 
 type OwnPropsType = {
     setSignInFormValues: (email: string, password: string, rememberMe: boolean) => void
@@ -17,10 +16,6 @@ type OwnPropsType = {
 
 const SignIn: React.FC<OwnPropsType> = (props) => {
 
-    let authToken = localStorage.getItem('auth-token')
-    useEffect(()=>{
-        authApi.authMe(authToken)
-    },[]);
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -31,22 +26,21 @@ const SignIn: React.FC<OwnPropsType> = (props) => {
 
 
     const changeEmail = (e: ChangeEvent<HTMLInputElement>) => {
-        return setEmail(e.currentTarget.value)
-    }
+         setEmail(e.currentTarget.value)
+    };
     const changePassword = (e: ChangeEvent<HTMLInputElement>) => {
-        return setPassword(e.currentTarget.value)
-    }
+         setPassword(e.currentTarget.value)
+    };
     const changeRememberMe = (e: ChangeEvent<HTMLInputElement>) => {
-        return !rememberMe ? setRememberMe(true) : setRememberMe(false)
-    }
+       !rememberMe ? setRememberMe(true) : setRememberMe(false)
+    };
 
     const sendSignInFormValues = () => {
-        return (
-            props.setSignInFormValues(email, password, rememberMe))
+            props.setSignInFormValues(email, password, rememberMe)
     };
     const toCleanErrorField = () => {
-        return props.toCleanErrorField()
-    }
+      props.toCleanErrorField()
+    };
 
     return (
 
@@ -80,6 +74,6 @@ const SignIn: React.FC<OwnPropsType> = (props) => {
         </div>
     )
 
-}
+};
 
 export default SignIn

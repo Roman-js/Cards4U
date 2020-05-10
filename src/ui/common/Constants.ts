@@ -11,3 +11,22 @@ export const PROFILE = '/profile';
 export const REGISTER_SUCCESS = 'auth/register/REGISTER-SUCCESS';
 export const WAITING_FOR_RESPONSE = 'auth/register/WAITING-FOR-RESPONSE';
 export const SET_ERROR_REGISTER_PAGE = 'auth/register/SET-ERROR-REGISTER-PAGE';
+
+
+//constants for SignIn-page
+export const SET_LOADING_DATA = 'SET-LOADING-DATA';
+export const SET_SIGN_IN_FORM_VALUES = 'SET-SIGN-IN-FORM-VALUES';
+export const IS_TOKEN_HAS = 'IS-TOKEN-HAS';
+export const SET_ERROR_SIGN_IN_PAGE = 'SET-ERROR-SIGN-IN-PAGE';
+
+//constants for Forgot-page
+export const SET_LOADING_DATA_FORGOT_PAGE = 'SET-LOADING-DATA-FORGOT-PAGE';
+export const SET_VALUE_ERROR_FORGOT_PAGE = 'SET-VALUE-ERROR-FORGOT-PAGE';
+export const RESTORE_FORGOT_PASSWORD = 'RESTORE-FORGOT-PASSWORD';
+
+//constants for SetNewPass-page
+export const SET_LOADING_VALUE = 'SET-LOADING-VALUE';
+export const SET_NEW_TOKEN = 'SET-NEW-TOKEN';
+export const SHOW_ERROR = 'SHOW-ERROR';
+export const TO_CLEAN_ERROR_FIELD = 'TO-CLEAN-ERROR-FIELD';
+
