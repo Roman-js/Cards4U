@@ -1,13 +1,15 @@
-import React, {useEffect} from "react";
+import React from "react";
 import SignIn from "./SignIn";
-import {useDispatch, useSelector} from "react-redux";
-import {authApi} from "../../../dal/api";
+import {connect, useDispatch, useSelector} from "react-redux";
 import {AppStoreType} from "../../../bll/store";
 import {Redirect} from "react-router";
-import {IS_TOKEN_HAS, SET_ERROR_SIGN_IN_PAGE, SET_LOADING_DATA, SET_SIGN_IN_FORM_VALUES} from "../../common/Constants";
+import {SET_ERROR_SIGN_IN_PAGE} from "../../common/Constants";
+import {setSignInFormValues} from "../../../bll/reducers/signIn-reducer";
 
-
-const SignInContainer = () => {
+type OwnPropsType = {
+    setSignInFormValues: (email: string, password: string, rememberMe: boolean)=>void
+}
+const SignInContainer = (props: OwnPropsType) => {
 
     const dispatch = useDispatch();
 
@@ -15,42 +17,13 @@ const SignInContainer = () => {
     //const disable = useSelector((state: AppStoreType) => state.signIn.disabled)
 
 
-    const setSignInFormValues = (email: string, password: string, rememberMe: boolean) => {
-
-        dispatch({type: SET_LOADING_DATA, loading: true, disabled: true});
-        authApi.login(email, password, rememberMe)
-            .then(res => {
-                dispatch({type: SET_LOADING_DATA, loading: false, disabled: false});
-                dispatch({
-                    type: SET_SIGN_IN_FORM_VALUES,
-                    email: res.email,
-                    password: password,
-                    rememberMe: res.rememberMe,
-                    token: res.token,
-                    redirect: true
-                });
-                localStorage.setItem('auth-token', res.token)
-                const authToken = localStorage.getItem('auth-token');
-                dispatch({type: IS_TOKEN_HAS, authToken})
-                //console.log(authToken)
-
-            })
-            .catch(fal => {
-                    console.log(fal.response);
-                    const error = fal.response.data.error;
-                    dispatch({type: SET_LOADING_DATA, loading: false, disabled: false, redirect: false});
-                    dispatch({type: SET_ERROR_SIGN_IN_PAGE, error})
-                }
-            );
-    };
-
     const toCleanErrorField = () => {
         dispatch({type: SET_ERROR_SIGN_IN_PAGE, error: null})
     };
     return (
 
         state.redirect ? <Redirect to='/profile'/> :
-            <SignIn setSignInFormValues={setSignInFormValues}
+            <SignIn setSignInFormValues={props.setSignInFormValues}
                     loading={state.loading}
                     disabled={state.disabled}
                     error={state.error}
@@ -58,4 +31,4 @@ const SignInContainer = () => {
     )
 };
 
-export default SignInContainer
+export default connect(null, {setSignInFormValues})(SignInContainer)

@@ -4,9 +4,10 @@ import Input from "../../common/Input";
 import Button from "../../common/Button";
 import Link from "../../common/LInk";
 import styles from "../Auth.module.css";
+import {useParams} from "react-router";
 
 type OwnPropsType = {
-    setValueOfSetNewPassForm: (password: string, repeatPassword: string) => void
+    setValueOfSetNewPassForm: (password: string, repeatPassword: string, token: string | undefined) => void
     error: string
     loading: boolean | null
     disabled: boolean
@@ -17,6 +18,7 @@ const SetNewPass = (props: OwnPropsType) => {
 
     const [newPass, setNewPass] = useState('');
     const [repeatNewPass, setRepeatNewPass] = useState('');
+    const {token} = useParams();
 
     const valueOfInputNewPass = (e: ChangeEvent<HTMLInputElement>) => {
         setNewPass(e.currentTarget.value)
@@ -25,7 +27,7 @@ const SetNewPass = (props: OwnPropsType) => {
         setRepeatNewPass(e.currentTarget.value)
     };
     const sendToCheckPassword = () => {
-        props.setValueOfSetNewPassForm(newPass, repeatNewPass)
+        props.setValueOfSetNewPassForm(newPass, repeatNewPass, token);
         setNewPass('');
         setRepeatNewPass('');
     };

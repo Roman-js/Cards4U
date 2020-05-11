@@ -19,12 +19,12 @@ const Forgot = (props: OwnPropsType) => {
     const valueOfInputEmail = (e: ChangeEvent<HTMLInputElement>) => {
         setEmail(e.currentTarget.value)
     };
-    const restoreForgotPassword = () => {
-        props.setForgotPassword(email)
+    const restoreForgotPassword =  () => {
+         props.setForgotPassword(email);
         setEmail('')
     };
     const toCleanError = () => {
-        return props.toCleanError()
+         props.toCleanError()
     };
 
     return (
