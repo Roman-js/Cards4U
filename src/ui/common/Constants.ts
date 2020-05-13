@@ -6,6 +6,9 @@ export const FORGOT = '/forgot';
 export const SET_NEW_PASS = '/set-new-pass/:token';
 export const PROFILE = '/profile';
 
+export const CARDS_TABLE = '/cards-table';
+export const DECKS_TABLE = '/decks-table';
+
 //constants for reducers
 
 export const REGISTER_SUCCESS = 'auth/register/REGISTER-SUCCESS';
@@ -30,3 +33,7 @@ export const SET_NEW_TOKEN = 'SET-NEW-TOKEN';
 export const SHOW_ERROR = 'SHOW-ERROR';
 export const TO_CLEAN_ERROR_FIELD = 'TO-CLEAN-ERROR-FIELD';
 
+//constants for DecksTable
+
+export const ADD_NEW_DECK = 'ADD-NEW-DECK';
+export const DELETE_DECK = 'DELETE-DECK';

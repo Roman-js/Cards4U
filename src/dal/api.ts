@@ -3,7 +3,7 @@ import axios from 'axios'
 const instance = axios.create({
    // withCredentials: true,
     baseURL:"https://neko-cafe-back.herokuapp.com/",
-})
+});
 
 export const authApi = {
 
@@ -35,3 +35,4 @@ export const authApi = {
             .then(res=>res)
     }
 };
+
