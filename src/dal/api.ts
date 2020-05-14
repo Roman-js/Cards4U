@@ -104,3 +104,14 @@ export const cardsApi = {
 
 };
 
+export const SearchApi = {
+
+    setSearchingName(name:string){
+        debugger
+        return instance.get(name.length > 0 ? `productName=${name}&` : '')
+    },
+    setRange(minValue:number, maxValue:number){
+        return instance.get(maxValue ? `min=${minValue}&max=${maxValue}&` : '')
+    }
+}
+

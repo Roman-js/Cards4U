@@ -4,7 +4,7 @@ import style from './DecksTable.module.css';
 import Button from "../../common/Button";
 import Input from "../../common/Input";
 import Title from "../../common/Title";
-import Search from "../Search/Search";
+import SearchContainer from "../Search/SearchContainer";
 
 type OwnPropsType = {
     decks: any[],
@@ -27,7 +27,7 @@ const DecksTable = (props: OwnPropsType) => {
 
     return (
         <>
-            <Search/>
+            <SearchContainer/>
             <Title title='DECKS'/>
             <table className={style.Table}>
                 <tr>

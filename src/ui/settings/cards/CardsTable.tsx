@@ -1,9 +1,9 @@
 import React, {ChangeEvent, useState} from "react";
-import Search from "../Search/Search";
 import Title from "../../common/Title";
 import style from "../decks/DecksTable.module.css";
 import Input from "../../common/Input";
 import Button from "../../common/Button";
+import SearchContainer from "../Search/SearchContainer";
 
 type OwnPropsType = {
     cards: any[]
@@ -26,7 +26,7 @@ const CardsTable = (props: OwnPropsType) => {
 
     return (
         <>
-            <Search />
+            <SearchContainer />
             <Title title='DECKS'/>
             <table className={style.Table}>
                 <tr>
