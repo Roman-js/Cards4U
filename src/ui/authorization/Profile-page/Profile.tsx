@@ -1,14 +1,16 @@
 import React, {useEffect} from "react";
 import {authApi} from "../../../dal/api";
+import {connect} from "react-redux";
+import {approveAuth} from "../../../bll/reducers/profile-reducer";
 
+type OwnPropsType = {
+    approveAuth: ()=>void
+}
 
-const Profile = () => {
+const Profile = (props:OwnPropsType) => {
 
-    let authToken = localStorage.getItem('auth-token');
-    console.log(authToken);
-    useEffect(()=>{
-        authApi.authMe(authToken)
-    },[]);
+    props.approveAuth()
+
 
     return (
 
@@ -20,4 +22,4 @@ const Profile = () => {
     )
 }
 
-export default Profile
+export default connect(null, {approveAuth})(Profile)

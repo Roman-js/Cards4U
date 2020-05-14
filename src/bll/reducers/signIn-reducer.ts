@@ -92,7 +92,9 @@ export const setSignInFormValues = (email: string, password: string, rememberMe:
                 token: res.token,
                 redirect: true
             });
-            localStorage.setItem('auth-token', res.token)
+            localStorage.setItem('auth-token', res.token);
+            localStorage.setItem('user-id', res._id);
+
             const authToken = localStorage.getItem('auth-token');
             dispatch({type: IS_TOKEN_HAS, authToken})
             //console.log(authToken)

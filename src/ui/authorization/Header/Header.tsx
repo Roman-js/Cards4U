@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import Link from "../../common/LInk";
 import styles from './Header.module.css'
-import {FORGOT, PROFILE, REGISTER, SET_NEW_PASS, SIGN_IN} from "../../common/Constants";
+import {DECKS_TABLE, FORGOT, PROFILE, REGISTER, SET_NEW_PASS, SIGN_IN} from "../../common/Constants";
 import Button from "../../common/Button";
 
 
@@ -23,6 +23,7 @@ const Header = (props: OwnPropsType) => {
             <Link way={FORGOT} wordOfLink={'forgot'}/>
             <Link way={SET_NEW_PASS} wordOfLink={'set-new-pass'}/>
             <Link way={PROFILE} wordOfLink={'profile'}/>
+            <Link way={DECKS_TABLE} wordOfLink={'decks'}/>
             {/*<Button typeOfButton={'button'} actionOfButton={tokenIsClear} nameOfButton={'logout'}/>*/}
            { props.login? <Button typeOfButton={'button'} actionOfButton={tokenIsClear} nameOfButton={'logout'}/>:null}
 

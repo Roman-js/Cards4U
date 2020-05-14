@@ -4,12 +4,12 @@ import style from './DecksTable.module.css';
 import Button from "../../common/Button";
 import Input from "../../common/Input";
 import Title from "../../common/Title";
-import Search from "./Search/Search";
+import Search from "../Search/Search";
 
 type OwnPropsType = {
     decks: any[],
     addNewDeck: (name: string) => void,
-    deleteADeck: (id: number) => void
+    deleteADeck: (id: string) => void
 }
 const DecksTable = (props: OwnPropsType) => {
 
@@ -21,7 +21,7 @@ const DecksTable = (props: OwnPropsType) => {
     const sendNewDeck = () => {
         props.addNewDeck(name)
     };
-    const sendDeleteDeck = (id: number) => {
+    const sendDeleteDeck = (id: string) => {
         props.deleteADeck(id)
     };
 
@@ -36,19 +36,19 @@ const DecksTable = (props: OwnPropsType) => {
                         <Button actionOfButton={() => {
                         }} nameOfButton='↑' typeOfButton="button"/> {' '}
                         <Button actionOfButton={() => {
-                        }} nameOfButton='↓' typeOfButton="button"/>
+                        }} nameOfButton='↓' typeOfButton="button" />
                     </th>
                     <th>
                         <Button actionOfButton={sendNewDeck} nameOfButton='add' typeOfButton="button"/>
                     </th>
                 </tr>
                 {props.decks.map(deck =>
-                    <tr className={style.cells}>
-                        <td>{deck.nameOfDeck}</td>
+                    <tr className={style.cells} key={deck._id}>
+                        <td>{deck.name}</td>
                         <td>{deck.rating}</td>
                         <td><Button actionOfButton={() => {
-                        }} nameOfButton='Update' typeOfButton="button"/>
-                            <Button actionOfButton={() => sendDeleteDeck(deck.id)} nameOfButton='Delete'
+                        }} nameOfButton='Update' typeOfButton="button"/>{' '}
+                            <Button actionOfButton={() => sendDeleteDeck(deck._id)} nameOfButton='Delete'
                                     typeOfButton="button"/>
                         </td>
                     </tr>)}

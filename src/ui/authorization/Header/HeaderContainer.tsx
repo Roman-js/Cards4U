@@ -11,9 +11,10 @@ const HeaderContainer = () =>{
 
 
     let tokenIsClear = () => {
-        const clear = localStorage.removeItem('auth-token');
+        localStorage.removeItem('auth-token');
+        localStorage.removeItem('user-id');
         setLogin(false)
-        console.log(clear)
+
     };
     return(
         <Header login={login} tokenIsClear={tokenIsClear}/>

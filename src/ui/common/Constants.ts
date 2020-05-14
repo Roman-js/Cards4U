@@ -37,3 +37,9 @@ export const TO_CLEAN_ERROR_FIELD = 'TO-CLEAN-ERROR-FIELD';
 
 export const ADD_NEW_DECK = 'ADD-NEW-DECK';
 export const DELETE_DECK = 'DELETE-DECK';
+export const GET_DECKS = 'GET-DECKS';
+
+//constants for CardsTable
+
+export const ADD_NEW_CARD = 'ADD-NEW-CARD';
+export const DELETE_CARD = 'DELETE-CARD';
