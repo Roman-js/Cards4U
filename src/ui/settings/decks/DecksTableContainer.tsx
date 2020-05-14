@@ -5,7 +5,7 @@ import {AppStoreType} from "../../../bll/store";
 import {addNewDeck, deleteADeck, getDecks} from "../../../bll/reducers/decksTable-reducer";
 
 type OwnPropsType = {
-    addNewDeck: (name: string)=>void,
+    addNewDeck: (name: string, rating: number)=>void,
     deleteADeck: (id: string)=>void,
     getDecks: ()=>void
 }

@@ -8,21 +8,28 @@ import Search from "../Search/Search";
 
 type OwnPropsType = {
     decks: any[],
-    addNewDeck: (name: string) => void,
+    addNewDeck: (name: string, rating: number) => void,
     deleteADeck: (id: string) => void
 }
 const DecksTable = (props: OwnPropsType) => {
 
     const [name, setName] = useState('');
+    const [rating, setRating] = useState(0);
 
     const nameOfNewDeck = (e: ChangeEvent<HTMLInputElement>) => {
         setName(e.currentTarget.value)
     };
     const sendNewDeck = () => {
-        props.addNewDeck(name)
+        props.addNewDeck(name, rating)
     };
     const sendDeleteDeck = (id: string) => {
         props.deleteADeck(id)
+    };
+    const increment = () =>{
+        setRating(rating + 1.0)
+    };
+    const decrement = () =>{
+        setRating(rating -1.0)
     };
 
     return (
@@ -32,11 +39,9 @@ const DecksTable = (props: OwnPropsType) => {
             <table className={style.Table}>
                 <tr>
                     <th><Input type={"text"} value={name} placeholder={'Deck\'s name'} onChange={nameOfNewDeck}/></th>
-                    <th>Rating {' '}
-                        <Button actionOfButton={() => {
-                        }} nameOfButton='↑' typeOfButton="button"/> {' '}
-                        <Button actionOfButton={() => {
-                        }} nameOfButton='↓' typeOfButton="button" />
+                    <th>Rating {' '} {rating} {' '}
+                        <Button actionOfButton={increment} nameOfButton='↑' typeOfButton="button"/> {' '}
+                        <Button actionOfButton={decrement} nameOfButton='↓' typeOfButton="button" />
                     </th>
                     <th>
                         <Button actionOfButton={sendNewDeck} nameOfButton='add' typeOfButton="button"/>
