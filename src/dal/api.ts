@@ -65,10 +65,10 @@ export const decksApi = {
             .then(response=>{console.log(response)
                 localStorage.removeItem('auth-token');
                 localStorage.setItem('auth-token', response.data.token);
+                return response
             })
     },
     getDeck(token: string | null) {
-        debugger
         return instance.get(`cards/pack?token=${token}`)
             .then(response=>{
                 console.log(response.data);

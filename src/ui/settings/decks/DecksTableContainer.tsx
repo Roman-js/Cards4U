@@ -14,10 +14,11 @@ const DecksTableContainer = (props: OwnPropsType) =>{
 
     const state = useSelector((state: AppStoreType) => state.decks.decks);
 
+
     useEffect(() => {
-       props.getDecks()
+        props.getDecks()
     }, []);
-    debugger
+    //debugger
     return(
         <DecksTable decks={state} addNewDeck={props.addNewDeck} deleteADeck={props.deleteADeck}/>
     )

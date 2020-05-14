@@ -29,6 +29,7 @@ const decksTableReducer = (state = initialState, action: any) => {
             };
 
         case DELETE_DECK:
+            debugger
             return {
                 ...state, decks: state.decks.filter(deck => deck._id !== action._id)
             };
@@ -63,16 +64,15 @@ export const addNewDeck = (name: string) =>
 
     };
 
-export const deleteADeck = (id: string) =>
+export const deleteADeck = (_id: string) =>
     async (dispatch: ThunkDispatch<AppStoreType, {}, any>,
            getState: AppStoreType) => {
 
-        try {
-            dispatch({type: DELETE_DECK, id});
-            await decksApi.deleteDeck(id)
-        } catch (e) {
-            console.log(e)
-        }
+
+        await decksApi.deleteDeck(_id)
+            .then(data=>{
+                dispatch({type: DELETE_DECK, _id});
+            })
     };
 
 export const getDecks = () =>
@@ -81,6 +81,9 @@ export const getDecks = () =>
         const token = localStorage.getItem('auth-token');
        await decksApi.getDeck(token)
            .then(data=>{
+               localStorage.removeItem('auth-token');
+               localStorage.setItem('auth-token', data.token);
+               debugger
                const cardPacks = data.cardPacks;
                dispatch({type: GET_DECKS, cardPacks})
            })
