@@ -8,7 +8,7 @@ import s from './Search.module.css'
 import Button from "../../common/Button";
 
 type OwnPropsType = {
-    setSearchName: (name:any)=>void,
+    setSearchName: (name:string)=>void,
 }
 const Search:React.FC<OwnPropsType> = () => {
 

@@ -5,7 +5,7 @@ import {setSearchName} from "../../../bll/reducers/searchReducer";
 import Search from "./Search";
 
 type MapDispatchPropsType = {
-    setSearchName: (name:any)=>void,
+    setSearchName: (name:string)=>void,
 }
 
 const SearchContainer = (props: MapDispatchPropsType) =>{

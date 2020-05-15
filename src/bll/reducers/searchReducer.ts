@@ -3,15 +3,8 @@ import {AppStoreType} from "../store";
 import {SearchApi} from "../../dal/api";
 
 
-const initialState:any = {
-    items:[],
-    settings: {
-        minValue: 10,
-        maxValue: 300,
-        name: '',
-    }
+const initialState: any = {
 };
-
 
 
 const searchingReducer = (state = initialState, action: any): any => {
@@ -22,7 +15,11 @@ const searchingReducer = (state = initialState, action: any): any => {
             debugger
             return {
                 ...state,
-                settings:{...state.settings, name: action.name}
+                products: state.products.map((card: any) => {
+                    return {
+                        ...card, name: action.name
+                    }
+                })
             }
         }
         default:
@@ -50,18 +47,16 @@ export const setSearchName = (name: string) => (dispatch: any) => {
     SearchApi.setSearchingName(name)
         .then((res: any) => {
             debugger
-            dispatch(setSearchingNameSuccess(res.name))
+            dispatch(setSearchingNameSuccess(name))
         })
 }
-export const setRangeValue = (minValue: number, maxValue: number) => (dispatch: any): any => {
+export const setRangeValue = (minValue: number, maxValue: number) => (dispatch: any) => {
     SearchApi.setRange(minValue, maxValue)
         .then((res: any) => {
             debugger
             dispatch(setRangeValueMinMaxSuccess(minValue, maxValue))
         })
 }
-
-
 
 
 // export const deleteADeck = (id: number) =>
