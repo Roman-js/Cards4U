@@ -1,31 +1,48 @@
 import {ThunkDispatch} from "redux-thunk";
 import {AppStoreType} from "../store";
-import {ADD_NEW_CARD, ADD_NEW_DECK, DELETE_CARD, DELETE_DECK} from "../../ui/common/Constants";
-import {cardsApi, decksApi} from "../../dal/api";
+import {ADD_NEW_CARD, DELETE_CARD} from "../../ui/common/Constants";
+import {cardsApi} from "../../dal/api";
 
 const initialState = {
-    cards: [
-        {id: ''}
-    ]
-}
+    theCards: [
+        {
+            cardsPack_id: '5ebe22ad7b58e90004b4b1e0',
+            question: 'something',
+            answer: 'something else',
+            grade: 2,
+        },
 
-const cardsTableReducer = (state = initialState, action: any) =>{
+    ]
+};
+
+type IState = typeof initialState
+
+//  export type cardsType = {
+//      cardsPack_id: string
+//      question?: string
+//      answer?: string
+//      grade?: number
+//  }
+
+const cardsTableReducer = (state = initialState, action: any):IState  =>{
 
     switch (action.type) {
         case ADD_NEW_CARD:
+            debugger
             return {
                 ...state,
-                decks: [...state.cards, {
-                    id: state.cards.length + 1,
-                    nameOfCard: action.name,
-                    rating: '1'
+                theCards: [...state.theCards, {
+                    cardsPack_id: '5ebe22ad7b58e90004b4b1e0',
+                    answer: action.answer,
+                    question: action.question,
+                    grade: action.grade
                 }]
             };
 
-        case DELETE_CARD:
-            return {
-                ...state, decks: state.cards.filter(card=>card.id !== action.id)
-            }
+        // case DELETE_CARD:
+        //     return {
+        //         ...state, decks: state.cards.filter(card=>card.id !== action.id)
+        //     };
 
         default:
             return state
@@ -33,22 +50,21 @@ const cardsTableReducer = (state = initialState, action: any) =>{
     }
     };
 
+export default cardsTableReducer
 
 //thunks
 
-export const addNewCard = (name: string) =>
+export const addNewCard = (question: string, answer: string, grade: number) =>
     async (dispatch: ThunkDispatch<AppStoreType, {}, any>,
            getState: AppStoreType) =>{
-        dispatch({type: ADD_NEW_CARD, name});
+
         const token = localStorage.getItem('auth-token');
-        const userId = localStorage.getItem('user-id');
-        try {
-            debugger
-            await cardsApi.addCard({cardsPack_id: userId, token: token})
-        }
-        catch (e) {
-            console.log(e)
-        }
+        await cardsApi.addCard({card: {cardsPack_id: "5ebe5f4f1f24b100041aa00f", question, answer, grade},
+            token: token})
+        .then(result=>{
+            dispatch({type: ADD_NEW_CARD, question, answer, grade, cardsPack_id: "5ebe5f4f1f24b100041aa00f"});
+        })
+
     };
 
 
@@ -64,4 +80,3 @@ export const deleteACard = (id: string) =>
         }
     }
 
-export default cardsTableReducer

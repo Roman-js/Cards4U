@@ -93,8 +93,12 @@ export const decksApi = {
 
 export const cardsApi = {
 
-    addCard(card: CardsType) {
+    addCard(card: any) {
         return instance.post('cards/card', card)
+            .then(response=> {
+                localStorage.removeItem('auth-token');
+                localStorage.setItem('auth-token', response.data.token);
+                return response.data})
 
     },
 

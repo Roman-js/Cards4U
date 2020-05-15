@@ -14,8 +14,9 @@ const rootReducer = combineReducers({
     setNewPass: setNewPassReducer,
     signIn: signInReducer,
     profile: profileReducer,
-    decks: decksTableReducer,
-    cards: cardsTableReducer
+    cards: cardsTableReducer,
+    decks: decksTableReducer
+
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));

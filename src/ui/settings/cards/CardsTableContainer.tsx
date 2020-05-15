@@ -5,16 +5,16 @@ import {AppStoreType} from "../../../bll/store";
 import {addNewCard, deleteACard} from "../../../bll/reducers/cardsTable-reducer";
 
 type OwnPropsType = {
-    addNewCard: (name: string)=>void,
+    addNewCard: (question: string, answer: string, grade: number)=>void,
     deleteACard: (id: string)=>void
 }
 
 const CardsTableContainer = (props: OwnPropsType) => {
 
-const cards = useSelector((state:AppStoreType)=>state.cards.cards);
+const state = useSelector((state:AppStoreType) => state.cards.theCards);
 
     return (
-            <CardsTable addNewCard={props.addNewCard} deleteACard={props.deleteACard} cards={cards}/>
+            <CardsTable addNewCard={props.addNewCard} deleteACard={props.deleteACard} cards={state}/>
     )
 };
 

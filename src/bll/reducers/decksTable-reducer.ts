@@ -82,7 +82,7 @@ export const getDecks = () =>
            .then(data=>{
                localStorage.removeItem('auth-token');
                localStorage.setItem('auth-token', data.token);
-               debugger
+
                const cardPacks = data.cardPacks;
                dispatch({type: GET_DECKS, cardPacks})
            })
