@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/template-typescript/static/css/main.a9c9a206.chunk.css",
-    "main.js": "/template-typescript/static/js/main.bff0540f.chunk.js",
-    "main.js.map": "/template-typescript/static/js/main.bff0540f.chunk.js.map",
+    "main.js": "/template-typescript/static/js/main.0e37defb.chunk.js",
+    "main.js.map": "/template-typescript/static/js/main.0e37defb.chunk.js.map",
     "runtime-main.js": "/template-typescript/static/js/runtime-main.5d52bb24.js",
     "runtime-main.js.map": "/template-typescript/static/js/runtime-main.5d52bb24.js.map",
     "static/js/2.8cf9bacd.chunk.js": "/template-typescript/static/js/2.8cf9bacd.chunk.js",
     "static/js/2.8cf9bacd.chunk.js.map": "/template-typescript/static/js/2.8cf9bacd.chunk.js.map",
     "index.html": "/template-typescript/index.html",
-    "precache-manifest.1b6eef57eb34e5b23a6456cee2fe236d.js": "/template-typescript/precache-manifest.1b6eef57eb34e5b23a6456cee2fe236d.js",
+    "precache-manifest.d678e243084fa16d8c0a009e15abfd20.js": "/template-typescript/precache-manifest.d678e243084fa16d8c0a009e15abfd20.js",
     "service-worker.js": "/template-typescript/service-worker.js",
     "static/css/main.a9c9a206.chunk.css.map": "/template-typescript/static/css/main.a9c9a206.chunk.css.map",
     "static/js/2.8cf9bacd.chunk.js.LICENSE.txt": "/template-typescript/static/js/2.8cf9bacd.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.5d52bb24.js",
     "static/js/2.8cf9bacd.chunk.js",
     "static/css/main.a9c9a206.chunk.css",
-    "static/js/main.bff0540f.chunk.js"
+    "static/js/main.0e37defb.chunk.js"
   ]
 }
