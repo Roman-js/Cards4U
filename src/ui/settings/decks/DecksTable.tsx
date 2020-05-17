@@ -5,11 +5,14 @@ import Button from "../../common/Button";
 import Input from "../../common/Input";
 import Title from "../../common/Title";
 import Search from "../Search/Search";
+import Link from "../../common/LInk";
+import {CARDS_TABLE} from "../../common/Constants";
 
 type OwnPropsType = {
     decks: any[],
     addNewDeck: (name: string, rating: number) => void,
     deleteADeck: (id: string) => void
+    getCards: (id:string)=>void
 }
 const DecksTable = (props: OwnPropsType) => {
 
@@ -31,6 +34,7 @@ const DecksTable = (props: OwnPropsType) => {
     const decrement = () =>{
         setRating(rating -1.0)
     };
+
 
     return (
         <>
@@ -55,6 +59,7 @@ const DecksTable = (props: OwnPropsType) => {
                         }} nameOfButton='Update' typeOfButton="button"/>{' '}
                             <Button actionOfButton={() => sendDeleteDeck(deck._id)} nameOfButton='Delete'
                                     typeOfButton="button"/>
+                            <span onClick={()=>props.getCards(deck._id)}><Link way={CARDS_TABLE} wordOfLink={'cards'}/></span>
                         </td>
                     </tr>)}
 

@@ -1,6 +1,6 @@
 import {ThunkDispatch} from "redux-thunk";
 import {AppStoreType} from "../store";
-import {ADD_NEW_CARD, DELETE_CARD} from "../../ui/common/Constants";
+import {ADD_NEW_CARD, DELETE_CARD, GET_CARDS} from "../../ui/common/Constants";
 import {cardsApi} from "../../dal/api";
 
 const initialState = {
@@ -12,17 +12,11 @@ const initialState = {
             grade: 2,
         },
 
-    ]
+    ],
+    cardsPack_id: 'aaa'
 };
 
 type IState = typeof initialState
-
-//  export type cardsType = {
-//      cardsPack_id: string
-//      question?: string
-//      answer?: string
-//      grade?: number
-//  }
 
 const cardsTableReducer = (state = initialState, action: any):IState  =>{
 
@@ -32,11 +26,18 @@ const cardsTableReducer = (state = initialState, action: any):IState  =>{
             return {
                 ...state,
                 theCards: [...state.theCards, {
-                    cardsPack_id: '5ebe22ad7b58e90004b4b1e0',
+                    cardsPack_id: action.cardsPack_id,
                     answer: action.answer,
                     question: action.question,
                     grade: action.grade
                 }]
+            };
+
+        case GET_CARDS:
+            debugger
+            return {...state,
+                theCards: action.cards,
+                cardsPack_id: action.cardsPack_id
             };
 
         // case DELETE_CARD:
@@ -57,12 +58,15 @@ export default cardsTableReducer
 export const addNewCard = (question: string, answer: string, grade: number) =>
     async (dispatch: ThunkDispatch<AppStoreType, {}, any>,
            getState: AppStoreType) =>{
-
+debugger
         const token = localStorage.getItem('auth-token');
-        await cardsApi.addCard({card: {cardsPack_id: "5ebe5f4f1f24b100041aa00f", question, answer, grade},
+        const cardsPack_id = localStorage.getItem('cardsPack_id');
+
+        await cardsApi.addCard({card: {cardsPack_id: cardsPack_id, question, answer, grade},
             token: token})
         .then(result=>{
-            dispatch({type: ADD_NEW_CARD, question, answer, grade, cardsPack_id: "5ebe5f4f1f24b100041aa00f"});
+            console.log(result);
+            dispatch({type: ADD_NEW_CARD, question, answer, grade, cardsPack_id});
         })
 
     };
@@ -78,5 +82,24 @@ export const deleteACard = (id: string) =>
         catch (e) {
             console.log(e)
         }
-    }
+    };
+
+export const getCards = (id: string) =>
+    async (dispatch: ThunkDispatch<AppStoreType, {}, any>,
+           getState: AppStoreType) =>{
+
+       await cardsApi.getCards(id)
+           .then(data =>{
+               const cards = data.cards;
+               const cardsPack_id = data.cards[0].cardsPack_id;
+               dispatch({type: GET_CARDS, cards, cardsPack_id});
+               });
+        try {
+            console.log(initialState.theCards);
+        }
+        catch (e) {
+            console.log(e)
+        }
+    };
+
 

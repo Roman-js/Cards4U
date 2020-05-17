@@ -58,8 +58,8 @@ const CardsTable = (props: OwnPropsType) => {
                         <td>{card.grade}</td>
                         <td>{card.answer}{' '}<Button actionOfButton={() => {
                         }} nameOfButton='Update' typeOfButton="button"/>
-                            {/*<Button actionOfButton={() => sendDeleteCard(card.id)} nameOfButton='Delete'*/}
-                            {/*        typeOfButton="button"/>*/}
+                            <Button actionOfButton={() => sendDeleteCard(card.id)} nameOfButton='Delete'
+                                    typeOfButton="button"/>
                         </td>
                     </tr>)}
 

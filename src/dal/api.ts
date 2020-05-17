@@ -1,11 +1,9 @@
 import axios from 'axios'
 import {CardsPackType, CardsPackUpdateType} from "../ui/settings/decks/decksType";
-import {CardsType} from "../ui/settings/cards/cardsType";
 
 const instance = axios.create({
     // withCredentials: true,
     baseURL: "https://cards-nya-back.herokuapp.com/1.0/",
-    //baseURL:"https://neko-cafe-back.herokuapp.com/",
 });
 
 export const authApi = {
@@ -105,6 +103,19 @@ export const cardsApi = {
     deleteCard(id: string) {
         return instance.delete('cards/card',)
     },
+
+    getCards(id: string){
+        debugger
+        const token = localStorage.getItem('auth-token');
+        return instance.get(`cards/card?cardsPack_id=${id}&token=${token}`)
+            .then(response=>{
+                localStorage.removeItem('auth-token');
+                localStorage.setItem('auth-token', response.data.token);
+                localStorage.removeItem('cardsPack_id');
+                localStorage.setItem('cardsPack_id', id);
+                return response.data
+            })
+    }
 
 };
 
