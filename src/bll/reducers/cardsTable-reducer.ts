@@ -96,7 +96,6 @@ export const getCards = (id: string) =>
         await cardsApi.getCards(id)
             .then(data => {
                 const cards = data.cards;
-                //const cardsPack_id = data.cards[0].cardsPack_id;
                 const cardsPack_id = localStorage.getItem('cardsPack_id');
                 dispatch({type: GET_CARDS, cards, cardsPack_id});
             });
