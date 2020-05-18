@@ -6,7 +6,7 @@ import Input from "../../common/Input";
 import Title from "../../common/Title";
 import Search from "../Search/Search";
 import Link from "../../common/LInk";
-import {CARDS_TABLE} from "../../common/Constants";
+import {CARDS_TABLE, PLAY} from "../../common/Constants";
 import {CardsPackUpdateType} from "./decksType";
 
 type OwnPropsType = {
@@ -78,7 +78,8 @@ const DecksTable = (props: OwnPropsType) => {
                         <td><Button actionOfButton={() => onUpdateDeck(deck)} nameOfButton='Update' typeOfButton="button"/>{' '}
                             <Button actionOfButton={() => sendDeleteDeck(deck._id)} nameOfButton='Delete'
                                     typeOfButton="button"/>{' '}
-                            <span onClick={()=>props.getCards(deck._id)}><Link way={CARDS_TABLE} wordOfLink={'cards'}/></span>
+                            <span onClick={()=>props.getCards(deck._id)}><Link way={CARDS_TABLE} wordOfLink={'cards'}/></span>{' '}
+                            <span onClick={()=>props.getCards(deck._id)}><Link way={PLAY} wordOfLink={'play'}/></span>
                         </td>
                     </tr>)}
             </table>
@@ -86,7 +87,7 @@ const DecksTable = (props: OwnPropsType) => {
             {update ?
                 <div className={style.updateCard}>
                     <div className={style.fieldOfUpdate}>
-                        <h1>UPDATE YOUR CARD</h1>
+                        <h1>UPDATE YOUR DECK</h1>
                         <textarea placeholder={'Name'} onChange={onUpdateDeckName} value={changeName}/>
                         <button onClick={offUpdateDeck}>Save</button>
                         <button onClick={()=>setUpdate(false)}>Cancel</button>

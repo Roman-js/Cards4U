@@ -8,6 +8,7 @@ export const PROFILE = '/profile';
 
 export const CARDS_TABLE = '/cards-table';
 export const DECKS_TABLE = '/decks-table';
+export const PLAY = '/play';
 
 //constants for reducers
 
