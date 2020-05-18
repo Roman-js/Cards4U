@@ -1,9 +1,10 @@
-import {ThunkDispatch} from "redux-thunk";
-import {AppStoreType} from "../store";
-import {SearchApi} from "../../dal/api";
+import {getDecks} from "./decksTable-reducer";
 
 
 const initialState: any = {
+    name: '',
+    minValue: 70,
+    maxValue: 130
 };
 
 
@@ -15,11 +16,9 @@ const searchingReducer = (state = initialState, action: any): any => {
             debugger
             return {
                 ...state,
-                products: state.products.map((card: any) => {
-                    return {
-                        ...card, name: action.name
-                    }
-                })
+                name: action.name,
+                minValue:action.minValue,
+                maxValue:action.maxValue
             }
         }
         default:
@@ -33,30 +32,23 @@ export default searchingReducer
 
 //action creators
 
-export const setSearchingNameSuccess = (name: string): any =>
-    ({type: 'SET_SEARCHING_NAME', name})
+export const setSearchingNameSuccess = (name: string, minValue: number, maxValue: number): any =>
+    ({type: 'SET_SEARCHING_NAME', name, minValue, maxValue})
 
-const setRangeValueMinMaxSuccess = (minValue: number, maxValue: number): any => ({
-    type: 'SET_RANGE_VALUE_MIN_MAX', minValue, maxValue
-})
+// const setRangeValueMinMaxSuccess = (minValue: number, maxValue: number): any => ({
+//     type: 'SET_RANGE_VALUE_MIN_MAX', minValue, maxValue
+// })
 
 //thunks
 
-export const setSearchName = (name: string) => (dispatch: any) => {
+export const setSearchName = (name: string, minValue: number, maxValue: number) => (dispatch: any) => {
     debugger
-    SearchApi.setSearchingName(name)
-        .then((res: any) => {
-            debugger
-            dispatch(setSearchingNameSuccess(name))
-        })
+    dispatch(setSearchingNameSuccess(name, minValue, maxValue))
+    dispatch(getDecks())
+    // })
 }
-export const setRangeValue = (minValue: number, maxValue: number) => (dispatch: any) => {
-    SearchApi.setRange(minValue, maxValue)
-        .then((res: any) => {
-            debugger
-            dispatch(setRangeValueMinMaxSuccess(minValue, maxValue))
-        })
-}
+// export const setRangeValue = (minValue: number, maxValue: number) => (dispatch: any) => {
+// }
 
 
 // export const deleteADeck = (id: number) =>

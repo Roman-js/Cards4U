@@ -67,9 +67,10 @@ export const decksApi = {
                 localStorage.setItem('auth-token', response.data.token);
             })
     },
-    getDeck(token: string | null) {
+    getDeck(token: string | null, name:string, minValue:number, maxValue:number) {
         debugger
-        return instance.get(`cards/pack?token=${token}`)
+        return instance.get(`cards/pack?token=${token}`+(minValue && maxValue && `&min=${minValue}&max=${maxValue}`+ name && `&packName=${name}`))
+            // +(name && `&packName=${name}`))
             .then(response=>{
                 console.log(response.data);
                 localStorage.removeItem('auth-token');
@@ -104,14 +105,14 @@ export const cardsApi = {
 
 };
 
-export const SearchApi = {
-
-    setSearchingName(name:string){
-        debugger
-        return instance.get(name.length > 0 ? `productName=${name}&` : '')
-    },
-    setRange(minValue:number, maxValue:number){
-        return instance.get(maxValue ? `min=${minValue}&max=${maxValue}&` : '')
-    }
-}
+// export const SearchApi = {
+//
+//     setSearchingName(name:string){
+//         debugger
+//         return instance.get(name.length > 0 ? `productName=${name}&` : '')
+//     },
+//     setRange(minValue:number, maxValue:number){
+//         return instance.get(maxValue ? `min=${minValue}&max=${maxValue}&` : '')
+//     }
+// }
 
