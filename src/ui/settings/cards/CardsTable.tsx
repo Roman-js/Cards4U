@@ -1,21 +1,26 @@
 import React, {ChangeEvent, useState} from "react";
 import Search from "../Search/Search";
 import Title from "../../common/Title";
-import style from "../decks/DecksTable.module.css";
+import style from "./CardsTable.module.css";
 import Input from "../../common/Input";
 import Button from "../../common/Button";
 
 
 type OwnPropsType = {
     cards: any[]
-    addNewCard: (question: string, answer: string, grade: number)=>void,
-    deleteACard: (id: string)=>void
+    addNewCard: (question: string, answer: string, grade: number) => void,
+    deleteACard: (id: string) => void
+    updateCards: (card: any) => void
 }
 const CardsTable = (props: OwnPropsType) => {
 
     const [question, setQuestion] = useState('');
     const [answer, setAnswer] = useState('');
     const [grade, setGrade] = useState(0);
+    const [update, setUpdate] = useState(false);
+    const [changeQuestion, setChangeQuestion] = useState('');
+    const [changeAnswer, setChangeAnswer] = useState('');
+    const [updatedCard, setUpdatedCard] = useState({});
 
     const textOfQuestion = (e: ChangeEvent<HTMLInputElement>) => {
         setQuestion(e.currentTarget.value)
@@ -29,26 +34,44 @@ const CardsTable = (props: OwnPropsType) => {
     const sendDeleteCard = (id: string) => {
         props.deleteACard(id)
     };
-    const increment = () =>{
+    const onUpdateCard = (card: any) => {
+        setUpdate(true);
+        setChangeQuestion(card.question);
+        setChangeAnswer(card.answer);
+        setUpdatedCard(card)
+    };
+    const offUpdateCard = () => {
+        setUpdate(false);
+        const updatedCardSuccess = {...updatedCard, question: changeQuestion, answer: changeAnswer};
+        props.updateCards(updatedCardSuccess)
+    };
+    const onUpdateCardQuestion = (e: ChangeEvent<HTMLTextAreaElement>) =>{
+        setChangeQuestion(e.currentTarget.value)
+    };
+    const onUpdateCardAnswer = (e: ChangeEvent<HTMLTextAreaElement>) =>{
+        setChangeAnswer(e.currentTarget.value)
+    };
+
+    const increment = () => {
         setGrade(grade + 1)
     };
-    const decrement = () =>{
+    const decrement = () => {
         setGrade(grade - 1)
     };
 
     return (
         <>
-            <Search />
+            <Search/>
             <Title title='CARDS'/>
             <table className={style.Table}>
                 <tr>
                     <th><Input type={"text"} value={question} placeholder={'Question'} onChange={textOfQuestion}/></th>
                     <th>Grade {' '} {grade} {' '}
-                        <Button actionOfButton={ increment } nameOfButton='↑' typeOfButton="button"/> {' '}
-                        <Button actionOfButton={ decrement } nameOfButton='↓' typeOfButton="button"/>
+                        <Button actionOfButton={increment} nameOfButton='↑' typeOfButton="button"/> {' '}
+                        <Button actionOfButton={decrement} nameOfButton='↓' typeOfButton="button"/>
                     </th>
                     <th>
-                        <Input type={"text"} value={answer} placeholder={'Answer'} onChange={textOfAnswer} />{' '}
+                        <Input type={"text"} value={answer} placeholder={'Answer'} onChange={textOfAnswer}/>{' '}
                         <Button actionOfButton={sendNewCard} nameOfButton='add' typeOfButton="button"/>
                     </th>
                 </tr>
@@ -56,14 +79,25 @@ const CardsTable = (props: OwnPropsType) => {
                     <tr className={style.cells}>
                         <td>{card.question}{' '}</td>
                         <td>{card.grade}</td>
-                        <td>{card.answer}{' '}<Button actionOfButton={() => {
-                        }} nameOfButton='Update' typeOfButton="button"/>
-                            <Button actionOfButton={() => sendDeleteCard(card.id)} nameOfButton='Delete'
+                        <td>{card.answer}{' '}<Button actionOfButton={()=>onUpdateCard(card)} nameOfButton='Update'
+                                                      typeOfButton="button"/>
+                            <Button actionOfButton={() => sendDeleteCard(card._id)} nameOfButton='Delete'
                                     typeOfButton="button"/>
                         </td>
                     </tr>)}
 
             </table>
+            {update ?
+                <div className={style.updateCard}>
+                    <div className={style.fieldOfUpdate}>
+                        <h1>UPDATE YOUR CARD</h1>
+                        <textarea placeholder={'Question'} onChange={onUpdateCardQuestion} value={changeQuestion}/>
+                        <textarea placeholder={'Answer'} onChange={onUpdateCardAnswer} value={changeAnswer}/>
+                        <button onClick={offUpdateCard}>Save</button>
+                        <button onClick={()=>setUpdate(false)}>Cancel</button>
+                    </div>
+                </div> : null}
+
         </>
     )
 }

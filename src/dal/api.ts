@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios, { AxiosRequestConfig } from 'axios'
 import {CardsPackType, CardsPackUpdateType} from "../ui/settings/decks/decksType";
 
 const instance = axios.create({
@@ -100,12 +100,18 @@ export const cardsApi = {
 
     },
 
-    deleteCard(id: string) {
-        return instance.delete('cards/card',)
+    deleteCard(id: string ) {
+        debugger
+        const token = localStorage.getItem('auth-token')
+        return instance.delete(`cards/card?token=${token}&id=${id}`)
+            .then(response=>{
+                localStorage.removeItem('auth-token');
+                localStorage.setItem('auth-token', response.data.token);
+                return response.data
+            })
     },
 
     getCards(id: string){
-        debugger
         const token = localStorage.getItem('auth-token');
         return instance.get(`cards/card?cardsPack_id=${id}&token=${token}`)
             .then(response=>{
@@ -114,6 +120,16 @@ export const cardsApi = {
                 localStorage.removeItem('cardsPack_id');
                 localStorage.setItem('cardsPack_id', id);
                 return response.data
+            })
+    },
+
+    updateCard(card: any){
+        const token =  localStorage.getItem('auth-token');
+        return instance.put('cards/card', {card, token})
+            .then(response=>{
+                localStorage.removeItem('auth-token');
+                localStorage.setItem('auth-token', response.data.token);
+                return response.data.updatedCard
             })
     }
 

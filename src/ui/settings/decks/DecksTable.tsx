@@ -58,7 +58,7 @@ const DecksTable = (props: OwnPropsType) => {
                         <td><Button actionOfButton={() => {
                         }} nameOfButton='Update' typeOfButton="button"/>{' '}
                             <Button actionOfButton={() => sendDeleteDeck(deck._id)} nameOfButton='Delete'
-                                    typeOfButton="button"/>
+                                    typeOfButton="button"/>{' '}
                             <span onClick={()=>props.getCards(deck._id)}><Link way={CARDS_TABLE} wordOfLink={'cards'}/></span>
                         </td>
                     </tr>)}

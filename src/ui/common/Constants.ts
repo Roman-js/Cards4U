@@ -44,3 +44,4 @@ export const GET_DECKS = 'GET-DECKS';
 export const ADD_NEW_CARD = 'ADD-NEW-CARD';
 export const DELETE_CARD = 'DELETE-CARD';
 export const GET_CARDS = 'GET-CARDS';
+export const UPDATE_CARD = 'UPDATE-CARD';
