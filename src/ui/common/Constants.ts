@@ -8,6 +8,7 @@ export const PROFILE = '/profile';
 
 export const CARDS_TABLE = '/cards-table';
 export const DECKS_TABLE = '/decks-table';
+export const PLAY = '/play';
 
 //constants for reducers
 
@@ -38,8 +39,11 @@ export const TO_CLEAN_ERROR_FIELD = 'TO-CLEAN-ERROR-FIELD';
 export const ADD_NEW_DECK = 'ADD-NEW-DECK';
 export const DELETE_DECK = 'DELETE-DECK';
 export const GET_DECKS = 'GET-DECKS';
+export const UPDATE_DECK = 'UPDATE-DECK';
 
 //constants for CardsTable
 
 export const ADD_NEW_CARD = 'ADD-NEW-CARD';
 export const DELETE_CARD = 'DELETE-CARD';
+export const GET_CARDS = 'GET-CARDS';
+export const UPDATE_CARD = 'UPDATE-CARD';

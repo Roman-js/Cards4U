@@ -1,11 +1,9 @@
-import axios from 'axios'
+import axios, { AxiosRequestConfig } from 'axios'
 import {CardsPackType, CardsPackUpdateType} from "../ui/settings/decks/decksType";
-import {CardsType} from "../ui/settings/cards/cardsType";
 
 const instance = axios.create({
     // withCredentials: true,
     baseURL: "https://cards-nya-back.herokuapp.com/1.0/",
-    //baseURL:"https://neko-cafe-back.herokuapp.com/",
 });
 
 export const authApi = {
@@ -65,6 +63,7 @@ export const decksApi = {
             .then(response=>{console.log(response)
                 localStorage.removeItem('auth-token');
                 localStorage.setItem('auth-token', response.data.token);
+                return response
             })
     },
     getDeck(token: string | null, name:string, minValue:number, maxValue:number) {
@@ -80,39 +79,60 @@ export const decksApi = {
     },
     updateDeck(deck: CardsPackUpdateType){
        const token =  localStorage.getItem('auth-token');
-        instance.put('cards/pack', {cardsPack: deck, token})
+        return instance.put('cards/pack', {cardsPack: deck, token})
             .then(response => {
                 localStorage.removeItem('auth-token');
-                localStorage.setItem('auth-token', response.data.token)
+                localStorage.setItem('auth-token', response.data.token);
                 return response.data.updatedCardsPack
             })
 
     }
 
-
 };
 
 export const cardsApi = {
 
-    addCard(card: CardsType) {
+    addCard(card: any) {
         return instance.post('cards/card', card)
+            .then(response=> {
+                localStorage.removeItem('auth-token');
+                localStorage.setItem('auth-token', response.data.token);
+                return response.data})
 
     },
 
-    deleteCard(id: string) {
-        return instance.delete('cards/card',)
+    deleteCard(id: string ) {
+        debugger
+        const token = localStorage.getItem('auth-token')
+        return instance.delete(`cards/card?token=${token}&id=${id}`)
+            .then(response=>{
+                localStorage.removeItem('auth-token');
+                localStorage.setItem('auth-token', response.data.token);
+                return response.data
+            })
     },
+
+    getCards(id: string){
+        const token = localStorage.getItem('auth-token');
+        return instance.get(`cards/card?cardsPack_id=${id}&token=${token}`)
+            .then(response=>{
+                localStorage.removeItem('auth-token');
+                localStorage.setItem('auth-token', response.data.token);
+                localStorage.removeItem('cardsPack_id');
+                localStorage.setItem('cardsPack_id', id);
+                return response.data
+            })
+    },
+
+    updateCard(card: any){
+        const token =  localStorage.getItem('auth-token');
+        return instance.put('cards/card', {card, token})
+            .then(response=>{
+                localStorage.removeItem('auth-token');
+                localStorage.setItem('auth-token', response.data.token);
+                return response.data.updatedCard
+            })
+    }
 
 };
-
-// export const SearchApi = {
-//
-//     setSearchingName(name:string){
-//         debugger
-//         return instance.get(name.length > 0 ? `productName=${name}&` : '')
-//     },
-//     setRange(minValue:number, maxValue:number){
-//         return instance.get(maxValue ? `min=${minValue}&max=${maxValue}&` : '')
-//     }
-// }
 

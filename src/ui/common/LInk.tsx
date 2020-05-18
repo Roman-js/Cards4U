@@ -11,7 +11,7 @@ const Link = (props: OwnPropsType) =>{
     return(
         <NavLink className={styles.forLinks} to={props.way}>{props.wordOfLink}</NavLink>
     )
-}
+};
 
 export default Link
 
