@@ -59,7 +59,7 @@ const cardsTableReducer = (state = initialState, action: any): IState => {
 
 export default cardsTableReducer
 
-//thunks
+/////////////////////////////////thunks
 
 export const addNewCard = (question: string, answer: string, grade: number) =>
     async (dispatch: ThunkDispatch<AppStoreType, {}, any>,
@@ -77,7 +77,6 @@ export const addNewCard = (question: string, answer: string, grade: number) =>
             })
 
     };
-
 
 export const deleteACard = (id: string) =>
     async (dispatch: ThunkDispatch<AppStoreType, {}, any>,

@@ -1,4 +1,4 @@
-import {ADD_NEW_DECK, DELETE_DECK, GET_DECKS} from "../../ui/common/Constants";
+import {ADD_NEW_DECK, DELETE_DECK, GET_DECKS, UPDATE_DECK} from "../../ui/common/Constants";
 import {ThunkDispatch} from "redux-thunk";
 import {AppStoreType} from "../store";
 import {decksApi} from "../../dal/api";
@@ -39,6 +39,13 @@ const decksTableReducer = (state = initialState, action: any) => {
             }
         }
 
+        case UPDATE_DECK:
+            return {
+                ...state, decks: state.decks.map(deck=>{
+                    return deck._id === action.updateCardsDeck._id ? action.updateCardsDeck: deck
+                })
+            }
+
         default:
             return state
     }
@@ -46,7 +53,7 @@ const decksTableReducer = (state = initialState, action: any) => {
 
 export default decksTableReducer
 
-//thunks
+////////////////////////////////////////thunks
 export const addNewDeck = (name: string, rating: number) =>
     async (dispatch: ThunkDispatch<AppStoreType, {}, any>,
            getState: AppStoreType) => {
@@ -92,5 +99,8 @@ export const updateDeck = (deck: CardsPackUpdateType)=>
     async (dispatch: ThunkDispatch<AppStoreType, {}, any>,
            getState: AppStoreType) => {
     await decksApi.updateDeck(deck)
+        .then(updateCardsDeck=>{
+            dispatch({type: UPDATE_DECK, updateCardsDeck})
+        })
 
     };

@@ -77,15 +77,14 @@ export const decksApi = {
     },
     updateDeck(deck: CardsPackUpdateType){
        const token =  localStorage.getItem('auth-token');
-        instance.put('cards/pack', {cardsPack: deck, token})
+        return instance.put('cards/pack', {cardsPack: deck, token})
             .then(response => {
                 localStorage.removeItem('auth-token');
-                localStorage.setItem('auth-token', response.data.token)
+                localStorage.setItem('auth-token', response.data.token);
                 return response.data.updatedCardsPack
             })
 
     }
-
 
 };
 
