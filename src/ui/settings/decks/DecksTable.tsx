@@ -4,6 +4,7 @@ import style from './DecksTable.module.css';
 import Button from "../../common/Button";
 import Input from "../../common/Input";
 import Title from "../../common/Title";
+import SearchContainer from "../Search/SearchContainer";
 import Search from "../Search/Search";
 import Link from "../../common/LInk";
 import {CARDS_TABLE, PLAY} from "../../common/Constants";
@@ -58,7 +59,7 @@ const DecksTable = (props: OwnPropsType) => {
 
     return (
         <>
-            <Search/>
+            <SearchContainer/>
             <Title title='DECKS'/>
             <table className={style.Table}>
                 <tr>

@@ -83,9 +83,11 @@ export const deleteADeck = (_id: string) =>
 
 export const getDecks = () =>
     async (dispatch: ThunkDispatch<AppStoreType, {}, any>,
-           getState: AppStoreType) => {
+           getState:() => AppStoreType) => {
         const token = localStorage.getItem('auth-token');
-       await decksApi.getDeck(token)
+        const {name} = getState().search
+        const {minValue, maxValue} = getState().search
+       await decksApi.getDeck(token, name, minValue, maxValue)
            .then(data=>{
                localStorage.removeItem('auth-token');
                localStorage.setItem('auth-token', data.token);

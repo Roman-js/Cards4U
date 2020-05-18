@@ -4,11 +4,15 @@ import { Range, getTrackBackground } from "react-range";
 const STEP = 1;
 const MIN = 0;
 const MAX = 200;
+type OwnPropsType = {
+    handleStrip:(values:number[])=>void,
+    values: number[]
+}
 
-class Strip extends React.Component {
-    state = {
-        values: [0, 50]
-    };
+class Strip extends React.Component<OwnPropsType> {
+    // state = {
+    //     [0, 50] values:
+    // };
     render() {
         return (
             <div
@@ -20,11 +24,11 @@ class Strip extends React.Component {
                 }}
             >
                 <Range
-                    values={this.state.values}
+                    values={this.props.values}
                     step={STEP}
                     min={MIN}
                     max={MAX}
-                    onChange={values => this.setState({ values })}
+                    onChange={values => this.props.handleStrip( values )}
                     renderTrack={({ props, children }) => (
                         <span
                             onMouseDown={props.onMouseDown}
@@ -43,7 +47,7 @@ class Strip extends React.Component {
                                     width: "100%",
                                     borderRadius: "4px",
                                     background: getTrackBackground({
-                                        values: this.state.values,
+                                        values: this.props.values,
                                         colors: ["#000", "#ccc", "#000"],
                                         min: MIN,
                                         max: MAX
@@ -81,10 +85,10 @@ class Strip extends React.Component {
                     )}
                 />
                 <label style={{ margin: "10px", }} id="output">
-                    {this.state.values[0].toFixed(1)}
+                    {this.props.values[0].toFixed(1)}
                 </label>
                 <label style={{ margin: "10px" }} id="output">
-                    {this.state.values[1].toFixed(1)}
+                    {this.props.values[1].toFixed(1)}
                 </label>
             </div>
         );

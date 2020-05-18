@@ -66,8 +66,10 @@ export const decksApi = {
                 return response
             })
     },
-    getDeck(token: string | null) {
-        return instance.get(`cards/pack?token=${token}`)
+    getDeck(token: string | null, name:string, minValue:number, maxValue:number) {
+        debugger
+        return instance.get(`cards/pack?token=${token}`+(minValue && maxValue && `&min=${minValue}&max=${maxValue}`+ name && `&packName=${name}`))
+            // +(name && `&packName=${name}`))
             .then(response=>{
                 console.log(response.data);
                 localStorage.removeItem('auth-token');

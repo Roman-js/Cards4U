@@ -4,6 +4,7 @@ import {
     registerSuccessActionType, setErrorRegisterPageActionType,
     waitingForResponseActionType
 } from "../../ui/authorization/authTypes/registerTypes";
+import {authApi} from "../../dal/api";
 
 
 const initialState:registerInitialState = {
