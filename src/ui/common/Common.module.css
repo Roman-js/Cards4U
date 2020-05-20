@@ -8,6 +8,10 @@
     border: 1px solid blanchedalmond;
     margin: 1px;
     padding: 6px;
+    color:antiquewhite;
+}
+.forInput::placeholder{
+    color:white
 }
 
 .forButton{
