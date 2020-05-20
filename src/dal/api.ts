@@ -67,7 +67,6 @@ export const decksApi = {
             })
     },
     getDeck(token: string | null, name:string, minValue:number, maxValue:number) {
-        debugger
         return instance.get(`cards/pack?token=${token}`+(minValue && maxValue && `&min=${minValue}&max=${maxValue}`+ name && `&packName=${name}`))
             // +(name && `&packName=${name}`))
             .then(response=>{
@@ -78,6 +77,7 @@ export const decksApi = {
             })
     },
     updateDeck(deck: CardsPackUpdateType){
+        debugger
        const token =  localStorage.getItem('auth-token');
         return instance.put('cards/pack', {cardsPack: deck, token})
             .then(response => {
@@ -93,6 +93,7 @@ export const decksApi = {
 export const cardsApi = {
 
     addCard(card: any) {
+        debugger
         return instance.post('cards/card', card)
             .then(response=> {
                 localStorage.removeItem('auth-token');
@@ -102,8 +103,7 @@ export const cardsApi = {
     },
 
     deleteCard(id: string ) {
-        debugger
-        const token = localStorage.getItem('auth-token')
+        const token = localStorage.getItem('auth-token');
         return instance.delete(`cards/card?token=${token}&id=${id}`)
             .then(response=>{
                 localStorage.removeItem('auth-token');
@@ -125,6 +125,7 @@ export const cardsApi = {
     },
 
     updateCard(card: any){
+        debugger
         const token =  localStorage.getItem('auth-token');
         return instance.put('cards/card', {card, token})
             .then(response=>{

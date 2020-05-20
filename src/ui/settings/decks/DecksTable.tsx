@@ -5,10 +5,9 @@ import Button from "../../common/Button";
 import Input from "../../common/Input";
 import Title from "../../common/Title";
 import SearchContainer from "../Search/SearchContainer";
-import Search from "../Search/Search";
 import Link from "../../common/LInk";
 import {CARDS_TABLE, PLAY} from "../../common/Constants";
-import {CardsPackUpdateType} from "./decksType";
+
 
 type OwnPropsType = {
     decks: any[],
@@ -41,7 +40,6 @@ const DecksTable = (props: OwnPropsType) => {
         setRating(rating -1.0)
     };
     const onUpdateDeck = (deck: any) =>{
-        debugger
         setUpdate(true);
         setChangeName(deck.name);
         setUpdatedDeck(deck);

@@ -26,7 +26,7 @@
 }
 
 .updateCard {
-    background-image: url(https://i.artfile.ru/1920x1200_666975_[www.ArtFile.ru].jpg);
+    background-image: url(./../../common/img/updateBackgroundImg.jpg);
     opacity: 0.7;
     width: 100%;
     height: 96vh;
@@ -38,7 +38,7 @@
 .fieldOfUpdate {
     border: black 3px solid;
     background-color: skyblue;
-    background-image: url(https://images.clipartlogo.com/files/istock/previews/6534/65347357-denim-jeans-zipper-vector-part-of-clothes.jpg);
+    background-image: url(./../../common/img/headerUpdateField.jpg);
     width: 40%;
     text-align: center;
     display: grid;

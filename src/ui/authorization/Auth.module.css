@@ -5,6 +5,8 @@
     align-items: center;
     justify-content: center;
     height: 95.8vh;
-    background-color: #9c9c9c;
+    background: url(https://i.stack.imgur.com/q02th.jpg) no-repeat ;
+    background-size: 100%;
+    width: 100%;
 }
 

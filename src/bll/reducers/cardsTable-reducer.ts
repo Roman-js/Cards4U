@@ -11,6 +11,7 @@ const initialState = {
             question: 'something',
             answer: 'something else',
             grade: 2,
+            shots: 1
         },
 
     ],
@@ -30,7 +31,8 @@ const cardsTableReducer = (state = initialState, action: any): IState => {
                     _id: action._id,
                     answer: action.answer,
                     question: action.question,
-                    grade: action.grade
+                    grade: action.grade,
+                    shots: 0
                 }]
             };
 

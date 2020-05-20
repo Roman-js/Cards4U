@@ -1,16 +1,38 @@
-import React from "react";
+import React, {useState} from "react";
 import GameField from "./GameField";
 import {AppStoreType} from "../../bll/store";
-import {useSelector} from "react-redux";
+import {connect, useSelector} from "react-redux";
+import {updateCards} from "../../bll/reducers/cardsTable-reducer";
 
+type OwnPropsType = {
+    updateCards: (card: any) => void
+}
+const GameFieldContainer = (props: OwnPropsType) => {
 
-const GameFieldContainer = () =>{
+    const [cardOfNumber, setCardOfNumber] = useState(0);
 
-    const cards = useSelector((state:AppStoreType)=> state.cards.theCards);
+    const cards = useSelector((state: AppStoreType) => state.cards.theCards);
+    const nextCard = () => {
+        setCardOfNumber(cardOfNumber + 1)
+    };
+    if (cards[cardOfNumber] === undefined) {
+        setCardOfNumber(0)
+    }
+    const card = cards[cardOfNumber];
+
+    const setGrade = (grade: number) => {
+        console.log(grade);
+        const newGrade = (card.shots * card.grade + grade) / (card.shots + 1);
+        const updatedCard = {...card, shots: card.shots + 1, grade: newGrade};
+
+        props.updateCards(updatedCard)
+    };
 
     return (
-        <GameField cards={cards}/>
+        <GameField card={card}
+                   nextCard={nextCard}
+                   setGrade={setGrade}/>
     )
 };
 
-export default GameFieldContainer
+export default connect(null, {updateCards})(GameFieldContainer)

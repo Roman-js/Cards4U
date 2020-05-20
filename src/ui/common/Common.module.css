@@ -1,10 +1,10 @@
 .forLinks{
-    color: black;
+    color: whitesmoke;
     text-decoration: none;
 }
 
 .forInput{
-    background-color: #9c9c9c;
+    background-color: darkolivegreen;
     border: 1px solid blanchedalmond;
     margin: 1px;
     padding: 6px;
