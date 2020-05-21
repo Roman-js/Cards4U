@@ -11,12 +11,13 @@ type OwnPropsType = {
     setRegisterFormValues: (email: string, password: string, repeatPassword: string) => void,
     loading: boolean,
     error:boolean,
-    CancelErrorPosition:()=>void
+    cancelErrorPosition:()=>void
 }
-const Register: React.FC<OwnPropsType> = ({setRegisterFormValues, loading, error, CancelErrorPosition}) => {
+const Register: React.FC<OwnPropsType> = ({setRegisterFormValues, loading, error, cancelErrorPosition}) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [repeatPassword, setRepeatPassword] = useState('')
+    console.log(setRegisterFormValues)
 
 
     const changeEmail = (e: ChangeEvent<HTMLInputElement>) => setEmail(e.currentTarget.value)
@@ -24,7 +25,7 @@ const Register: React.FC<OwnPropsType> = ({setRegisterFormValues, loading, error
     const changeRepeatPassword = (e: ChangeEvent<HTMLInputElement>) => setRepeatPassword(e.currentTarget.value)
 
     const toCleanErrorField = () => {
-        return CancelErrorPosition()
+        return cancelErrorPosition()
     }
 
     const sendSignInFormValues = () => setRegisterFormValues(email, password, repeatPassword)

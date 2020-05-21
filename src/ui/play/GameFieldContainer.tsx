@@ -10,23 +10,27 @@ type OwnPropsType = {
 const GameFieldContainer = (props: OwnPropsType) => {
 
     const [cardOfNumber, setCardOfNumber] = useState(0);
-
     const cards = useSelector((state: AppStoreType) => state.cards.theCards);
+
+    const minGrade = cards.reduce((acc, el) => acc.grade < el.grade ? acc : el) ///получаем минимальный элемент grade
+
     const nextCard = () => {
         setCardOfNumber(cardOfNumber + 1)
+
     };
     if (cards[cardOfNumber] === undefined) {
         setCardOfNumber(0)
     }
     const card = cards[cardOfNumber];
 
+
     const setGrade = (grade: number) => {
-        console.log(grade);
         const newGrade = (card.shots * card.grade + grade) / (card.shots + 1);
         const updatedCard = {...card, shots: card.shots + 1, grade: newGrade};
 
         props.updateCards(updatedCard)
     };
+    console.log(cards.map(c=>c.grade))
 
     return (
         <GameField card={card}
