@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/template-typescript/static/css/main.968f3e50.chunk.css",
-    "main.js": "/template-typescript/static/js/main.28e8f64d.chunk.js",
-    "main.js.map": "/template-typescript/static/js/main.28e8f64d.chunk.js.map",
+    "main.css": "/template-typescript/static/css/main.14a87d52.chunk.css",
+    "main.js": "/template-typescript/static/js/main.3acc5c2f.chunk.js",
+    "main.js.map": "/template-typescript/static/js/main.3acc5c2f.chunk.js.map",
     "runtime-main.js": "/template-typescript/static/js/runtime-main.5d52bb24.js",
     "runtime-main.js.map": "/template-typescript/static/js/runtime-main.5d52bb24.js.map",
-    "static/js/2.2bcc5ef3.chunk.js": "/template-typescript/static/js/2.2bcc5ef3.chunk.js",
-    "static/js/2.2bcc5ef3.chunk.js.map": "/template-typescript/static/js/2.2bcc5ef3.chunk.js.map",
+    "static/js/2.5ec77011.chunk.js": "/template-typescript/static/js/2.5ec77011.chunk.js",
+    "static/js/2.5ec77011.chunk.js.map": "/template-typescript/static/js/2.5ec77011.chunk.js.map",
     "index.html": "/template-typescript/index.html",
-    "precache-manifest.b447c0d3499319fc25b945ce85bff46e.js": "/template-typescript/precache-manifest.b447c0d3499319fc25b945ce85bff46e.js",
+    "precache-manifest.d4bfde836264ca95942bba50d9dbcb96.js": "/template-typescript/precache-manifest.d4bfde836264ca95942bba50d9dbcb96.js",
     "service-worker.js": "/template-typescript/service-worker.js",
-    "static/css/main.968f3e50.chunk.css.map": "/template-typescript/static/css/main.968f3e50.chunk.css.map",
-    "static/js/2.2bcc5ef3.chunk.js.LICENSE.txt": "/template-typescript/static/js/2.2bcc5ef3.chunk.js.LICENSE.txt",
+    "static/css/main.14a87d52.chunk.css.map": "/template-typescript/static/css/main.14a87d52.chunk.css.map",
+    "static/js/2.5ec77011.chunk.js.LICENSE.txt": "/template-typescript/static/js/2.5ec77011.chunk.js.LICENSE.txt",
     "static/media/GameField.module.css": "/template-typescript/static/media/cardOnAnswer.11c7932d.png",
     "static/media/DecksTable.module.css": "/template-typescript/static/media/updateBackgroundImg.cef177fa.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.5d52bb24.js",
-    "static/js/2.2bcc5ef3.chunk.js",
-    "static/css/main.968f3e50.chunk.css",
-    "static/js/main.28e8f64d.chunk.js"
+    "static/js/2.5ec77011.chunk.js",
+    "static/css/main.14a87d52.chunk.css",
+    "static/js/main.3acc5c2f.chunk.js"
   ]
 }
