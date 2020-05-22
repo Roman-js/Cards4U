@@ -35,10 +35,6 @@ export default searchingReducer
 export const setSearchingNameSuccess = (name: string, minValue: number, maxValue: number): any =>
     ({type: 'SET_SEARCHING_NAME', name, minValue, maxValue})
 
-// const setRangeValueMinMaxSuccess = (minValue: number, maxValue: number): any => ({
-//     type: 'SET_RANGE_VALUE_MIN_MAX', minValue, maxValue
-// })
-
 //thunks
 
 export const setSearchName = (name: string, minValue: number, maxValue: number) => (dispatch: any) => {
@@ -47,18 +43,3 @@ export const setSearchName = (name: string, minValue: number, maxValue: number) 
     dispatch(getDecks())
     // })
 }
-// export const setRangeValue = (minValue: number, maxValue: number) => (dispatch: any) => {
-// }
-
-
-// export const deleteADeck = (id: number) =>
-//     async (dispatch: ThunkDispatch<AppStoreType, {}, any>,
-//            getState: AppStoreType) =>{
-//         try {
-//             dispatch({type: DELETE_DECK, id});
-//             await Api.deleteDeck(id)
-//         }
-//         catch (e) {
-//             console.log(e)
-//         }
-//     }

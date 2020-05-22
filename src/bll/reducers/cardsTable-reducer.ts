@@ -8,9 +8,33 @@ const initialState = {
         {
             cardsPack_id: '5ebe22ad7b58e90004b4b1e0',
             _id: '',
-            question: 'something',
-            answer: 'something else',
-            grade: 2,
+            question: 'something 1',
+            answer: 'something else 1',
+            grade: 3,
+            shots: 1
+        },
+        {
+            cardsPack_id: '5ebe22ad7b58e90004b4b1e1',
+            _id: '',
+            question: 'something 2',
+            answer: 'something else 2',
+            grade: 1,
+            shots: 1
+        },
+        {
+            cardsPack_id: '5ebe22ad7b58e90004b4b1e2',
+            _id: '',
+            question: 'something 3',
+            answer: 'something else 3',
+            grade: 4,
+            shots: 1
+        },
+        {
+            cardsPack_id: '5ebe22ad7b58e90004b4b1e3',
+            _id: '',
+            question: 'something 4',
+            answer: 'something else 4',
+            grade: 5,
             shots: 1
         },
 
@@ -42,9 +66,11 @@ const cardsTableReducer = (state = initialState, action: any): IState => {
             };
 
         case UPDATE_CARD:
+            debugger
             return {
-                ...state, theCards: state.theCards.map(card=>{
-                    return card._id === action.updatedCard._id? action.updatedCard: card })
+                ...state, theCards: state.theCards.map(card => {
+                    return card._id === action.updatedCard._id ? action.updatedCard : card
+                })
             };
 
 
@@ -94,7 +120,6 @@ export const deleteACard = (id: string) =>
 export const getCards = (id: string) =>
     async (dispatch: ThunkDispatch<AppStoreType, {}, any>,
            getState: AppStoreType) => {
-
         await cardsApi.getCards(id)
             .then(data => {
                 const cards = data.cards;
@@ -111,8 +136,10 @@ export const getCards = (id: string) =>
 export const updateCards = (card: any) =>
     async (dispatch: ThunkDispatch<AppStoreType, {}, any>,
            getState: AppStoreType) => {
+        debugger
         await cardsApi.updateCard(card)
             .then(updatedCard => {
+                debugger
                 dispatch({type: UPDATE_CARD, updatedCard})
             })
     };

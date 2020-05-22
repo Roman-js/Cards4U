@@ -1,13 +1,14 @@
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {PROFILE, REGISTER_SUCCESS, SET_ERROR_REGISTER_PAGE, WAITING_FOR_RESPONSE} from "../../common/Constants";
-import {authApi} from "../../../dal/api";
 import {AppStoreType} from "../../../bll/store";
 import Register from "./Register";
 import {Redirect} from "react-router";
+import {authApi} from "../../../dal/api";
 
 
-const RegisterContainer: React.FC = () => {
+const RegisterContainer: React.FC = (props) => {
+    console.log(props)
 
     const dispatch = useDispatch();
     const state = useSelector((state: AppStoreType) => state.register)
@@ -36,14 +37,14 @@ const RegisterContainer: React.FC = () => {
             }
         }
     };
-    const CancelErrorPosition = () => dispatch({type: SET_ERROR_REGISTER_PAGE, error: null})
+    const cancelErrorPosition = () => dispatch({type: SET_ERROR_REGISTER_PAGE, error: null})
     return (
         <>
             {state.redirect && <Redirect to={PROFILE}/>}
             <Register setRegisterFormValues={setRegisterFormValues}
                       loading={state.loading}
                       error={state.error}
-                      CancelErrorPosition={CancelErrorPosition}/>
+                      cancelErrorPosition={cancelErrorPosition}/>
         </>
     )
 };

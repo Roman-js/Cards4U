@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import Button from "../common/Button";
 import style from './GameField.module.css'
+import {debuglog} from "util";
 
 type OwnPropsType = {
     card: any
@@ -19,7 +20,7 @@ const nextCard = () =>{
     setChecked(false)
 };
 
-
+debugger
     return (
         <>
 
