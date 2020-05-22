@@ -15,8 +15,7 @@ const GameFieldContainer = (props: OwnPropsType) => {
     const minGrade = cards.reduce((acc, el) => acc.grade < el.grade ? acc : el) ///получаем минимальный элемент grade
 
     const nextCard = () => {
-        setCardOfNumber(cardOfNumber + 1)
-
+        // setCardOfNumber(cardOfNumber + 1)
     };
     if (cards[cardOfNumber] === undefined) {
         setCardOfNumber(0)
@@ -30,7 +29,7 @@ const GameFieldContainer = (props: OwnPropsType) => {
  Math.floor(Math.random() * 5)
         props.updateCards(updatedCard)
     };
-    console.log(cards.map(c=>c.grade))
+    console.log(cards.map(c => c.grade))
 
     return (
         <GameField card={card}
