@@ -11,6 +11,8 @@ export const authApi = {
     login(email: string, password: string, rememberMe: boolean) {
         return instance.post("auth/login", {email, password, rememberMe})
             .then(response => {
+                localStorage.removeItem('auth-token');
+                localStorage.setItem('auth-token', response.data.token);
                 return response.data
             })
     },
@@ -65,6 +67,7 @@ export const decksApi = {
                 localStorage.setItem('auth-token', response.data.token);
                 return response
             })
+
     },
     getDeck(token: string | null, name:string, minValue:number, maxValue:number) {
         return instance.get(`cards/pack?token=${token}`+(minValue && maxValue && `&min=${minValue}&max=${maxValue}`+ name && `&packName=${name}`))

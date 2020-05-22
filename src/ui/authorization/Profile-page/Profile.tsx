@@ -4,12 +4,14 @@ import {connect} from "react-redux";
 import {approveAuth} from "../../../bll/reducers/profile-reducer";
 
 type OwnPropsType = {
-    approveAuth: ()=>void
+    approveAuth: (login: boolean)=>void
 }
 
 const Profile = (props:OwnPropsType) => {
 
-    props.approveAuth()
+    let authToken = localStorage.getItem('auth-token');
+    const approve = !!authToken; //authToken?true:false;
+    props.approveAuth(approve);
 
 
     return (
