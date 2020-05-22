@@ -36,6 +36,13 @@ const initialState = {
             answer: 'something else 4',
             grade: 5,
             shots: 1
+        },{
+            cardsPack_id: '5ebe22ad7b58e90004b4b1e12',
+            _id: '',
+            question: 'something 5',
+            answer: 'something else 5',
+            grade: 2,
+            shots: 1
         },
 
     ],
