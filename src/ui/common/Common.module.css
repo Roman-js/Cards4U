@@ -5,13 +5,13 @@
 
 .forInput{
     background-color: darkolivegreen;
-    border: 1px solid blanchedalmond;
+    border: 0px solid blanchedalmond;
     margin: 1px;
     padding: 6px;
     color:antiquewhite;
 }
 .forInput::placeholder{
-    color:white
+    color: darkgrey;
 }
 
 .forButton{

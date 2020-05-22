@@ -117,6 +117,7 @@ export const cardsApi = {
 
     getCards(id: string){
         const token = localStorage.getItem('auth-token');
+        console.log(id);
         return instance.get(`cards/card?cardsPack_id=${id}&token=${token}`)
             .then(response=>{
                 localStorage.removeItem('auth-token');

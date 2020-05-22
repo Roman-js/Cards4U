@@ -76,10 +76,10 @@ const CardsTable = (props: OwnPropsType) => {
                     </th>
                 </tr>
                 {props.cards.map(card =>
-                    <tr className={style.cells}>
+                    <tr className={style.cells} key={card._id}>
                         <td>{card.question}{' '}</td>
                         <td>{card.grade}</td>
-                        <td>{card.answer}{' '}<Button actionOfButton={()=>onUpdateCard(card)} nameOfButton='Update'
+                        <td>{">>>>>>......<<<<<<"}{' '}<Button actionOfButton={()=>onUpdateCard(card)} nameOfButton='Update'
                                                       typeOfButton="button"/>
                             <Button actionOfButton={() => sendDeleteCard(card._id)} nameOfButton='Delete'
                                     typeOfButton="button"/>

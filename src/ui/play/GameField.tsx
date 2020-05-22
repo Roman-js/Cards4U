@@ -10,6 +10,7 @@ type OwnPropsType = {
 }
 const GameField = (props: OwnPropsType) => {
    const [checked, setChecked] = useState(false);
+   const [grade, setGrade] = useState(0);
 
 
    const showAnswer = () =>{
@@ -18,9 +19,9 @@ const GameField = (props: OwnPropsType) => {
 const nextCard = () =>{
     props.nextCard()
     setChecked(false)
+    props.setGrade(grade)
 };
 
-debugger
     return (
         <>
 
@@ -35,15 +36,15 @@ debugger
 
                 </div>
             <div>
-                <Button typeOfButton={"button"} actionOfButton={() => {props.setGrade(1)
+                <Button typeOfButton={"button"} actionOfButton={() => {setGrade(1)
                 }} nameOfButton={"didn't know"}/>{' '}
-                <Button typeOfButton={"button"} actionOfButton={() => {props.setGrade(2)
+                <Button typeOfButton={"button"} actionOfButton={() => {setGrade(2)
                 }} nameOfButton={"forgot"}/>{' '}
-                <Button typeOfButton={"button"} actionOfButton={() => {props.setGrade(3)
+                <Button typeOfButton={"button"} actionOfButton={() => {setGrade(3)
                 }} nameOfButton={"spend a lot of time"}/>{' '}
-                <Button typeOfButton={"button"} actionOfButton={() => {props.setGrade(4)
+                <Button typeOfButton={"button"} actionOfButton={() => {setGrade(4)
                 }} nameOfButton={"mixed up"}/>{' '}
-                <Button typeOfButton={"button"} actionOfButton={() => {props.setGrade(5)
+                <Button typeOfButton={"button"} actionOfButton={() => {setGrade(5)
                 }} nameOfButton={"knew"}/>{' '}
             </div>
             <div> <Button typeOfButton={"button"} actionOfButton={nextCard} nameOfButton={"NEXT"}/></div>
