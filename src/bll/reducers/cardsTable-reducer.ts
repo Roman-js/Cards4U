@@ -143,10 +143,9 @@ export const getCards = (id: string) =>
 export const updateCards = (card: any) =>
     async (dispatch: ThunkDispatch<AppStoreType, {}, any>,
            getState: AppStoreType) => {
-        debugger
+
         await cardsApi.updateCard(card)
             .then(updatedCard => {
-                debugger
                 dispatch({type: UPDATE_CARD, updatedCard})
             })
     };
