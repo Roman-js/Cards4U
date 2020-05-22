@@ -26,7 +26,7 @@ const GameFieldContainer = (props: OwnPropsType) => {
     const setGrade = (grade: number) => {
         const newGrade = (card.shots * card.grade + grade) / (card.shots + 1);
         const updatedCard = {...card, shots: card.shots + 1, grade: newGrade};
-
+ Math.floor(Math.random() * 5)
         props.updateCards(updatedCard)
     };
     console.log(cards.map(c => c.grade))

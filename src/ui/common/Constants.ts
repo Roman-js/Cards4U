@@ -22,6 +22,7 @@ export const SET_LOADING_DATA = 'SET-LOADING-DATA';
 export const SET_SIGN_IN_FORM_VALUES = 'SET-SIGN-IN-FORM-VALUES';
 export const IS_TOKEN_HAS = 'IS-TOKEN-HAS';
 export const SET_ERROR_SIGN_IN_PAGE = 'SET-ERROR-SIGN-IN-PAGE';
+export const REDIRECT_OFF = 'REDIRECT-OFF';
 
 //constants for Forgot-page
 export const SET_LOADING_DATA_FORGOT_PAGE = 'SET-LOADING-DATA-FORGOT-PAGE';
@@ -47,3 +48,7 @@ export const ADD_NEW_CARD = 'ADD-NEW-CARD';
 export const DELETE_CARD = 'DELETE-CARD';
 export const GET_CARDS = 'GET-CARDS';
 export const UPDATE_CARD = 'UPDATE-CARD';
+
+//constants for ProfilePage
+
+export const LOGIN_SUCCESS = 'LOGIN-SUCCESS';

@@ -1,23 +1,29 @@
 import React, {useEffect, useState} from "react";
 import Header from "./Header";
+import {useDispatch, useSelector} from "react-redux";
+import {AppStoreType} from "../../../bll/store";
+import {LOGIN_SUCCESS, REDIRECT_OFF} from "../../common/Constants";
 
 const HeaderContainer = () =>{
 
 
-    const [login, setLogin] = useState(false);
 
-    let authToken = localStorage.getItem('auth-token');
-    useEffect(()=>{authToken?setLogin(true):setLogin(false)}, []);
+    const auth = useSelector((state:AppStoreType)=>state.profile.login);
+    const dispatch = useDispatch();
+
+    //let authToken = localStorage.getItem('auth-token');
+    //useEffect(()=>{auth?setLogin(true):setLogin(false)}, [authToken]);
 
 
     let tokenIsClear = () => {
         localStorage.removeItem('auth-token');
         localStorage.removeItem('user-id');
-        setLogin(false)
+        dispatch({type: LOGIN_SUCCESS, login: false});
+        dispatch({type: REDIRECT_OFF})
 
     };
     return(
-        <Header login={login} tokenIsClear={tokenIsClear}/>
+        <Header login={auth} tokenIsClear={tokenIsClear}/>
     )
 };
 

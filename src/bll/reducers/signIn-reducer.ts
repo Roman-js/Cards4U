@@ -1,6 +1,6 @@
 import React from "react";
 import {
-    IS_TOKEN_HAS,
+    IS_TOKEN_HAS, REDIRECT_OFF,
     SET_ERROR_SIGN_IN_PAGE,
     SET_LOADING_DATA,
     SET_SIGN_IN_FORM_VALUES
@@ -65,6 +65,12 @@ const signInReducer = (state = initialState, action: any) => {
             return {
                 ...state,
                 authToken: action.authToken
+            }
+        }
+        case REDIRECT_OFF:{
+            return {
+                ...state,
+                redirect: false
             }
         }
             default: return state
