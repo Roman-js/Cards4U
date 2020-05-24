@@ -9,7 +9,7 @@ import {setSignInFormValues} from "../../../bll/reducers/signIn-reducer";
 type OwnPropsType = {
     setSignInFormValues: (email: string, password: string, rememberMe: boolean)=>void
 }
-const SignInContainer = (props: OwnPropsType) => {
+const SignInContainer: React.FC<OwnPropsType> = (props: OwnPropsType) => {
 
     const dispatch = useDispatch();
 

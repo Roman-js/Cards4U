@@ -14,7 +14,7 @@ type OwnPropsType = {
     toCleanErrorField: ()=>void
 }
 
-const SetNewPass = (props: OwnPropsType) => {
+const SetNewPass: React.FC<OwnPropsType> = (props) => {
 
     const [newPass, setNewPass] = useState('');
     const [repeatNewPass, setRepeatNewPass] = useState('');

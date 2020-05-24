@@ -1,4 +1,3 @@
-import React from "react";
 import {
     RESTORE_FORGOT_PASSWORD,
     SET_LOADING_DATA_FORGOT_PAGE,
@@ -51,7 +50,6 @@ export const setForgotPassword = (email: string) =>
         dispatch: ThunkDispatch<AppStoreType, {}, any>,
         getStore: AppStoreType
     ) => {
-
         dispatch({type: SET_LOADING_DATA_FORGOT_PAGE, loading: true, disabled: true});
         try {
             const data = await authApi.forgotPass(email, html1, html2);
@@ -63,7 +61,6 @@ export const setForgotPassword = (email: string) =>
             const error = e.response.data.error;
             dispatch({type: SET_VALUE_ERROR_FORGOT_PAGE, error: error})
             dispatch({type: SET_LOADING_DATA_FORGOT_PAGE, loading: false, disabled: false})
-
         }
 
     };
@@ -79,6 +76,5 @@ export const toCleanError = () =>
             console.log(e);
         }
     };
-
 
 export default forgotReducer

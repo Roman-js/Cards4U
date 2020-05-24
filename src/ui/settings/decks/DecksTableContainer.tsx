@@ -4,17 +4,17 @@ import {connect, useSelector} from "react-redux";
 import {AppStoreType} from "../../../bll/store";
 import {addNewDeck, deleteADeck, getDecks, updateDeck} from "../../../bll/reducers/decksTable-reducer";
 import {getCards} from "../../../bll/reducers/cardsTable-reducer";
-import {CardsPackUpdateType} from "./decksType";
+import {CardsPackType} from "./decksType";
 
 type OwnPropsType = {
-    addNewDeck: (name: string, rating: number)=>void,
-    deleteADeck: (id: string)=>void,
+    addNewDeck: (name: string , rating: number)=>void,
+    deleteADeck: (_id: string)=>void,
     getDecks: ()=>void,
-    getCards: (id:string)=>void,
-    updateDeck: (deck: CardsPackUpdateType)=>void
+    getCards: (id:string )=>void,
+    updateDeck: (deck: CardsPackType)=>void
 }
 
-const DecksTableContainer = (props: OwnPropsType) =>{
+const DecksTableContainer: React.FC<OwnPropsType> = (props) =>{
 
     const state = useSelector((state: AppStoreType) => state.decks.decks);
 
@@ -22,7 +22,7 @@ const DecksTableContainer = (props: OwnPropsType) =>{
     useEffect(() => {
         props.getDecks()
     }, []);
-    //debugger
+
     return(
         <DecksTable decks={state}
                     addNewDeck={props.addNewDeck}

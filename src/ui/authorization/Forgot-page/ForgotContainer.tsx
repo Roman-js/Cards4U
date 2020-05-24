@@ -5,8 +5,12 @@ import {AppStoreType} from "../../../bll/store";
 import {Redirect} from "react-router";
 import {setForgotPassword, toCleanError} from "../../../bll/reducers/forgot-reducer";
 
+type OwnPropsType = {
+    setForgotPassword: (email: string)=>void
+    toCleanError: ()=>void
+}
 
-const ForgotContainer = (props: any) => {
+const ForgotContainer: React.FC<OwnPropsType> = (props) => {
 
     const state = useSelector((state: AppStoreType) => state.forgot);
 

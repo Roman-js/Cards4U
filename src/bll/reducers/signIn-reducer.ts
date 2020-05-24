@@ -1,4 +1,4 @@
-import React from "react";
+
 import {
     IS_TOKEN_HAS, REDIRECT_OFF,
     SET_ERROR_SIGN_IN_PAGE,

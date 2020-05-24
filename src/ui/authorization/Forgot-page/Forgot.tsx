@@ -12,7 +12,7 @@ type OwnPropsType = {
     disabled: boolean
     error: string | null
 }
-const Forgot = (props: OwnPropsType) => {
+const Forgot: React.FC<OwnPropsType> = (props) => {
 
     const [email, setEmail] = useState('');
 

@@ -7,16 +7,17 @@ import Title from "../../common/Title";
 import SearchContainer from "../Search/SearchContainer";
 import Link from "../../common/LInk";
 import {CARDS_TABLE, PLAY} from "../../common/Constants";
+import {CardsPackType} from "./decksType";
 
 
 type OwnPropsType = {
-    decks: any[],
+    decks: CardsPackType[],
     addNewDeck: (name: string, rating: number) => void,
-    deleteADeck: (id: string) => void
-    getCards: (id:string)=>void
+    deleteADeck: (_id: string) => void
+    getCards: (id:string )=>void
     updateDeck: (deck: any)=>void
 }
-const DecksTable = (props: OwnPropsType) => {
+const DecksTable: React.FC<OwnPropsType> = (props) => {
 
     const [name, setName] = useState('');
     const [rating, setRating] = useState(0);
@@ -30,8 +31,8 @@ const DecksTable = (props: OwnPropsType) => {
     const sendNewDeck = () => {
         props.addNewDeck(name, rating)
     };
-    const sendDeleteDeck = (id: string) => {
-        props.deleteADeck(id)
+    const sendDeleteDeck = (_id: string ) => {
+        props.deleteADeck(_id)
     };
     const increment = () =>{
         setRating(rating + 1.0)
@@ -60,6 +61,7 @@ const DecksTable = (props: OwnPropsType) => {
             <SearchContainer/>
             <Title title='DECKS'/>
             <table className={style.Table}>
+                <tbody>
                 <tr>
                     <th><Input type={"text"} value={name} placeholder={'Deck\'s name'} onChange={nameOfNewDeck}/></th>
                     <th>Rating {' '} {rating} {' '}
@@ -81,6 +83,7 @@ const DecksTable = (props: OwnPropsType) => {
                             <span onClick={()=>props.getCards(deck._id)}><Link way={PLAY} wordOfLink={'play'}/></span>
                         </td>
                     </tr>)}
+                </tbody>
             </table>
 
             {update ?

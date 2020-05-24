@@ -6,7 +6,7 @@ type OwnPropsType = {
     way: string,
     wordOfLink: string
 }
-const Link = (props: OwnPropsType) =>{
+const Link: React.FC<OwnPropsType> = (props: OwnPropsType) =>{
 
     return(
         <NavLink className={styles.forLinks} to={props.way}>{props.wordOfLink}</NavLink>

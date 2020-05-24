@@ -1,18 +1,15 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import Header from "./Header";
 import {useDispatch, useSelector} from "react-redux";
 import {AppStoreType} from "../../../bll/store";
 import {LOGIN_SUCCESS, REDIRECT_OFF} from "../../common/Constants";
 
-const HeaderContainer = () =>{
+const HeaderContainer: React.FC = () =>{
 
 
 
     const auth = useSelector((state:AppStoreType)=>state.profile.login);
     const dispatch = useDispatch();
-
-    //let authToken = localStorage.getItem('auth-token');
-    //useEffect(()=>{auth?setLogin(true):setLogin(false)}, [authToken]);
 
 
     let tokenIsClear = () => {

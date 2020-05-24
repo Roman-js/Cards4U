@@ -3,14 +3,15 @@ import CardsTable from "./CardsTable";
 import {connect, useSelector} from "react-redux";
 import {AppStoreType} from "../../../bll/store";
 import {addNewCard, deleteACard, updateCards} from "../../../bll/reducers/cardsTable-reducer";
+import {CardsType} from "./cardsType";
 
 type OwnPropsType = {
     addNewCard: (question: string, answer: string, grade: number)=>void,
     deleteACard: (id: string)=>void,
-    updateCards: (card: any)=>void
+    updateCards: (card: CardsType)=>void
 }
 
-const CardsTableContainer = (props: OwnPropsType) => {
+const CardsTableContainer: React.FC<OwnPropsType> = (props) => {
 
 const state = useSelector((state:AppStoreType) => state.cards.theCards);
 

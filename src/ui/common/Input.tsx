@@ -11,7 +11,7 @@ type OwnPropsType = {
     onFocus?: (e: React.FocusEvent)=>void
 }
 
-const Input = (props: OwnPropsType) => {
+const Input: React.FC<OwnPropsType> = (props: OwnPropsType) => {
 
     return (
         <input className={styles.forInput}

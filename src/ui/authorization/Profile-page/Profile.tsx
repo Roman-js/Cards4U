@@ -1,5 +1,4 @@
-import React, {useEffect} from "react";
-import {authApi} from "../../../dal/api";
+import React from "react";
 import {connect} from "react-redux";
 import {approveAuth} from "../../../bll/reducers/profile-reducer";
 
@@ -7,7 +6,7 @@ type OwnPropsType = {
     approveAuth: (login: boolean)=>void
 }
 
-const Profile = (props:OwnPropsType) => {
+const Profile: React.FC<OwnPropsType> = (props:OwnPropsType) => {
 
     let authToken = localStorage.getItem('auth-token');
     const approve = !!authToken; //authToken?true:false;

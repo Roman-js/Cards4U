@@ -1,4 +1,4 @@
-import React from "react";
+
 import {SET_LOADING_VALUE, SET_NEW_TOKEN, SHOW_ERROR, TO_CLEAN_ERROR_FIELD} from "../../ui/common/Constants";
 import {authApi} from "../../dal/api";
 import {ThunkDispatch} from "redux-thunk";
@@ -68,13 +68,11 @@ export const setValueOfSetNewPassForm = (password: string, repeatPassword: strin
                     dispatch({type: SET_NEW_TOKEN, token: token});
                     dispatch({type: SET_LOADING_VALUE, loading: false, disabled: false})
                 }
-
                 catch(e) {
                         console.log(e.response);
                         dispatch({type: SHOW_ERROR, error: e.response.data.error})
                         dispatch({type: SET_LOADING_VALUE, loading: false, disabled: false})
                     }
-
         } else {
             dispatch({
                 type: SHOW_ERROR,

@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import Link from "../../common/LInk";
 import styles from './Header.module.css'
-import {CARDS_TABLE, DECKS_TABLE, FORGOT, PROFILE, REGISTER, SET_NEW_PASS, SIGN_IN} from "../../common/Constants";
+import {DECKS_TABLE, FORGOT, PROFILE, REGISTER, SET_NEW_PASS, SIGN_IN} from "../../common/Constants";
 import Button from "../../common/Button";
 
 
@@ -9,7 +9,7 @@ type OwnPropsType = {
     login: boolean,
     tokenIsClear: ()=>void
 }
-const Header = (props: OwnPropsType) => {
+const Header: React.FC<OwnPropsType> = (props) => {
 
   const tokenIsClear = () =>{
       props.tokenIsClear();

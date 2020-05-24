@@ -1,4 +1,3 @@
-import React from "react";
 import {ThunkDispatch} from "redux-thunk";
 import {AppStoreType} from "../store";
 import {authApi} from "../../dal/api";
@@ -8,7 +7,7 @@ const initialState = {
     login: false
 };
 
-const profileReducer = (state = initialState, action: any) =>{
+const profileReducer = (state = initialState, action: any) => {
     switch (action.type) {
         case LOGIN_SUCCESS: {
             return {...state, login: action.login}
@@ -16,7 +15,7 @@ const profileReducer = (state = initialState, action: any) =>{
 
     }
 
-return  state
+    return state
 };
 
 export default profileReducer
@@ -26,11 +25,9 @@ export default profileReducer
 export const approveAuth = (login: boolean) =>
 
     async (dispatch: ThunkDispatch<AppStoreType, {}, any>,
-           getState: AppStoreType)=>{
+           getState: AppStoreType) => {
         let authToken = localStorage.getItem('auth-token');
-        await authApi.authMe(authToken)
-            .then(res=>{
-                dispatch({type: LOGIN_SUCCESS, login: login})
-            })
+        await authApi.authMe(authToken);
 
-    }
+        dispatch({type: LOGIN_SUCCESS, login: login})
+    };

@@ -1,14 +1,14 @@
 import React, {useState} from "react";
 import Button from "../common/Button";
 import style from './GameField.module.css'
-import {debuglog} from "util";
+import {CardsType} from "../settings/cards/cardsType";
 
 type OwnPropsType = {
-    card: any
+    card: CardsType
     nextCard: ()=>void
     setGrade: (grade: number)=>void
 }
-const GameField = (props: OwnPropsType) => {
+const GameField: React.FC<OwnPropsType> = (props) => {
    const [checked, setChecked] = useState(false);
    const [grade, setGrade] = useState(0);
 

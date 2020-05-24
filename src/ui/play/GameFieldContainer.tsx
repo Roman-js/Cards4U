@@ -3,11 +3,12 @@ import GameField from "./GameField";
 import {AppStoreType} from "../../bll/store";
 import {connect, useSelector} from "react-redux";
 import {updateCards} from "../../bll/reducers/cardsTable-reducer";
+import {CardsType} from "../settings/cards/cardsType";
 
 type OwnPropsType = {
-    updateCards: (card: any) => void
+    updateCards: (card: CardsType) => void
 }
-const GameFieldContainer = (props: OwnPropsType) => {
+const GameFieldContainer: React.FC<OwnPropsType> = (props) => {
 
     const [cardOfNumber, setCardOfNumber] = useState(0);
     const cards = useSelector((state: AppStoreType) => state.cards.theCards);

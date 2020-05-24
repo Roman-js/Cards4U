@@ -4,15 +4,16 @@ import style from "./CardsTable.module.css";
 import Input from "../../common/Input";
 import Button from "../../common/Button";
 import SearchContainer from "../Search/SearchContainer";
+import {CardsType} from "./cardsType";
 
 
 type OwnPropsType = {
-    cards: any[]
+    cards: CardsType[]
     addNewCard: (question: string, answer: string, grade: number) => void,
     deleteACard: (id: string) => void
-    updateCards: (card: any) => void
+    updateCards: (card: CardsType) => void
 }
-const CardsTable = (props: OwnPropsType) => {
+const CardsTable: React.FC<OwnPropsType> = (props) => {
 
     const [question, setQuestion] = useState('');
     const [answer, setAnswer] = useState('');
@@ -34,7 +35,7 @@ const CardsTable = (props: OwnPropsType) => {
     const sendDeleteCard = (id: string) => {
         props.deleteACard(id)
     };
-    const onUpdateCard = (card: any) => {
+    const onUpdateCard = (card: CardsType) => {
         setUpdate(true);
         setChangeQuestion(card.question);
         setChangeAnswer(card.answer);
@@ -43,12 +44,12 @@ const CardsTable = (props: OwnPropsType) => {
     const offUpdateCard = () => {
         setUpdate(false);
         const updatedCardSuccess = {...updatedCard, question: changeQuestion, answer: changeAnswer};
-        props.updateCards(updatedCardSuccess)
+        props.updateCards(updatedCardSuccess as CardsType)
     };
-    const onUpdateCardQuestion = (e: ChangeEvent<HTMLTextAreaElement>) =>{
+    const onUpdateCardQuestion = (e: ChangeEvent<HTMLTextAreaElement>) => {
         setChangeQuestion(e.currentTarget.value)
     };
-    const onUpdateCardAnswer = (e: ChangeEvent<HTMLTextAreaElement>) =>{
+    const onUpdateCardAnswer = (e: ChangeEvent<HTMLTextAreaElement>) => {
         setChangeAnswer(e.currentTarget.value)
     };
 
@@ -61,9 +62,10 @@ const CardsTable = (props: OwnPropsType) => {
 
     return (
         <>
-            <SearchContainer />
+            <SearchContainer/>
             <Title title='CARDS'/>
             <table className={style.Table}>
+                <tbody>
                 <tr>
                     <th><Input type={"text"} value={question} placeholder={'Question'} onChange={textOfQuestion}/></th>
                     <th>Grade {' '} {grade} {' '}
@@ -79,14 +81,19 @@ const CardsTable = (props: OwnPropsType) => {
                     <tr className={style.cells} key={card._id}>
                         <td>{card.question}{' '}</td>
                         <td>{card.grade}</td>
-                        <td>{">>>>>>......<<<<<<"}{' '}<Button actionOfButton={()=>onUpdateCard(card)} nameOfButton='Update'
-                                                      typeOfButton="button"/>
-                            <Button actionOfButton={() => sendDeleteCard(card._id)} nameOfButton='Delete'
+                        <td>{">>>>>>......<<<<<<"}{' '}
+                            <Button actionOfButton={() => onUpdateCard(card)} nameOfButton='Update'
                                     typeOfButton="button"/>
+                            <Button actionOfButton={
+                                () => sendDeleteCard(card._id)
+                            } nameOfButton='Delete'
+                                    typeOfButton="button"/>
+
                         </td>
                     </tr>)}
-
+                </tbody>
             </table>
+
             {update ?
                 <div className={style.updateCard}>
                     <div className={style.fieldOfUpdate}>
@@ -94,12 +101,11 @@ const CardsTable = (props: OwnPropsType) => {
                         <textarea placeholder={'Question'} onChange={onUpdateCardQuestion} value={changeQuestion}/>
                         <textarea placeholder={'Answer'} onChange={onUpdateCardAnswer} value={changeAnswer}/>
                         <button onClick={offUpdateCard}>Save</button>
-                        <button onClick={()=>setUpdate(false)}>Cancel</button>
+                        <button onClick={() => setUpdate(false)}>Cancel</button>
                     </div>
                 </div> : null}
-
         </>
     )
-}
+};
 
 export default CardsTable

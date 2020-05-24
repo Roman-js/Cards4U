@@ -2,7 +2,7 @@ import {ADD_NEW_DECK, DELETE_DECK, GET_DECKS, UPDATE_DECK} from "../../ui/common
 import {ThunkDispatch} from "redux-thunk";
 import {AppStoreType} from "../store";
 import {decksApi} from "../../dal/api";
-import {CardsPackUpdateType} from "../../ui/settings/decks/decksType";
+import {CardsPackType} from "../../ui/settings/decks/decksType";
 
 
 const initialState = {
@@ -41,8 +41,8 @@ const decksTableReducer = (state = initialState, action: any) => {
 
         case UPDATE_DECK:
             return {
-                ...state, decks: state.decks.map(deck=>{
-                    return deck._id === action.updateCardsDeck._id ? action.updateCardsDeck: deck
+                ...state, decks: state.decks.map(deck => {
+                    return deck._id === action.updateCardsDeck._id ? action.updateCardsDeck : deck
                 })
             }
 
@@ -54,55 +54,65 @@ const decksTableReducer = (state = initialState, action: any) => {
 export default decksTableReducer
 
 ////////////////////////////////////////thunks
+
 export const addNewDeck = (name: string, rating: number) =>
     async (dispatch: ThunkDispatch<AppStoreType, {}, any>,
            getState: AppStoreType) => {
 
         const token = localStorage.getItem('auth-token');
-        const userId = localStorage.getItem('user-id');
+        const userId = localStorage.getItem('user-id') as string;
 
-        await decksApi.addDeck({name: name, user_id: userId, rating: rating}, token)
-            .then(response => {
-                const newCardsPack = response.newCardsPack;
-                dispatch({type: ADD_NEW_DECK, newCardsPack});
-                console.log(response);
-            })
+        const response = await decksApi.addDeck({name: name, user_id: userId, rating: rating}, token)
 
+        const newCardsPack = response.newCardsPack;
+        dispatch({type: ADD_NEW_DECK, newCardsPack});
+        console.log(response);
+        try {
+        } catch (e) {
+            console.log(e.data)
+        }
     };
 
 export const deleteADeck = (_id: string) =>
     async (dispatch: ThunkDispatch<AppStoreType, {}, any>,
            getState: AppStoreType) => {
 
-
         await decksApi.deleteDeck(_id)
-            .then(data=>{
-                dispatch({type: DELETE_DECK, _id});
-            })
+        dispatch({type: DELETE_DECK, _id});
+        try {
+        } catch (e) {
+            console.log(e.data)
+        }
     };
 
 export const getDecks = () =>
     async (dispatch: ThunkDispatch<AppStoreType, {}, any>,
-           getState:() => AppStoreType) => {
+           getState: () => AppStoreType) => {
+
         const token = localStorage.getItem('auth-token');
         const {name} = getState().search
         const {minValue, maxValue} = getState().search
-       await decksApi.getDeck(token, name, minValue, maxValue)
-           .then(data=>{
-               localStorage.removeItem('auth-token');
-               localStorage.setItem('auth-token', data.token);
 
-               const cardPacks = data.cardPacks;
-               dispatch({type: GET_DECKS, cardPacks})
-           })
+        const data = await decksApi.getDeck(token, name, minValue, maxValue)
+        localStorage.removeItem('auth-token');
+        localStorage.setItem('auth-token', data.token);
+
+        const cardPacks = data.cardPacks;
+        dispatch({type: GET_DECKS, cardPacks})
+        try {
+        } catch (e) {
+            console.log(e.data)
+        }
     };
 
-export const updateDeck = (deck: CardsPackUpdateType)=>
+export const updateDeck = (deck: CardsPackType) =>
     async (dispatch: ThunkDispatch<AppStoreType, {}, any>,
            getState: AppStoreType) => {
-    await decksApi.updateDeck(deck)
-        .then(updateCardsDeck=>{
-            dispatch({type: UPDATE_DECK, updateCardsDeck})
-        })
 
+        const updateCardsDeck = await decksApi.updateDeck(deck)
+        dispatch({type: UPDATE_DECK, updateCardsDeck})
+        try {
+        } catch (e) {
+            console.log(e.data)
+        }
     };
