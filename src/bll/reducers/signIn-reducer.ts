@@ -19,7 +19,7 @@ const initialState: signInitialStateType = {
     token: '',
     redirect: false,
     authToken: ''
-}
+};
 
 export type signInitialStateType = {
     email: string

@@ -47,6 +47,6 @@ const Forgot: React.FC<OwnPropsType> = (props) => {
         </div>
 
     )
-}
+};
 
 export default Forgot

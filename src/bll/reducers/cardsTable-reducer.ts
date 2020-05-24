@@ -80,7 +80,7 @@ export const deleteACard = (id: string) =>
     async (dispatch: ThunkDispatch<AppStoreType, {}, any>,
            getState: AppStoreType) => {
 
-        const data = await cardsApi.deleteCard(id)
+        const data = await cardsApi.deleteCard(id);
         const cardsPack_id = data.deletedCard._id;
         dispatch({type: DELETE_CARD, _id: cardsPack_id});
         try {
@@ -93,7 +93,7 @@ export const deleteACard = (id: string) =>
 export const getCards = (id: string) =>
     async (dispatch: ThunkDispatch<AppStoreType, {}, any>,
            getState: AppStoreType) => {
-        const data = await cardsApi.getCards(id)
+        const data = await cardsApi.getCards(id);
         const cards = data.cards;
         const cardsPack_id = localStorage.getItem('cardsPack_id');
         dispatch({type: GET_CARDS, cards, cardsPack_id});

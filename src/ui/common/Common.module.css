@@ -5,7 +5,7 @@
 
 .forInput{
     background-color: darkolivegreen;
-    border: 0px solid blanchedalmond;
+    border: 0 solid blanchedalmond;
     margin: 1px;
     padding: 6px;
     color:antiquewhite;
@@ -17,8 +17,8 @@
 .forButton{
     background-color: #282c34;
     color: whitesmoke;
-    border: 0px;
-    margin: 5px 0px;
+    border: 0;
+    margin: 5px 0;
     padding: 6px;
 }
 

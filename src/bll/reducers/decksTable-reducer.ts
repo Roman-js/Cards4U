@@ -44,7 +44,7 @@ const decksTableReducer = (state = initialState, action: any) => {
                 ...state, decks: state.decks.map(deck => {
                     return deck._id === action.updateCardsDeck._id ? action.updateCardsDeck : deck
                 })
-            }
+            };
 
         default:
             return state
@@ -62,7 +62,7 @@ export const addNewDeck = (name: string, rating: number) =>
         const token = localStorage.getItem('auth-token');
         const userId = localStorage.getItem('user-id') as string;
 
-        const response = await decksApi.addDeck({name: name, user_id: userId, rating: rating}, token)
+        const response = await decksApi.addDeck({name: name, user_id: userId, rating: rating}, token);
 
         const newCardsPack = response.newCardsPack;
         dispatch({type: ADD_NEW_DECK, newCardsPack});
@@ -77,7 +77,7 @@ export const deleteADeck = (_id: string) =>
     async (dispatch: ThunkDispatch<AppStoreType, {}, any>,
            getState: AppStoreType) => {
 
-        await decksApi.deleteDeck(_id)
+        await decksApi.deleteDeck(_id);
         dispatch({type: DELETE_DECK, _id});
         try {
         } catch (e) {
@@ -90,15 +90,15 @@ export const getDecks = () =>
            getState: () => AppStoreType) => {
 
         const token = localStorage.getItem('auth-token');
-        const {name} = getState().search
-        const {minValue, maxValue} = getState().search
+        const {name} = getState().search;
+        const {minValue, maxValue} = getState().search;
 
-        const data = await decksApi.getDeck(token, name, minValue, maxValue)
+        const data = await decksApi.getDeck(token, name, minValue, maxValue);
         localStorage.removeItem('auth-token');
         localStorage.setItem('auth-token', data.token);
 
         const cardPacks = data.cardPacks;
-        dispatch({type: GET_DECKS, cardPacks})
+        dispatch({type: GET_DECKS, cardPacks});
         try {
         } catch (e) {
             console.log(e.data)
@@ -109,8 +109,8 @@ export const updateDeck = (deck: CardsPackType) =>
     async (dispatch: ThunkDispatch<AppStoreType, {}, any>,
            getState: AppStoreType) => {
 
-        const updateCardsDeck = await decksApi.updateDeck(deck)
-        dispatch({type: UPDATE_DECK, updateCardsDeck})
+        const updateCardsDeck = await decksApi.updateDeck(deck);
+        dispatch({type: UPDATE_DECK, updateCardsDeck});
         try {
         } catch (e) {
             console.log(e.data)

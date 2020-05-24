@@ -33,7 +33,7 @@ const SetNewPass: React.FC<OwnPropsType> = (props) => {
     };
     const toCleanField = () =>{
         props.toCleanErrorField()
-    }
+    };
 
     return (
         <div className={styles.wrapperOfAuth}>

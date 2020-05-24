@@ -17,8 +17,8 @@ const GameField: React.FC<OwnPropsType> = (props) => {
        setChecked(true)
    };
 const nextCard = () =>{
-    props.nextCard()
-    setChecked(false)
+    props.nextCard();
+    setChecked(false);
     props.setGrade(grade)
 };
 

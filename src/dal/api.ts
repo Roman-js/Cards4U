@@ -65,7 +65,7 @@ export const decksApi = {
     deleteDeck(id: string) {
         const token = localStorage.getItem('auth-token');
         return instance.delete(`cards/pack?token=${token}&id=${id}`)
-            .then(response=>{console.log(response)
+            .then(response=>{console.log(response);
                 localStorage.removeItem('auth-token');
                 localStorage.setItem('auth-token', response.data.token);
                 return response

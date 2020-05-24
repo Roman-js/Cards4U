@@ -13,7 +13,7 @@ const initialState = {
     disabled: false,
     error: null,
     emailApproved: false
-}
+};
 
 const forgotReducer = (state = initialState, action: any) =>{
    switch (action.type) {
@@ -39,7 +39,7 @@ const forgotReducer = (state = initialState, action: any) =>{
            default: return state
    }
 
-}
+};
 
 const html1 = "<a href=http://localhost:3000/template-typescript#/set-new-pass/";
 const html2 = ">reset-password-link</a>";
@@ -59,7 +59,7 @@ export const setForgotPassword = (email: string) =>
         } catch (e) {
             console.log(e.response.data.error);
             const error = e.response.data.error;
-            dispatch({type: SET_VALUE_ERROR_FORGOT_PAGE, error: error})
+            dispatch({type: SET_VALUE_ERROR_FORGOT_PAGE, error: error});
             dispatch({type: SET_LOADING_DATA_FORGOT_PAGE, loading: false, disabled: false})
         }
 

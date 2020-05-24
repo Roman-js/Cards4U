@@ -9,7 +9,7 @@ const initialState: initialStateType = {
     token: '',
     loading: null,
     disabled: false
-}
+};
 
 type initialStateType = {
     error: string | null,
@@ -70,7 +70,7 @@ export const setValueOfSetNewPassForm = (password: string, repeatPassword: strin
                 }
                 catch(e) {
                         console.log(e.response);
-                        dispatch({type: SHOW_ERROR, error: e.response.data.error})
+                        dispatch({type: SHOW_ERROR, error: e.response.data.error});
                         dispatch({type: SET_LOADING_VALUE, loading: false, disabled: false})
                     }
         } else {

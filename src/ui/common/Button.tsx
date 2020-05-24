@@ -21,7 +21,7 @@ const Button: React.FC<OwnPropsType> = (props: OwnPropsType) =>{
             {props.nameOfButton}
         </button>
     )
-}
+};
 
 export default Button
 

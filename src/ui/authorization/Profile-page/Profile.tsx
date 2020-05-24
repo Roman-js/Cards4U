@@ -21,6 +21,6 @@ const Profile: React.FC<OwnPropsType> = (props:OwnPropsType) => {
             {/*    // <Redirect to={SIGN_IN}/>}*/}
         </div>
     )
-}
+};
 
 export default connect(null, {approveAuth})(Profile)
