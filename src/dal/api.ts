@@ -74,9 +74,8 @@ export const decksApi = {
 
     },
     getDeck(token: string | null, name: string, minValue: number, maxValue: number) {
-        return instance.get(`cards/pack?token=${token}`
-            + (minValue && maxValue && `&min=${minValue}&max=${maxValue}`
-                + name && `&packName=${name}`))
+        return instance.get(`cards/pack?token=${token}` + (minValue && maxValue && `&min=${minValue}&max=${maxValue}` + name && `&packName=${name}`))
+            // +(name && `&packName=${name}`))
             .then(response => {
                 console.log(response.data);
                 changeToken(response.data.token);
@@ -99,9 +98,9 @@ export const cardsApi = {
     addCard(card: addCardType) {
         return instance.post('cards/card', card)
             .then(response => {
-                /*  localStorage.removeItem('auth-token');
-                  localStorage.setItem('auth-token', response.data.token);*/
-                changeToken(response.data.token);
+              /*  localStorage.removeItem('auth-token');
+                localStorage.setItem('auth-token', response.data.token);*/
+              changeToken(response.data.token);
                 return response.data
             })
 
@@ -155,7 +154,7 @@ export const filesApi = {
 
     postFile(file: string) {
         return instance.post('/file', {myFile: file})
-            .then(response => {
+            .then(response=> {
                 return response.data
             })
     }
