@@ -9,6 +9,7 @@ export const PROFILE = '/profile';
 export const CARDS_TABLE = '/cards-table';
 export const DECKS_TABLE = '/decks-table';
 export const PLAY = '/play';
+export const UPLOAD_FILE = '/upload-file';
 
 //constants for reducers
 
@@ -52,3 +53,8 @@ export const UPDATE_CARD = 'UPDATE-CARD';
 //constants for ProfilePage
 
 export const LOGIN_SUCCESS = 'LOGIN-SUCCESS';
+
+//constants for UploadFile
+
+
+
