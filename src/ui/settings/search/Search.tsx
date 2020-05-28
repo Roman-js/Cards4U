@@ -23,9 +23,7 @@ const Search: React.FC<OwnPropsType> = ({minValue, maxValue}) => {
     }
 
     const dispatch = useDispatch();
-    // const search = (minValue:number, maxValue:number) => dispatch(setRangeValue(minValue, maxValue))
     const search = () => dispatch(setSearchName(name, values[0], values[1]))
-    //(name:string, minValue:number, maxValue:number) => dispatch(setSearchName((name, minValue, maxValue))
 
     return (
         <div className={s.settings}>
