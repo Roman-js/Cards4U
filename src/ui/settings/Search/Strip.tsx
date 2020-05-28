@@ -3,10 +3,10 @@ import { Range, getTrackBackground } from "react-range";
 
 const STEP = 1;
 const MIN = 0;
-const MAX = 30 ;
+const MAX = 200;
 type OwnPropsType = {
     handleStrip:(values:number[])=>void,
-    values: number[],
+    values: number[]
 }
 
 class Strip extends React.Component<OwnPropsType> {
@@ -84,10 +84,10 @@ class Strip extends React.Component<OwnPropsType> {
                         </div>
                     )}
                 />
-                <label style={{ margin: "10px", color:'white'}} id="output">
+                <label style={{ margin: "10px", }} id="output">
                     {this.props.values[0].toFixed(1)}
                 </label>
-                <label style={{ margin: "10px", color:'white' }} id="output">
+                <label style={{ margin: "10px" }} id="output">
                     {this.props.values[1].toFixed(1)}
                 </label>
             </div>

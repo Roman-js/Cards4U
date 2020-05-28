@@ -4,7 +4,7 @@ import style from './DecksTable.module.css';
 import Button from "../../common/Button";
 import Input from "../../common/Input";
 import Title from "../../common/Title";
-import SearchContainer from "../search/SearchContainer";
+import SearchContainer from "../Search/SearchContainer";
 import Link from "../../common/LInk";
 import {CARDS_TABLE, PLAY} from "../../common/Constants";
 import {CardsPackType} from "./decksType";

@@ -3,7 +3,7 @@ import Title from "../../common/Title";
 import style from "./CardsTable.module.css";
 import Input from "../../common/Input";
 import Button from "../../common/Button";
-import SearchContainer from "../search/SearchContainer";
+import SearchContainer from "../Search/SearchContainer";
 import {CardsType} from "./cardsType";
 
 

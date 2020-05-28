@@ -56,9 +56,5 @@ export const LOGIN_SUCCESS = 'LOGIN-SUCCESS';
 
 //constants for UploadFile
 
-//constants for search reducer
-
-export const SET_SEARCHING_NAME = 'reducer/SET-SEARCHING-NAME'
-
 
 
