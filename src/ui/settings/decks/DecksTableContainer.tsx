@@ -20,7 +20,7 @@ const DecksTableContainer: React.FC<OwnPropsType> = (props) =>{
 
 
     useEffect(() => {
-        props.getDecks()
+        props.getDecks();
     }, []);
 
     return(

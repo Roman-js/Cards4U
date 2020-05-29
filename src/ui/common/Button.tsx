@@ -1,5 +1,6 @@
 import React from "react";
 import styles from './Common.module.css'
+import {Link} from "react-router-dom";
 
 type OwnPropsType = {
     typeOfButton: "button" | "submit" | "reset" | undefined,

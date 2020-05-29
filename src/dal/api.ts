@@ -74,8 +74,9 @@ export const decksApi = {
 
     },
     getDeck(token: string | null, name: string, minValue: number, maxValue: number) {
-        return instance.get(`cards/pack?token=${token}` + (minValue && maxValue && `&min=${minValue}&max=${maxValue}` + name && `&packName=${name}`))
-            // +(name && `&packName=${name}`))
+        return instance.get(`cards/pack?token=${token}` +
+            (minValue && maxValue && `&min=${minValue}&max=${maxValue}` +
+                name && `&packName=${name}` + `&pageCount=6`))
             .then(response => {
                 console.log(response.data);
                 changeToken(response.data.token);

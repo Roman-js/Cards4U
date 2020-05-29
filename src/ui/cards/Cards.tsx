@@ -22,6 +22,7 @@ import DecksTableContainer from "../settings/decks/DecksTableContainer";
 import CardsTableContainer from "../settings/cards/CardsTableContainer";
 import GameFieldContainer from "../play/GameFieldContainer";
 import UploadFile from "../common/uploadFile/uploadFile";
+import ProfileContainer from "../authorization/Profile-page/ProfileContainer";
 
 
 const Cards = () => {
@@ -34,7 +35,7 @@ const Cards = () => {
             <Route path={REGISTER} render={() => <RegisterContainer/>}/>
             <Route path={FORGOT} render={() => <ForgotContainer/>}/>
             <Route path={SET_NEW_PASS} render={() => <SetNewPassContainer />}/>
-            <Route path={PROFILE} render={() => <Profile />}/>
+            <Route path={PROFILE} render={() => <ProfileContainer />}/>
 
             <Route path={DECKS_TABLE} render={()=> <DecksTableContainer />}/>
             <Route path={CARDS_TABLE} render={()=> <CardsTableContainer />} />
