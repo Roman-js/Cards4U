@@ -34,7 +34,7 @@
     justify-content: flex-end;
     align-items: stretch;
     background-color: black;
-    background-image: url("https://tesera.ru/images/items/1258229/810xm/photo.jpg");
+    background-image: url("./../../common/img/backImgOfProfile.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: 100% 40px;
@@ -63,4 +63,10 @@
     flex-direction: row;
     flex-wrap: wrap;
     margin-right: 32%;
+}
+
+.paginationButtons {
+
+    height: 40px;
+
 }

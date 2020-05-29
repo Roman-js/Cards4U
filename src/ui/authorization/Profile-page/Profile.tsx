@@ -37,10 +37,14 @@ const Profile: React.FC<OwnPropsType> = (props: OwnPropsType) => {
                 <div><Button typeOfButton={'button'} actionOfButton={() => {
                 }} nameOfButton='MY DECKS'/></div>
 
+                <div className={style.paginationButtons}>
+                    <Button typeOfButton={'button'} actionOfButton={()=>{}} nameOfButton={'PREVIOUS'}/>{'  '}
+                    <Button typeOfButton={'button'} actionOfButton={()=>{}} nameOfButton={'NEXT'}/>
+                </div>
+
             </div>
             <div className={style.appPart}>
                 <div className={style.decksWrapper}>
-
                     {props.decks.map(deck =>
                         <div className={style.deckCover}>
                             <Button typeOfButton='button' actionOfButton={() => { props.getCards(deck._id);
@@ -52,7 +56,6 @@ const Profile: React.FC<OwnPropsType> = (props: OwnPropsType) => {
                             </div>
                             <div className={style.decksName}><b>{deck.name}</b></div>
                         </div>)}
-
                 </div>
             </div>
             {toCards? <Redirect to={CARDS_TABLE}/>:null}
