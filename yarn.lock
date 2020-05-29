@@ -3560,6 +3560,11 @@ depd@~1.1.2:
   resolved "https://registry.yarnpkg.com/depd/-/depd-1.1.2.tgz#9bcd52e14c097763e749b274c4346ed2e560b5a9"
   integrity sha1-m81S4UwJd2PnSbJ0xDRu0uVgtak=
 
+deploy@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/deploy/-/deploy-1.0.3.tgz#ab846f5e228610054556d9b73df0b2f45af84fb0"
+  integrity sha1-q4RvXiKGEAVFVtm3PfCy9Fr4T7A=
+
 des.js@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/des.js/-/des.js-1.0.1.tgz#5382142e1bdc53f85d86d53e5f4aa7deb91e0843"
@@ -8630,15 +8635,20 @@ react-error-overlay@^6.0.7:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.7.tgz#1dcfb459ab671d53f660a991513cb2f0a0553108"
   integrity sha512-TAv1KJFh3RhqxNvhzxj6LeT5NWklP6rDr2a0jaTfsZ5wSZWHOGeqQyejUp3xxLfPt2UpyJEcVQB/zyPcmonNFA==
 
+react-hook-thunk-reducer@^0.2.4:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/react-hook-thunk-reducer/-/react-hook-thunk-reducer-0.2.4.tgz#b10bc27157836750e5cbf513bcaf0be02412406c"
+  integrity sha512-cuK5GkdhDjSaBrDZMP17bp8YVClrxHf8U39j1OOjCQksi6LgN+M5cRuNfGsEqqn1lvkhl48p2O5X35+BIrf47Q==
+
 react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.9.0:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-range@^1.6.6:
-  version "1.6.6"
-  resolved "https://registry.yarnpkg.com/react-range/-/react-range-1.6.6.tgz#dd92af04d30f80c79b7572756393896ffc9b7daf"
-  integrity sha512-4hxMwxx/TPYjxdKWrD8PYCvvO3vgbNqTcFI4qMEld1Ddp9gBJEZcS2BM634vUsSwGcrWTP67FxRhpbjI2Sbjfw==
+react-range@^1.6.2:
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/react-range/-/react-range-1.6.2.tgz#bcfcb3024e6b37d094fda2bcb81f14e7cbba91d5"
+  integrity sha512-8WBzsk0SRv1YD2Xjx+CQT3g7bIKu17xWAg9KwSpBmMoRCP93HZ+VNq/4q2rz92m7SncfGXeVYCNgDWpa4bo5jQ==
 
 react-redux@^7.2.0:
   version "7.2.0"

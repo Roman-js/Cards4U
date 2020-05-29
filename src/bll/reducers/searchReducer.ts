@@ -1,4 +1,19 @@
 import {getDecks} from "./decksTable-reducer";
+
+
+const initialState: any = {
+    name: '',
+    minValue: 70,
+    maxValue: 130
+};
+
+
+const searchingReducer = (state = initialState, action: any): any => {
+
+    switch (action.type) {
+
+        case 'SET_SEARCHING_NAME': {
+            debugger
 import {SET_SEARCHING_NAME} from "../../ui/common/Constants";
 import {searchInitialState, setSearchingNameSuccessActionType} from "../../ui/authorization/types/searchReducerTypes";
 import {getCards} from "./cardsTable-reducer";
@@ -58,5 +73,16 @@ export const setSearchCard = (id:string, name: string, minValue: number, maxValu
     debugger
     dispatch(setSearchingNameCardSuccess(id, name, minValue, maxValue))
     dispatch(getCards(id))
+//action creators
+
+export const setSearchingNameSuccess = (name: string, minValue: number, maxValue: number): any =>
+    ({type: 'SET_SEARCHING_NAME', name, minValue, maxValue})
+
+//thunks
+
+export const setSearchName = (name: string, minValue: number, maxValue: number) => (dispatch: any) => {
+    debugger
+    dispatch(setSearchingNameSuccess(name, minValue, maxValue))
+    dispatch(getDecks())
     // })
 }

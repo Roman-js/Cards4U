@@ -9,25 +9,27 @@ import {useDispatch} from "react-redux";
 import {setRegisterFormValues} from "../../../bll/reducers/register-reducer";
 
 type OwnPropsType = {
+    setRegisterFormValues: (email: string, password: string, repeatPassword: string) => void,
     loading: boolean,
     error:boolean,
     cancelErrorPosition:()=>void
 }
-const Register: React.FC<OwnPropsType> = ({loading, error, cancelErrorPosition}) => {
+const Register: React.FC<OwnPropsType> = ({setRegisterFormValues, loading, error, cancelErrorPosition}) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [repeatPassword, setRepeatPassword] = useState('')
-    const dispatch = useDispatch();
+    console.log(setRegisterFormValues)
+
 
     const changeEmail = (e: ChangeEvent<HTMLInputElement>) => setEmail(e.currentTarget.value)
     const changePassword = (e: ChangeEvent<HTMLInputElement>) => setPassword(e.currentTarget.value)
     const changeRepeatPassword = (e: ChangeEvent<HTMLInputElement>) => setRepeatPassword(e.currentTarget.value)
 
-    const toCleanErrorField = () => cancelErrorPosition()
+    const toCleanErrorField = () => {
+        return cancelErrorPosition()
+    }
 
-
-    const sendSignInFormValues = () => dispatch(setRegisterFormValues(email, password, repeatPassword))
-
+    const sendSignInFormValues = () => setRegisterFormValues(email, password, repeatPassword)
     return (
         <div className={styles.wrapperOfAuth}>
             <Title title={'Register'}/>

@@ -1,19 +1,25 @@
 import React from "react";
-import {connect, useSelector} from "react-redux";
-import {setSearchDeck} from "./../../../bll/reducers/searchReducer"
-import Search from "./Search";
+import {connect, useDispatch, useSelector} from "react-redux";
 import {AppStoreType} from "../../../bll/store";
+import {setSearchName} from "./../../../bll/reducers/searchReducer"
+import Search from "./Search";
+
+// type MapDispatchPropsType = {
+//     setSearchName: (name: string, minValue: number, maxValue: number) => void,
+//     minValue: number,
+//     maxValue: number
+// }
 
 const SearchContainer = () => {
 
-    const minValue = useSelector((state: AppStoreType) => state.search.minValue)
-    const maxValue = useSelector((state: AppStoreType) => state.search.maxValue)
-    // const id = useSelector((state: AppStoreType) => state.cards.id)
+    const dispatch = useDispatch()
 
+    const minValue = useSelector((state:any) => state.search.minValue)
+    const maxValue = useSelector((state:any) => state.search.maxValue)
 
     return (
-        <Search  minValue={minValue} maxValue={maxValue}/>
+        <Search setSearchName={setSearchName} minValue={minValue} maxValue={maxValue}/>
     )
 }
 
-export default connect(null, {setSearchDeck})(SearchContainer)
+export default connect(null, {setSearchName})(SearchContainer)
