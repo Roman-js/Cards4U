@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7569ca8f320d4bea4babc95cd819b4d8",
+    "revision": "e2f0e446621532bc2a43ff651fabc429",
     "url": "/template-typescript/index.html"
   },
   {
-    "revision": "4db5697ba177b0936bb9",
-    "url": "/template-typescript/static/css/main.f00c99a2.chunk.css"
+    "revision": "6bc2c60d76773716a83c",
+    "url": "/template-typescript/static/css/main.2eeb01d5.chunk.css"
   },
   {
     "revision": "b50263618803ef16b592",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/template-typescript/static/js/2.a92c92e3.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "4db5697ba177b0936bb9",
-    "url": "/template-typescript/static/js/main.fc1461e6.chunk.js"
+    "revision": "6bc2c60d76773716a83c",
+    "url": "/template-typescript/static/js/main.461bb321.chunk.js"
   },
   {
     "revision": "d68763a1155ba2ca8187",
@@ -26,6 +26,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "5b889088fbacafc2dd0853b3635ddf1a",
     "url": "/template-typescript/static/media/CardOfDeck1.5b889088.png"
+  },
+  {
+    "revision": "8c7d59c70080521cd2086ac813598a2f",
+    "url": "/template-typescript/static/media/backImgOfProfile.8c7d59c7.jpg"
   },
   {
     "revision": "c0e7873639aae929e88a54166726ef67",
