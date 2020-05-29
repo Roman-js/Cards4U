@@ -6,12 +6,14 @@ type OwnPropsType = {
     checked?: boolean,
     placeholder?: string,
     onChange?: (e: ChangeEvent<HTMLInputElement>) => void, ////add '?' for
-    type: 'text' | 'password' | 'radio' | 'checkbox' | 'email',
+    type: 'text' | 'password' | 'radio' | 'checkbox' | 'email' | 'file',
     onBlur?: ()=>void,
     onFocus?: (e: React.FocusEvent)=>void
+
+
 }
 
-const Input = (props: OwnPropsType) => {
+const Input: React.FC<OwnPropsType> = (props: OwnPropsType) => {
 
     return (
         <input className={styles.forInput}
@@ -20,7 +22,9 @@ const Input = (props: OwnPropsType) => {
                value={props.value}
                onChange={props.onChange}
                placeholder={props.placeholder}
-               type={props.type}/>
+               type={props.type}
+               />
+
     )
 };
 

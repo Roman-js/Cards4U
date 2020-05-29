@@ -12,19 +12,19 @@ type OwnPropsType = {
     disabled: boolean
     error: string | null
 }
-const Forgot = (props: OwnPropsType) => {
+const Forgot: React.FC<OwnPropsType> = (props) => {
 
     const [email, setEmail] = useState('');
 
     const valueOfInputEmail = (e: ChangeEvent<HTMLInputElement>) => {
         setEmail(e.currentTarget.value)
     };
-    const restoreForgotPassword = () => {
-        props.setForgotPassword(email)
+    const restoreForgotPassword =  () => {
+         props.setForgotPassword(email);
         setEmail('')
     };
     const toCleanError = () => {
-        return props.toCleanError()
+         props.toCleanError()
     };
 
     return (
@@ -47,6 +47,6 @@ const Forgot = (props: OwnPropsType) => {
         </div>
 
     )
-}
+};
 
 export default Forgot

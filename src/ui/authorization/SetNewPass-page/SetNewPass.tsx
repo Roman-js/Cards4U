@@ -1,31 +1,64 @@
-import React from "react";
+import React, {ChangeEvent, useState} from "react";
 import Title from "../../common/Title";
 import Input from "../../common/Input";
 import Button from "../../common/Button";
 import Link from "../../common/LInk";
 import styles from "../Auth.module.css";
+import {useParams} from "react-router";
 
-
-const SetNewPass = () => {
-    return (
-
-            <div className={styles.wrapperOfAuth}>
-                <Title title='Set New Password'/>
-                <div><Input placeholder={'new pass'}
-                            type={'text'} value={''}
-                            onChange={()=>{}}/></div>
-                <div><Input placeholder={'repeat pass'}
-                            type={'text'}
-                            value={''}
-                            onChange={()=>{}}/></div>
-                <div><Button typeOfButton={"button"}
-                             disabled={false}
-                             actionOfButton={() => {
-                }} nameOfButton='Set new password'/></div>
-                <div><Link way={'/sign-in'} wordOfLink='Sign In'/></div>
-            </div>
-
-    )
+type OwnPropsType = {
+    setValueOfSetNewPassForm: (password: string, repeatPassword: string, token: string | undefined) => void
+    error: string
+    loading: boolean | null
+    disabled: boolean
+    toCleanErrorField: ()=>void
 }
+
+const SetNewPass: React.FC<OwnPropsType> = (props) => {
+
+    const [newPass, setNewPass] = useState('');
+    const [repeatNewPass, setRepeatNewPass] = useState('');
+    const {token} = useParams();
+
+    const valueOfInputNewPass = (e: ChangeEvent<HTMLInputElement>) => {
+        setNewPass(e.currentTarget.value)
+    };
+    const valueOfInputRepeatPass = (e: ChangeEvent<HTMLInputElement>) => {
+        setRepeatNewPass(e.currentTarget.value)
+    };
+    const sendToCheckPassword = () => {
+        props.setValueOfSetNewPassForm(newPass, repeatNewPass, token);
+        setNewPass('');
+        setRepeatNewPass('');
+    };
+    const toCleanField = () =>{
+        props.toCleanErrorField()
+    };
+
+    return (
+        <div className={styles.wrapperOfAuth}>
+            <Title title='Set New Password'/>
+            {props.error?<div>{props.error}</div>:null}
+            {props.loading?<div>Loading...</div>:null}
+            <div><Input placeholder={'new pass'}
+                        type={'password'}
+                        value={newPass}
+                        onBlur={toCleanField}
+                        onFocus={toCleanField}
+                        onChange={valueOfInputNewPass}/></div>
+            <div><Input placeholder={'repeat pass'}
+                        type={'password'}
+                        value={repeatNewPass}
+                        onBlur={toCleanField}
+                        onFocus={toCleanField}
+                        onChange={valueOfInputRepeatPass}/></div>
+            <div><Button typeOfButton={"button"}
+                         disabled={props.disabled}
+                         actionOfButton={sendToCheckPassword
+                         } nameOfButton='Set new password'/></div>
+            <div><Link way={'/sign-in'} wordOfLink='Sign In'/></div>
+        </div>
+    )
+};
 
 export default SetNewPass

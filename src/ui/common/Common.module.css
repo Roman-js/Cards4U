@@ -1,19 +1,56 @@
 .forLinks{
-    color: black;
+    color: whitesmoke;
     text-decoration: none;
 }
 
 .forInput{
-    background-color: #9c9c9c;
-    border: 1px solid blanchedalmond;
+    background-color: darkolivegreen;
+    border: 0 solid blanchedalmond;
     margin: 1px;
     padding: 6px;
+    color:antiquewhite;
+}
+.forInput::placeholder{
+    color: darkgrey;
 }
 
 .forButton{
     background-color: #282c34;
     color: whitesmoke;
-    border: 0px;
-    margin: 5px 0px;
+    border: 0;
+    margin: 5px 0;
     padding: 6px;
+}
+
+.modalDeleteCard{
+    opacity: 0.7;
+    width: 100%;
+    height: 96vh;
+    position: absolute;
+
+}
+
+.filedOfApproveDelete {
+    border: black 3px solid;
+    width: 40%;
+    text-align: center;
+}
+
+.updateCard {
+    background-image: url(https://i.artfile.ru/1920x1200_666975_[www.ArtFile.ru].jpg);
+    opacity: 0.7;
+    width: 100%;
+    height: 96vh;
+    position: absolute;
+
+}
+.fieldOfUpdate {
+    border: black 3px solid;
+    background-color: skyblue;
+    background-image: url(https://images.clipartlogo.com/files/istock/previews/6534/65347357-denim-jeans-zipper-vector-part-of-clothes.jpg);
+    width: 40%;
+    text-align: center;
+    display: grid;
+    grid-auto-columns: auto;
+    margin: 0 30% ;
 }

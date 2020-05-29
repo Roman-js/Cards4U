@@ -1,0 +1,39 @@
+.cardQuestion{
+    display: flex;
+    flex-direction: column-reverse;
+    background-image: url(./../common/img/cardOfQuestion.gif);
+    width: 278px;
+    height: 377px;
+}
+.textQuestion {
+    padding-bottom: 120px;
+}
+.textAnswer {
+    padding-bottom: 120px;
+}
+.cardAnswerOn{
+    display: flex;
+    flex-direction: column-reverse;
+    background-image: url(./../common/img/cardOnAnswer.png);
+    width: 269px;
+    height: 377px;
+    margin: 10px;
+
+}
+.gameFieldWrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: stretch;
+    text-align: center;
+
+}
+.cardAnswerOff{
+    display: flex;
+    flex-direction: column-reverse;
+    background-image: url(./../common/img/cardOffAnswer.png);
+    width: 286px;
+    height: 395px;
+}

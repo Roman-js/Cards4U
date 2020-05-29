@@ -5,38 +5,55 @@ import Link from "../../common/LInk";
 import Title from "../../common/Title";
 import styles from "../Auth.module.css";
 import {SIGN_IN} from "../../common/Constants";
-import {useSelector, useDispatch} from "react-redux";
+import {useDispatch} from "react-redux";
+import {setRegisterFormValues} from "../../../bll/reducers/register-reducer";
 
 type OwnPropsType = {
-    setRegisterFormValues:(email:string, password:string) => void,
+    loading: boolean,
+    error:boolean,
+    cancelErrorPosition:()=>void
 }
-const Register:React.FC<OwnPropsType> = (props) => {
-const [email, setEmail] = useState('')
-const [password, setPassword] = useState('')
-const [repeatPassword, setRepeatPassword] = useState('')
-
+const Register: React.FC<OwnPropsType> = ({loading, error, cancelErrorPosition}) => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [repeatPassword, setRepeatPassword] = useState('')
+    const dispatch = useDispatch();
 
     const changeEmail = (e: ChangeEvent<HTMLInputElement>) => setEmail(e.currentTarget.value)
     const changePassword = (e: ChangeEvent<HTMLInputElement>) => setPassword(e.currentTarget.value)
     const changeRepeatPassword = (e: ChangeEvent<HTMLInputElement>) => setRepeatPassword(e.currentTarget.value)
 
-    // const passwordIsTheSame = password === repeatPassword
-    //     ? props.setRegisterFormValues(email, password)
-    //     : alert('you should to try set password again')
-    const sendSignInFormValues = () => props.setRegisterFormValues(email, password)
-    // const dispatch = useDispatch()
-    // const header = useSelector((state:any) => state.register.header)
+    const toCleanErrorField = () => cancelErrorPosition()
+
+
+    const sendSignInFormValues = () => dispatch(setRegisterFormValues(email, password, repeatPassword))
+
     return (
-
-            <div className={styles.wrapperOfAuth}>
-                <Title title={'Register'}/>
-                <div><Input placeholder={'email'} type={"email"} onChange={changeEmail}/></div>
-                <div><Input placeholder={'password'} type={"password"} onChange={changePassword}/></div>
-                <div><Input placeholder={'repeat password'} type={"password"} onChange={changeRepeatPassword}/></div>
-                <div><Button typeOfButton={"button"} actionOfButton={sendSignInFormValues} nameOfButton={'Register'}/></div>
-                <Link way={SIGN_IN} wordOfLink='Sign In'/>
-            </div>
-
+        <div className={styles.wrapperOfAuth}>
+            <Title title={'Register'}/>
+            {loading && <div>wait</div>}
+            {error && <label >{error}</label>}
+                <div><Input placeholder={'email'}
+                            type={"email"}
+                            onBlur={toCleanErrorField}
+                            onFocus={toCleanErrorField}
+                            onChange={changeEmail}/>
+                </div>
+                <div><Input placeholder={'password'}
+                            type={"password"}
+                            onBlur={toCleanErrorField}
+                            onFocus={toCleanErrorField}
+                            onChange={changePassword}/>
+                </div>
+                <div><Input placeholder={'repeat password'}
+                            type={"password"}
+                            onBlur={toCleanErrorField}
+                            onFocus={toCleanErrorField}
+                            onChange={changeRepeatPassword}/>
+                </div>
+                <Button typeOfButton={"button"} actionOfButton={sendSignInFormValues} nameOfButton={'Register'}/>
+            <Link way={SIGN_IN} wordOfLink='Sign In'/>
+        </div>
     )
 }
 

@@ -1,7 +1,16 @@
 import React from "react";
 import styles from './Common.module.css'
+import {Link} from "react-router-dom";
 
-const Button = (props: OwnPropsType) =>{
+type OwnPropsType = {
+    typeOfButton: "button" | "submit" | "reset" | undefined,
+    actionOfButton: ()=>void,
+    nameOfButton: string,
+    disabled?: boolean
+
+}
+
+const Button: React.FC<OwnPropsType> = (props: OwnPropsType) =>{
 
     return(
         <button
@@ -13,14 +22,7 @@ const Button = (props: OwnPropsType) =>{
             {props.nameOfButton}
         </button>
     )
-}
+};
 
 export default Button
 
-type OwnPropsType = {
-    typeOfButton: "button" | "submit" | "reset" | undefined,
-    actionOfButton: ()=>void,
-    nameOfButton: string,
-    disabled?: boolean
-
-}
