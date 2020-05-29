@@ -1,24 +1,25 @@
 {
   "files": {
-    "main.css": "/template-typescript/static/css/main.49909710.chunk.css",
-    "main.js": "/template-typescript/static/js/main.d0fb2f4c.chunk.js",
-    "main.js.map": "/template-typescript/static/js/main.d0fb2f4c.chunk.js.map",
+    "main.css": "/template-typescript/static/css/main.f00c99a2.chunk.css",
+    "main.js": "/template-typescript/static/js/main.fc1461e6.chunk.js",
+    "main.js.map": "/template-typescript/static/js/main.fc1461e6.chunk.js.map",
     "runtime-main.js": "/template-typescript/static/js/runtime-main.5d52bb24.js",
     "runtime-main.js.map": "/template-typescript/static/js/runtime-main.5d52bb24.js.map",
-    "static/js/2.2bcc5ef3.chunk.js": "/template-typescript/static/js/2.2bcc5ef3.chunk.js",
-    "static/js/2.2bcc5ef3.chunk.js.map": "/template-typescript/static/js/2.2bcc5ef3.chunk.js.map",
+    "static/js/2.a92c92e3.chunk.js": "/template-typescript/static/js/2.a92c92e3.chunk.js",
+    "static/js/2.a92c92e3.chunk.js.map": "/template-typescript/static/js/2.a92c92e3.chunk.js.map",
     "index.html": "/template-typescript/index.html",
-    "precache-manifest.ae398b03e0b45386753cabc770e5864b.js": "/template-typescript/precache-manifest.ae398b03e0b45386753cabc770e5864b.js",
+    "precache-manifest.b550c55d41ab7bdee5231fec03f1a694.js": "/template-typescript/precache-manifest.b550c55d41ab7bdee5231fec03f1a694.js",
     "service-worker.js": "/template-typescript/service-worker.js",
-    "static/css/main.49909710.chunk.css.map": "/template-typescript/static/css/main.49909710.chunk.css.map",
-    "static/js/2.2bcc5ef3.chunk.js.LICENSE.txt": "/template-typescript/static/js/2.2bcc5ef3.chunk.js.LICENSE.txt",
+    "static/css/main.f00c99a2.chunk.css.map": "/template-typescript/static/css/main.f00c99a2.chunk.css.map",
+    "static/js/2.a92c92e3.chunk.js.LICENSE.txt": "/template-typescript/static/js/2.a92c92e3.chunk.js.LICENSE.txt",
+    "static/media/Profile.module.css": "/template-typescript/static/media/CardOfDeck1.5b889088.png",
     "static/media/GameField.module.css": "/template-typescript/static/media/cardOnAnswer.11c7932d.png",
     "static/media/DecksTable.module.css": "/template-typescript/static/media/updateBackgroundImg.cef177fa.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.5d52bb24.js",
-    "static/js/2.2bcc5ef3.chunk.js",
-    "static/css/main.49909710.chunk.css",
-    "static/js/main.d0fb2f4c.chunk.js"
+    "static/js/2.a92c92e3.chunk.js",
+    "static/css/main.f00c99a2.chunk.css",
+    "static/js/main.fc1461e6.chunk.js"
   ]
 }
