@@ -1,11 +1,11 @@
 import {REGISTER_SUCCESS, SET_ERROR_REGISTER_PAGE, WAITING_FOR_RESPONSE} from "../../ui/common/Constants";
 import {
     registerInitialState,
-    registerSuccessActionType, setErrorRegisterPageActionType,
+    registerSuccessActionType,
+    setErrorRegisterPageActionType,
     waitingForResponseActionType
-} from "../../ui/authorization/authTypes/registerTypes";
+} from "../../ui/authorization/types/registerTypes";
 import {authApi} from "../../dal/api";
-import {useDispatch} from "react-redux";
 import {ThunkDispatch} from "redux-thunk";
 import {AppStoreType} from "../store";
 

@@ -58,4 +58,5 @@ export const setSearchCard = (id:string, name: string, minValue: number, maxValu
     debugger
     dispatch(setSearchingNameCardSuccess(id, name, minValue, maxValue))
     dispatch(getCards(id))
+    // })
 }

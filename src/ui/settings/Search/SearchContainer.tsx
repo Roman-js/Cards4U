@@ -1,5 +1,6 @@
 import React from "react";
-import {connect, useSelector} from "react-redux";
+import {connect, useDispatch, useSelector} from "react-redux";
+import {AppStoreType} from "../../../bll/store";
 import Search from "./Search";
 
 
