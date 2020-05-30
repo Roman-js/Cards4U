@@ -3,17 +3,17 @@ import Input from "../../common/Input";
 import Button from "../../common/Button";
 import Link from "../../common/LInk";
 import Title from "../../common/Title";
-import styles from "../Auth.module.css"
+import styles from "../Auth.module.css";
 import {SIGN_IN} from "../../common/Constants";
-import {useDispatch} from "react-redux";
-import {setRegisterFormValues} from "../../../bll/reducers/register-reducer";
+import {useSelector, useDispatch} from "react-redux";
 
 type OwnPropsType = {
+    setRegisterFormValues: (email: string, password: string, repeatPassword: string) => void,
     loading: boolean,
     error:boolean,
     cancelErrorPosition:()=>void
 }
-const Register: React.FC<OwnPropsType> = ({loading, error, cancelErrorPosition}) => {
+const Register: React.FC<OwnPropsType> = ({setRegisterFormValues, loading, error, cancelErrorPosition}) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [repeatPassword, setRepeatPassword] = useState('')

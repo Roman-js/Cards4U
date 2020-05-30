@@ -1,4 +1,4 @@
-import {SET_SEARCHING_NAME} from "../../common/Constants";
+import {SET_SEARCHING_NAME} from "../common/Constants";
 
 export type setSearchingNameSuccessActionType = {
     type: typeof SET_SEARCHING_NAME,
