@@ -7,33 +7,49 @@ import {AppStoreType} from "../../../bll/store";
 import {getCards} from "../../../bll/reducers/cardsTable-reducer";
 
 
-
 type OwnPropsType = {
-    approveAuth: (login: boolean)=>void
-    getDecks: ()=>void
-    getCards: (id:string )=>void
+    approveAuth: (login: boolean) => void
+    getDecks: (page: number, pageCount: number, privateDecks: boolean) => void
+    getCards: (id: string) => void
 }
 
-const ProfileContainer: React.FC<OwnPropsType> = (props: OwnPropsType) =>{
+const ProfileContainer: React.FC<OwnPropsType> = (props: OwnPropsType) => {
 
     useEffect(() => {
-        props.getDecks();
+        props.getDecks(1, 4, false);
         let authToken = localStorage.getItem('auth-token');
         console.log(authToken);
         const approve = !!authToken; //authToken?true:false;
         props.approveAuth(approve);
     }, []);
 
+    const nextPage = (page: number) => {
+        page <= 1 ? props.getDecks(1, 4, false) :
+            props.getDecks(page, 4, false)
+    };
+
+    const myDecks = () => {
+        props.getDecks(1, 4, true)
+    };
+
+    const allDecks = () => {
+        props.getDecks(1, 4, false)
+    };
 
 
     const decks = useSelector((state: AppStoreType) => state.decks.decks);
 
 
-
-
     return <Profile decks={decks}
+                    nextPage={nextPage}
+                    myDecks={myDecks}
+                    allDecks={allDecks}
                     approveAuth={props.approveAuth}
                     getCards={props.getCards}/>
 };
 
-export default connect(null, {approveAuth, getDecks, getCards}) (ProfileContainer)
+export default connect(null, {
+    approveAuth,
+    getDecks,
+    getCards
+})(ProfileContainer)

@@ -9,7 +9,7 @@ import {CardsPackType} from "./decksType";
 type OwnPropsType = {
     addNewDeck: (name: string , rating: number)=>void,
     deleteADeck: (_id: string)=>void,
-    getDecks: ()=>void,
+    getDecks: (page: number, pageCount: number, privateDecks: boolean)=>void,
     getCards: (id:string )=>void,
     updateDeck: (deck: CardsPackType)=>void
 }
@@ -20,7 +20,7 @@ const DecksTableContainer: React.FC<OwnPropsType> = (props) =>{
 
 
     useEffect(() => {
-        props.getDecks();
+        props.getDecks(1,4, false);
     }, []);
 
     return(

@@ -6,7 +6,7 @@ import {getCards} from "./cardsTable-reducer";
 const initialState: searchInitialState = {
     name: '',
     minValue: 0,
-    maxValue: 30
+    maxValue: 4
 };
 
 
@@ -52,7 +52,7 @@ export const setSearchingNameCardSuccess = (id:string, name: string, minValue: n
 
 export const setSearchDeck = (name: string, minValue: number, maxValue: number) => (dispatch: any) => {
     dispatch(setSearchingNameSuccess(name, minValue, maxValue))
-    dispatch(getDecks())
+    dispatch(getDecks(1,4, false))
 }
 export const setSearchCard = (id:string, name: string, minValue: number, maxValue: number) => (dispatch: any) => {
     debugger

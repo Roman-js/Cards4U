@@ -43,7 +43,6 @@ export const authApi = {
     },
 
     authMe(authToken: string | null) {
-        //debugger
         return instance.post('auth/me', {token: authToken})
             .then(response => {
                 console.log(response.data);
@@ -79,27 +78,27 @@ export const decksApi = {
             })
 
     },
-    getDeck(token: string | null, name: string, minValue: number, maxValue: number) {
-        return instance.get(`cards/pack?token=${token}` +
-            (minValue && maxValue && `&min=${minValue}&max=${maxValue}` +
-                name && `&packName=${name}&page=${1}&pageCount=6`))
+
+    getDeck( name: string, minValue: number, maxValue: number,
+             page: number, pageCount: number, privateDecks: boolean)
+    {
+        const token = localStorage.getItem('auth-token');
+        const user_id = localStorage.getItem('cardsPack_id');
+        const decksFilter = privateDecks?`&user_id=${user_id}`:'';
+        return instance.get(
+            `cards/pack?token=${token}` +
+            (`&min=${minValue}&max=${maxValue}` +
+                name && `&packName=${name}` +
+                `&pageCount=${pageCount}
+                &page=${page}`
+            +decksFilter)
+    )
             .then(response => {
                 console.log(response.data);
                 changeToken(response.data.token);
                 return response.data
             })
     },
-   /* getMyDeck(token: string | null, name: string, minValue: number, maxValue: number) {
-        const user_id = localStorage.getItem('cardsPack_id');
-        return instance.get(`cards/pack?token=${token}` +
-            (minValue && maxValue && `&min=${minValue}&max=${maxValue}` +
-                name && `&packName=${name}` + `&pageCount=6` + `user_id=${user_id}`))
-            .then(response => {
-                console.log(response.data);
-                changeToken(response.data.token);
-                return response.data
-            })
-    },*/
     updateDeck(deck: CardsPackType) {
         const token = localStorage.getItem('auth-token');
         return instance.put('cards/pack', {cardsPack: deck, token})

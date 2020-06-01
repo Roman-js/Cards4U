@@ -17,7 +17,7 @@ const rootReducer = combineReducers({
     profile: profileReducer,
     decks: decksTableReducer,
     cards: cardsTableReducer,
-    search:searchingReducer
+    search: searchingReducer
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));

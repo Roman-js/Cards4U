@@ -24,6 +24,7 @@ const Header: React.FC<OwnPropsType> = (props) => {
             <Link way={SET_NEW_PASS} wordOfLink={'set-new-pass'}/>
             <Link way={PROFILE} wordOfLink={'profile'}/>
             <Link way={UPLOAD_FILE} wordOfLink={'file'}/>
+            <Link way={DECKS_TABLE} wordOfLink={'decks'}/>
             {/*<Button typeOfButton={'button'} actionOfButton={tokenIsClear} nameOfButton={'logout'}/>*/}
            { props.login? <Button typeOfButton={'button'} actionOfButton={tokenIsClear} nameOfButton={'logout'}/>:null}
 
