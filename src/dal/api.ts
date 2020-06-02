@@ -100,6 +100,7 @@ export const decksApi = {
             })
     },
     updateDeck(deck: CardsPackType) {
+        debugger
         const token = localStorage.getItem('auth-token');
         return instance.put('cards/pack', {cardsPack: deck, token})
             .then(response => {
@@ -146,6 +147,7 @@ export const cardsApi = {
     },
 
     updateCard(card: CardsType) {
+        debugger
         const token = localStorage.getItem('auth-token');
         return instance.put('cards/card', {card, token})
             .then(response => {
