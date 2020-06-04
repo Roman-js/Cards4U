@@ -3,9 +3,11 @@ import {CardsPackType, newCardPackType} from "../ui/settings/decks/decksType";
 import {addCardType, CardsType} from "../ui/settings/cards/cardsType";
 
 const instance = axios.create({
-    // withCredentials: true,
     baseURL: "https://cards-nya-back.herokuapp.com/1.0/",
-    //baseURL: "https://dry-forest-56016.herokuapp.com/",
+});
+const fileInstance = axios.create({
+
+    baseURL: "https://dry-forest-56016.herokuapp.com/",
 });
 
 export const changeToken = (newToken: string) => {
@@ -146,6 +148,7 @@ export const cardsApi = {
     },
 
     updateCard(card: CardsType) {
+        debugger
         const token = localStorage.getItem('auth-token');
         return instance.put('cards/card', {card, token})
             .then(response => {
@@ -159,7 +162,7 @@ export const cardsApi = {
 export const filesApi = {
 
     getFile() {
-        return instance.get('/file', {responseType: 'blob'})
+        return fileInstance.get('/file', {responseType: 'blob'})
             .then(({data}) => {
 
                 const blob = new Blob([data], {type: 'image/jpeg'});
@@ -170,7 +173,8 @@ export const filesApi = {
     },
 
     postFile(file: string) {
-        return instance.post('/file', {myFile: file})
+
+        return fileInstance.post('/file', {myFile: file})
             .then(response=> {
                 return response.data
             })

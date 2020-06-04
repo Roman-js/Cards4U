@@ -39,7 +39,6 @@ const Profile: React.FC<OwnPropsType> = (props: OwnPropsType) => {
     return (
 
         <div className={style.profileWrapper}>
-            {/*<h1>Profile page</h1>*/}
             <div className={style.profilePart}>
                 <img src={'https://static.tildacdn.com/tild6564-3565-4232-b434-653536636432/avatar_OCAS.jpg'}/>
                 <div><Button typeOfButton={'button'} actionOfButton={() => {

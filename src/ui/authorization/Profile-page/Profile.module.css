@@ -10,7 +10,8 @@
 
 .profilePart {
     width: 25%;
-    height: 100%;
+    min-width: 300px;
+    min-height: 95.8vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -28,7 +29,7 @@
 
 .appPart {
     width: 75%;
-    height: 100%;
+    min-height: 95.8vh;
     display: flex;
 
     justify-content: flex-end;
@@ -52,7 +53,7 @@
     text-align: center;
     width: 97%;
     height: 290px;
-    margin-top: 40px;
+
 }
 .decksWrapper {
 
