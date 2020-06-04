@@ -40,7 +40,7 @@ const DecksTable: React.FC<OwnPropsType> = (props) => {
     const decrement = () =>{
         setRating(rating -1.0)
     };
-    const onUpdateDeck = (deck: any) =>{
+    const onUpdateDeck = (deck: CardsPackType) =>{
         setUpdate(true);
         setChangeName(deck.name);
         setUpdatedDeck(deck);
@@ -52,7 +52,6 @@ const DecksTable: React.FC<OwnPropsType> = (props) => {
         setUpdate(false);
         const UpdatedDeckSuccess = {...updatedDeck, name: changeName};
         props.updateDeck(UpdatedDeckSuccess)
-
     };
 
 

@@ -17,7 +17,6 @@ import SignInContainer from "../authorization/SignIn-page/SignInContainer";
 import ForgotContainer from "../authorization/Forgot-page/ForgotContainer";
 import RegisterContainer from "../authorization/Register-page/RegisterContainer";
 import HeaderContainer from "../authorization/Header/HeaderContainer";
-import Profile from "../authorization/Profile-page/Profile";
 import DecksTableContainer from "../settings/decks/DecksTableContainer";
 import CardsTableContainer from "../settings/cards/CardsTableContainer";
 import GameFieldContainer from "../play/GameFieldContainer";
