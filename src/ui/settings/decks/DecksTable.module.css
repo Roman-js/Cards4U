@@ -24,6 +24,9 @@
 .cells {
     text-align: center;
 }
+.cells td {
+    color: white;
+}
 
 .updateCard {
     background-image: url(./../../common/img/updateBackgroundImg.jpg);

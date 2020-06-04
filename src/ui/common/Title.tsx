@@ -1,4 +1,5 @@
 import React from "react";
+import s from './Title.module.css'
 
 type OwnPropsType = {
     title: string
@@ -7,7 +8,7 @@ type OwnPropsType = {
 const Title: React.FC<OwnPropsType> = (props: OwnPropsType) =>{
     return(
         <div>
-            <h2>{props.title}</h2>
+            <h2 className={s.title}>{props.title}</h2>
         </div>
     )
 };

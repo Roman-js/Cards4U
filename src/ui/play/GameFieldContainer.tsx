@@ -13,7 +13,7 @@ const GameFieldContainer: React.FC<OwnPropsType> = (props) => {
     const [cardOfNumber, setCardOfNumber] = useState(0);
     const cards = useSelector((state: AppStoreType) => state.cards.theCards);
 
-
+    console.log(cards)
     const sum = cards.map(elem => elem.grade).reduce((acc, el) => acc + el)
     console.log(sum)
     const devideCard = cards.map((card: any) => card.grade / Number(sum))
@@ -21,7 +21,6 @@ const GameFieldContainer: React.FC<OwnPropsType> = (props) => {
     const x = Math.random() * 1
     console.log(x)
     const next = () => {
-
         let totalP = 0;
         for (let i = 0; i < devideCard.length; i++) {
             totalP += devideCard[i];
@@ -32,15 +31,7 @@ const GameFieldContainer: React.FC<OwnPropsType> = (props) => {
             }
         }
         return totalP
-        // for (let i = 0; i < devideCard.length; i++) {
-        //     if (x > devideCard[i]) {
-        //         return devideCard[i]
-        //     } else {
-        //         return devideCard[i++]
-        //     }
-        // }
     }
-    // console.log(totalP)
     let result = next()
     console.log(result)
     let superResult = devideCard.indexOf(result)
@@ -69,7 +60,6 @@ const GameFieldContainer: React.FC<OwnPropsType> = (props) => {
 //     let superResult = devideCard.indexOf(result as any)
 //     console.log(superResult)
         //working version
-
     // var totalP = 0;
     // for (let i = 0; i < arr.length; i++) {
     //     var p = arr[i]/sum;
@@ -82,12 +72,9 @@ const GameFieldContainer: React.FC<OwnPropsType> = (props) => {
     //     }
     // }
     ///working version
-
-
     // const minGrade = cards.reduce((acc, el) => acc.grade < el.grade ? acc : el); ///получаем минимальный элемент grade
     const nextCard = () => {
         setCardOfNumber(cardOfNumber + 1 )
-        // setCardOfNumber(superResult+1)
     };
 
     if (cards[cardOfNumber] === undefined) {
@@ -98,8 +85,9 @@ const GameFieldContainer: React.FC<OwnPropsType> = (props) => {
 
 
     const setGrade = (grade: number) => {
+        debugger
         const newGrade = (card.shots * card.grade + grade) / (card.shots + 1);
-        const updatedCard = {...cards, shots: card.shots + 1, grade: newGrade};
+        const updatedCard = {...card, shots: card.shots + 1, grade};
         Math.floor(Math.random() * 5);
         props.updateCards(updatedCard)
     };

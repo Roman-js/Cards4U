@@ -23,6 +23,9 @@
 .cells {
     text-align: center;
 }
+.cells td {
+    color: white;
+}
 .updateCard {
     background-image: url(https://i.artfile.ru/1920x1200_666975_[www.ArtFile.ru].jpg);
     opacity: 0.7;
