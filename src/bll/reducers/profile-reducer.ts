@@ -26,8 +26,14 @@ export const approveAuth = (login: boolean) =>
 
     async (dispatch: ThunkDispatch<AppStoreType, {}, any>,
            getState: AppStoreType) => {
-        let authToken = localStorage.getItem('auth-token');
-        await authApi.authMe(authToken);
 
-        dispatch({type: LOGIN_SUCCESS, login: login})
+        try {
+            await authApi.authMe();
+            dispatch({type: LOGIN_SUCCESS, login: login})
+        }
+        catch(e){
+
+        }
+
+
     };

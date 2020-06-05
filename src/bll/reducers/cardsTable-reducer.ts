@@ -61,16 +61,16 @@ export const addNewCard = (question: string, answer: string, grade: number) =>
         const token = localStorage.getItem('auth-token');
         const cardsPack_id = localStorage.getItem('cardsPack_id');
 
-        const result = await cardsApi.addCard({
-            card: {cardsPack_id: cardsPack_id, question, answer, grade},
-            token: token
-        });
-        console.log(result);
-        const newCard = {...result.newCard, token: result.token};
-        dispatch({type: ADD_NEW_CARD, newCard});
         try {
-            console.log(initialState.theCards);
-        } catch (e) {
+            const result = await cardsApi.addCard({
+                card: {cardsPack_id: cardsPack_id, question, answer, grade},
+                token: token
+            });
+            console.log(result);
+            const newCard = {...result.newCard, token: result.token};
+            dispatch({type: ADD_NEW_CARD, newCard});}
+
+            catch (e) {
             console.log(e)
         }
 
@@ -80,11 +80,10 @@ export const deleteACard = (id: string) =>
     async (dispatch: ThunkDispatch<AppStoreType, {}, any>,
            getState: AppStoreType) => {
 
-        const data = await cardsApi.deleteCard(id);
-        const cardsPack_id = data.deletedCard._id;
-        dispatch({type: DELETE_CARD, _id: cardsPack_id});
         try {
-            console.log(initialState.theCards);
+            const data = await cardsApi.deleteCard(id);
+            const cardsPack_id = data.deletedCard._id;
+            dispatch({type: DELETE_CARD, _id: cardsPack_id});
         } catch (e) {
             console.log(e)
         }
@@ -93,12 +92,12 @@ export const deleteACard = (id: string) =>
 export const getCards = (id: string) =>
     async (dispatch: ThunkDispatch<AppStoreType, {}, any>,
            getState: AppStoreType) => {
-        const data = await cardsApi.getCards(id);
-        const cards = data.cards;
-        const cardsPack_id = localStorage.getItem('cardsPack_id');
-        dispatch({type: GET_CARDS, cards, cardsPack_id});
+
         try {
-            console.log(initialState.theCards);
+            const data = await cardsApi.getCards(id);
+            const cards = data.cards;
+            const cardsPack_id = localStorage.getItem('cardsPack_id');
+            dispatch({type: GET_CARDS, cards, cardsPack_id});
         } catch (e) {
             console.log(e)
         }
@@ -108,10 +107,10 @@ export const updateCards = (card: CardsType) =>
     async (dispatch: ThunkDispatch<AppStoreType, {}, any>,
            getState: AppStoreType) => {
 
-        const updatedCard = await cardsApi.updateCard(card);
-        dispatch({type: UPDATE_CARD, updatedCard});
+
         try {
-            console.log(initialState.theCards);
+            const updatedCard = await cardsApi.updateCard(card);
+            dispatch({type: UPDATE_CARD, updatedCard});
         } catch (e) {
             console.log(e)
         }

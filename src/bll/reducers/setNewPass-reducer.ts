@@ -63,8 +63,9 @@ export const setValueOfSetNewPassForm = (password: string, repeatPassword: strin
 
         if (password === repeatPassword && password.length > 7) {
             dispatch({type: SET_LOADING_VALUE, loading: true, disabled: true});
-              await authApi.setNewPass(token, password);
+
                 try  {
+                    await authApi.setNewPass(token, password);
                     dispatch({type: SET_NEW_TOKEN, token: token});
                     dispatch({type: SET_LOADING_VALUE, loading: false, disabled: false})
                 }

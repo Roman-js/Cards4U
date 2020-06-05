@@ -44,7 +44,8 @@ export const authApi = {
             .then(res => res)
     },
 
-    authMe(authToken: string | null) {
+    authMe() {
+        let authToken = localStorage.getItem('auth-token');
         return instance.post('auth/me', {token: authToken})
             .then(response => {
                 console.log(response.data);
@@ -118,8 +119,6 @@ export const cardsApi = {
     addCard(card: addCardType) {
         return instance.post('cards/card', card)
             .then(response => {
-              /*  localStorage.removeItem('auth-token');
-                localStorage.setItem('auth-token', response.data.token);*/
               changeToken(response.data.token);
                 return response.data
             })
