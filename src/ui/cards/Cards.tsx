@@ -1,5 +1,5 @@
 import React from "react";
-import {Route} from "react-router";
+import {Redirect, Route} from "react-router";
 import SetNewPassContainer from "../authorization/SetNewPass-page/SetNewPassContainer";
 import styles from "../authorization/Auth.module.css";
 import {
@@ -28,22 +28,22 @@ const Cards = () => {
 
     return (
         <>
-        <HeaderContainer/>
+            <HeaderContainer/>
 
-        <div className={styles.wrapperOfAuth}>
-            <Route path={SIGN_IN} render={() => <SignInContainer/>}/>
-            <Route path={REGISTER} render={() => <RegisterContainer/>}/>
-            <Route path={FORGOT} render={() => <ForgotContainer/>}/>
-            <Route path={SET_NEW_PASS} render={() => <SetNewPassContainer />}/>
+            <div className={styles.wrapperOfAuth}>
+                <Route path={SIGN_IN} render={() => <SignInContainer/>}/>
+                <Route path={REGISTER} render={() => <RegisterContainer/>}/>
+                <Route path={FORGOT} render={() => <ForgotContainer/>}/>
+                <Route path={SET_NEW_PASS} render={() => <SetNewPassContainer/>}/>
 
-            <Route path={PROFILE} render={() => <ProfileContainer />}/>
-            <Route path={DECKS_TABLE} render={()=> <DecksTableContainer />}/>
-            <Route path={CARDS_TABLE} render={()=> <CardsTableContainer />} />
-            <Route path={PLAY} render={()=> <GameFieldContainer />}/>
-            <Route path={UPLOAD_FILE} render={()=> <UploadFile />} />
-        </div>
-
-            </>
+                <Route path={PROFILE} render={() => <ProfileContainer/>}/>
+                <Route path={DECKS_TABLE} render={() => <DecksTableContainer/>}/>
+                <Route path={CARDS_TABLE} render={() => <CardsTableContainer/>}/>
+                <Route path={PLAY} render={() => <GameFieldContainer/>}/>
+                <Route path={UPLOAD_FILE} render={() => <UploadFile/>}/>
+            </div>
+            {/*<Redirect to={PROFILE}/>*/}
+        </>
     )
 };
 
