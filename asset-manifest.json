@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Cards4U/static/css/main.7feb0b1b.chunk.css",
-    "main.js": "/Cards4U/static/js/main.9bebb86f.chunk.js",
-    "main.js.map": "/Cards4U/static/js/main.9bebb86f.chunk.js.map",
+    "main.js": "/Cards4U/static/js/main.64bf0733.chunk.js",
+    "main.js.map": "/Cards4U/static/js/main.64bf0733.chunk.js.map",
     "runtime-main.js": "/Cards4U/static/js/runtime-main.21d03ddf.js",
     "runtime-main.js.map": "/Cards4U/static/js/runtime-main.21d03ddf.js.map",
     "static/js/2.d2097e2f.chunk.js": "/Cards4U/static/js/2.d2097e2f.chunk.js",
     "static/js/2.d2097e2f.chunk.js.map": "/Cards4U/static/js/2.d2097e2f.chunk.js.map",
     "index.html": "/Cards4U/index.html",
-    "precache-manifest.5898a77a37bcf4acaf84b13943f22b2d.js": "/Cards4U/precache-manifest.5898a77a37bcf4acaf84b13943f22b2d.js",
+    "precache-manifest.02cdf97162fb627b9057eac6e2c83998.js": "/Cards4U/precache-manifest.02cdf97162fb627b9057eac6e2c83998.js",
     "service-worker.js": "/Cards4U/service-worker.js",
     "static/css/main.7feb0b1b.chunk.css.map": "/Cards4U/static/css/main.7feb0b1b.chunk.css.map",
     "static/js/2.d2097e2f.chunk.js.LICENSE.txt": "/Cards4U/static/js/2.d2097e2f.chunk.js.LICENSE.txt",
@@ -20,6 +20,6 @@
     "static/js/runtime-main.21d03ddf.js",
     "static/js/2.d2097e2f.chunk.js",
     "static/css/main.7feb0b1b.chunk.css",
-    "static/js/main.9bebb86f.chunk.js"
+    "static/js/main.64bf0733.chunk.js"
   ]
 }
