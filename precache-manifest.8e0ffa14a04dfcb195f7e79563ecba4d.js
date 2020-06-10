@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "14269b19e2ee5974dcb6b89ab31554c1",
+    "revision": "9846c6bf17496b9996f2e50354524fb4",
     "url": "/cards4u/index.html"
   },
   {
-    "revision": "39f780cf018a8cfb767d",
+    "revision": "6be9f9ed3b8d4891e938",
     "url": "/cards4u/static/css/main.8416bae9.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/cards4u/static/js/2.d2097e2f.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "39f780cf018a8cfb767d",
-    "url": "/cards4u/static/js/main.12011ed5.chunk.js"
+    "revision": "6be9f9ed3b8d4891e938",
+    "url": "/cards4u/static/js/main.c6612488.chunk.js"
   },
   {
     "revision": "6759c43efae0288e325a",
