@@ -35,8 +35,8 @@ const Cards = () => {
                 <Route path={REGISTER} render={() => <RegisterContainer/>}/>
                 <Route path={FORGOT} render={() => <ForgotContainer/>}/>
                 <Route path={SET_NEW_PASS} render={() => <SetNewPassContainer/>}/>
-
                 <Route path={PROFILE} render={() => <ProfileContainer/>}/>
+
                 <Route path={DECKS_TABLE} render={() => <DecksTableContainer/>}/>
                 <Route path={CARDS_TABLE} render={() => <CardsTableContainer/>}/>
                 <Route path={PLAY} render={() => <GameFieldContainer/>}/>
