@@ -42,7 +42,7 @@ const Cards = () => {
                 <Route path={PLAY} render={() => <GameFieldContainer/>}/>
                 <Route path={UPLOAD_FILE} render={() => <UploadFile/>}/>
             </div>
-            {/*<Redirect to={PROFILE}/>*/}
+            <Redirect to={PROFILE}/>
         </>
     )
 };
