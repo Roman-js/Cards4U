@@ -8,36 +8,35 @@ import {authApi} from "../../../dal/api";
 
 
 const RegisterContainer: React.FC = (props) => {
-    console.log(props)
 
     const dispatch = useDispatch();
-    const state = useSelector((state: AppStoreType) => state.register)
+    const state = useSelector((state: AppStoreType) => state.register);
 
     const setRegisterFormValues = (email: any, password: string, repeatPassword: string) => {
         if (password !== repeatPassword) {
-            let error = 'fields password and repeat password should be the same'
+            let error = 'fields password and repeat password should be the same';
             dispatch({type: SET_ERROR_REGISTER_PAGE, error})
         } else {
-            let correctEmail = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/
+            let correctEmail = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
             if (password.length <= 7 && email !== correctEmail) {
-                let error = 'your email of password is not valid'
+                let error = 'your email of password is not valid';
                 dispatch({type: SET_ERROR_REGISTER_PAGE, error})
             } else {
-                dispatch({type: WAITING_FOR_RESPONSE, loading: true})
+                dispatch({type: WAITING_FOR_RESPONSE, loading: true});
                 return authApi.register(email, password)
                     .then(res => {
-                        dispatch({type: WAITING_FOR_RESPONSE, loading: false})
+                        dispatch({type: WAITING_FOR_RESPONSE, loading: false});
                         dispatch({type: REGISTER_SUCCESS, email: email, password: password, redirect:true})
                     })
                     .catch(err => {
-                        let error = 'your email is invalid or is already registered'
-                        dispatch({type: WAITING_FOR_RESPONSE, loading: false})
+                        let error = 'your email is invalid or is already registered';
+                        dispatch({type: WAITING_FOR_RESPONSE, loading: false});
                         dispatch({type: SET_ERROR_REGISTER_PAGE, error})
                     })
             }
         }
     };
-    const cancelErrorPosition = () => dispatch({type: SET_ERROR_REGISTER_PAGE, error: null})
+    const cancelErrorPosition = () => dispatch({type: SET_ERROR_REGISTER_PAGE, error: null});
     return (
         <>
             {state.redirect && <Redirect to={PROFILE}/>}

@@ -1,16 +1,17 @@
 .settings{
     display: flex;
-    width: 90%;
-    height: 120px;
-    border: 1px solid black;
     border-collapse: collapse;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
     justify-content: center;
     vertical-align: center;
 }
-.button, .input, .strip{
-    width: 33%;
+.input, .strip{
     text-align: center;
     position: relative;
-    top:20%;
+    margin: 5px 0;
+    padding: 6px;
+}
+.button{
+    text-align: center;
+    position: relative;
+    margin: 5px 0;
 }

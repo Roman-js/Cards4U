@@ -19,7 +19,7 @@ type OwnPropsType = {
 const ProfileContainer: React.FC<OwnPropsType> = (props: OwnPropsType) => {
 
     useEffect(() => {
-        props.getDecks(1, 4, false);
+        props.getDecks(1, 10, false);
         let authToken = localStorage.getItem('auth-token');
         console.log(authToken);
         const approve = !!authToken; //authToken?true:false;
@@ -32,11 +32,11 @@ const ProfileContainer: React.FC<OwnPropsType> = (props: OwnPropsType) => {
     };
 
     const myDecks = () => {
-        props.getDecks(1, 4, true)
+        props.getDecks(1, 10, true)
     };
 
     const allDecks = () => {
-        props.getDecks(1, 4, false)
+        props.getDecks(1, 10, false)
     };
 
 

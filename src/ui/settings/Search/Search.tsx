@@ -1,8 +1,5 @@
-import React from "react";
-import {useState} from "react";
+import React, {useState} from "react";
 import {useDispatch} from "react-redux";
-import Input from "../../common/Input";
-import Strip from "./Strip";
 import s from './Search.module.css'
 import Button from "../../common/Button";
 import {setSearchDeck} from "../../../bll/reducers/searchReducer";
@@ -15,11 +12,11 @@ type OwnPropsType = {
 const Search: React.FC<OwnPropsType> = ({minValue, maxValue}) => {
 
 
-    const [name, setName] = useState('')
-    const [values, setValue] = useState<number[]>([minValue, maxValue])
+    const [name, setName] = useState('');
+    const [values, setValue] = useState<number[]>([minValue, maxValue]);
     const handleStrip = (values: number[]) => {
         setValue(values)
-    }
+    };
 
     const dispatch = useDispatch();
     // const search = (minValue:number, maxValue:number) => dispatch(setRangeValue(minValue, maxValue))
@@ -28,11 +25,11 @@ const Search: React.FC<OwnPropsType> = ({minValue, maxValue}) => {
 
     return (
         <div className={s.settings}>
-            <div className={s.input}><Input type='text' onChange={e => setName(e.currentTarget.value)}/></div>
-            <div className={s.strip}><Strip values={values} handleStrip={handleStrip}/></div>
+            <div className={s.input}><input type='text' placeholder='&#128269;' onChange={e => setName(e.currentTarget.value)}/></div>
+            {/*<div className={s.strip}><Strip values={values} handleStrip={handleStrip}/></div>*/}
             <div className={s.button}><Button actionOfButton={search} nameOfButton='Search' typeOfButton="button"/>
             </div>
         </div>
     )
-}
+};
 export default Search

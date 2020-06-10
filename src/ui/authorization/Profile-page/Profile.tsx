@@ -5,6 +5,7 @@ import {CardsPackType} from "../../settings/decks/decksType";
 import {Redirect} from "react-router";
 import {CARDS_TABLE, PLAY} from "../../common/Constants";
 import Title from "../../common/Title";
+import SearchContainer from "../../settings/Search/SearchContainer";
 
 
 type OwnPropsType = {
@@ -70,8 +71,10 @@ const Profile: React.FC<OwnPropsType> = (props: OwnPropsType) => {
                 <img src={'https://static.tildacdn.com/tild6564-3565-4232-b434-653536636432/avatar_OCAS.jpg'}/>
                 <div><Button typeOfButton={'button'} actionOfButton={() => {
                 }} nameOfButton='UPLOAD AVATAR'/></div>
+                <div><SearchContainer /></div>
                 <div><Button typeOfButton={'button'} actionOfButton={props.allDecks} nameOfButton='ALL DECKS'/></div>
                 <div><Button typeOfButton={'button'} actionOfButton={props.myDecks} nameOfButton='MY DECKS'/></div>
+
 
                 <div className={style.paginationButtons}>
                     <Button typeOfButton={'button'} actionOfButton={decrement} nameOfButton={'PREVIOUS'}/>{'  '}
@@ -89,7 +92,7 @@ const Profile: React.FC<OwnPropsType> = (props: OwnPropsType) => {
                                actionOfButton={sendNewDeck} nameOfButton='Create Deck'/>
                    </div>
                     {props.decks.map(deck =>
-                        <div className={style.deckCover}>
+                        <div className={style.deckCover} key={deck._id}>
 
                             <div className={style.buttonsOfSettings}>
                                 <Button typeOfButton='button' actionOfButton={() => {
