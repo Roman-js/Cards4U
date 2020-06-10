@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/cards4u/static/css/main.8416bae9.chunk.css",
-    "main.js": "/cards4u/static/js/main.12011ed5.chunk.js",
-    "main.js.map": "/cards4u/static/js/main.12011ed5.chunk.js.map",
-    "runtime-main.js": "/cards4u/static/js/runtime-main.ffca8475.js",
-    "runtime-main.js.map": "/cards4u/static/js/runtime-main.ffca8475.js.map",
-    "static/js/2.d2097e2f.chunk.js": "/cards4u/static/js/2.d2097e2f.chunk.js",
-    "static/js/2.d2097e2f.chunk.js.map": "/cards4u/static/js/2.d2097e2f.chunk.js.map",
-    "index.html": "/cards4u/index.html",
-    "precache-manifest.4c1a567afb17fb613610bdaf907b529b.js": "/cards4u/precache-manifest.4c1a567afb17fb613610bdaf907b529b.js",
-    "service-worker.js": "/cards4u/service-worker.js",
-    "static/css/main.8416bae9.chunk.css.map": "/cards4u/static/css/main.8416bae9.chunk.css.map",
-    "static/js/2.d2097e2f.chunk.js.LICENSE.txt": "/cards4u/static/js/2.d2097e2f.chunk.js.LICENSE.txt",
-    "static/media/Profile.module.css": "/cards4u/static/media/backImgOfProfile.8c7d59c7.jpg",
-    "static/media/GameField.module.css": "/cards4u/static/media/cardOnAnswer.11c7932d.png",
-    "static/media/DecksTable.module.css": "/cards4u/static/media/updateBackgroundImg.6667e869.jpg"
+    "main.css": "/Cards4U/static/css/main.7feb0b1b.chunk.css",
+    "main.js": "/Cards4U/static/js/main.9bebb86f.chunk.js",
+    "main.js.map": "/Cards4U/static/js/main.9bebb86f.chunk.js.map",
+    "runtime-main.js": "/Cards4U/static/js/runtime-main.21d03ddf.js",
+    "runtime-main.js.map": "/Cards4U/static/js/runtime-main.21d03ddf.js.map",
+    "static/js/2.d2097e2f.chunk.js": "/Cards4U/static/js/2.d2097e2f.chunk.js",
+    "static/js/2.d2097e2f.chunk.js.map": "/Cards4U/static/js/2.d2097e2f.chunk.js.map",
+    "index.html": "/Cards4U/index.html",
+    "precache-manifest.5898a77a37bcf4acaf84b13943f22b2d.js": "/Cards4U/precache-manifest.5898a77a37bcf4acaf84b13943f22b2d.js",
+    "service-worker.js": "/Cards4U/service-worker.js",
+    "static/css/main.7feb0b1b.chunk.css.map": "/Cards4U/static/css/main.7feb0b1b.chunk.css.map",
+    "static/js/2.d2097e2f.chunk.js.LICENSE.txt": "/Cards4U/static/js/2.d2097e2f.chunk.js.LICENSE.txt",
+    "static/media/Profile.module.css": "/Cards4U/static/media/backImgOfProfile.8c7d59c7.jpg",
+    "static/media/GameField.module.css": "/Cards4U/static/media/cardOnAnswer.11c7932d.png",
+    "static/media/DecksTable.module.css": "/Cards4U/static/media/updateBackgroundImg.6667e869.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.ffca8475.js",
+    "static/js/runtime-main.21d03ddf.js",
     "static/js/2.d2097e2f.chunk.js",
-    "static/css/main.8416bae9.chunk.css",
-    "static/js/main.12011ed5.chunk.js"
+    "static/css/main.7feb0b1b.chunk.css",
+    "static/js/main.9bebb86f.chunk.js"
   ]
 }
