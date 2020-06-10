@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "dfa7f0e13c997c188cd5386bb3b84b23",
+    "revision": "cf5caa9e14573c393abc586cbe6bd7b5",
     "url": "/Cards4U/index.html"
   },
   {
-    "revision": "c2eac795b0361937f8d7",
-    "url": "/Cards4U/static/css/main.7feb0b1b.chunk.css"
+    "revision": "40aa370a2d8c5fd15503",
+    "url": "/Cards4U/static/css/main.915542b7.chunk.css"
   },
   {
     "revision": "74d12a9039f804fc278b",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Cards4U/static/js/2.d2097e2f.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c2eac795b0361937f8d7",
+    "revision": "40aa370a2d8c5fd15503",
     "url": "/Cards4U/static/js/main.64bf0733.chunk.js"
   },
   {
@@ -30,6 +30,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "8c7d59c70080521cd2086ac813598a2f",
     "url": "/Cards4U/static/media/backImgOfProfile.8c7d59c7.jpg"
+  },
+  {
+    "revision": "c66bfa42a4af912e279306daad3fc75d",
+    "url": "/Cards4U/static/media/backgroundOfAuth.c66bfa42.jpg"
   },
   {
     "revision": "c0e7873639aae929e88a54166726ef67",
