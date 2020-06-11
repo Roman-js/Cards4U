@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "cf5caa9e14573c393abc586cbe6bd7b5",
+    "revision": "234c1a1634c006abfd7c18f503f79769",
     "url": "/Cards4U/index.html"
   },
   {
-    "revision": "40aa370a2d8c5fd15503",
-    "url": "/Cards4U/static/css/main.915542b7.chunk.css"
+    "revision": "e96709bb81817c962d02",
+    "url": "/Cards4U/static/css/main.d74b979a.chunk.css"
   },
   {
     "revision": "74d12a9039f804fc278b",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Cards4U/static/js/2.d2097e2f.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "40aa370a2d8c5fd15503",
-    "url": "/Cards4U/static/js/main.64bf0733.chunk.js"
+    "revision": "e96709bb81817c962d02",
+    "url": "/Cards4U/static/js/main.bff3a2f1.chunk.js"
   },
   {
     "revision": "5e21153bc451c78748b5",
