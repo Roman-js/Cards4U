@@ -96,7 +96,7 @@
     opacity: 0.9;
     width: 100%;
     min-height: 96vh;
-    position: absolute;
+    position: fixed;
     display: flex;
     flex-direction: column;
     justify-content: center;
