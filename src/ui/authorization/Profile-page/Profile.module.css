@@ -6,6 +6,9 @@
     align-items: stretch;
     width: 100%;
     height: 100%;
+    padding-right: 10%;
+    padding-left: 10%;
+    padding-top: 56px;
     background-color: black;
     background-image: url("./../../common/img/backImgOfProfile.jpg");
     background-repeat: no-repeat;
@@ -95,7 +98,7 @@
     background-image: url(./../../common/img/updateBackgroundImg.jpg);
     opacity: 0.9;
     width: 100%;
-    min-height: 96vh;
+    min-height: 103vh;
     position: fixed;
     display: flex;
     flex-direction: column;

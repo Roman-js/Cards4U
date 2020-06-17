@@ -9,8 +9,8 @@ const initialState = {
         {
             cardsPack_id: '5ebe22ad7b58e90004b4b1e0',
             _id: '',
-            question: 'something 1',
-            answer: 'something else 1',
+            question: 'This Deck doesn\'t have cards',
+            answer: 'I don\'t have any answer' ,
             grade: 3,
             shots: 1,
             token: ''
@@ -95,8 +95,9 @@ export const getCards = (id: string) =>
 
         try {
             const data = await cardsApi.getCards(id);
-            const cards = data.cards;
+            const cards = data.cards.length > 0 ? data.cards : initialState.theCards;
             const cardsPack_id = localStorage.getItem('cardsPack_id');
+
             dispatch({type: GET_CARDS, cards, cardsPack_id});
         } catch (e) {
             console.log(e)

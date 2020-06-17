@@ -3,7 +3,6 @@ import GameField from "./GameField";
 import {AppStoreType} from "../../bll/store";
 import {connect, useSelector} from "react-redux";
 import {updateCards} from "../../bll/reducers/cardsTable-reducer";
-import {CardsType} from "../settings/cards/cardsType";
 
 type OwnPropsType = {
     updateCards: (card: any) => void
@@ -13,9 +12,9 @@ const GameFieldContainer: React.FC<OwnPropsType> = (props) => {
     const [cardOfNumber, setCardOfNumber] = useState(0);
     const cards = useSelector((state: AppStoreType) => state.cards.theCards);
 
-    console.log(cards)
-    const sum = cards.map(elem => elem.grade).reduce((acc, el) => acc + el)
-    console.log(sum)
+
+    const sum = cards.map(elem => elem.grade).reduce((acc, el) => acc + el);
+    console.log(sum);
     const devideCard = cards.map((card: any) => card.grade / Number(sum))
     console.log(devideCard)
     const x = Math.random() * 1
@@ -32,7 +31,7 @@ const GameFieldContainer: React.FC<OwnPropsType> = (props) => {
         }
         return totalP
     }
-    let result = next()
+    let result = next();
     console.log(result)
     let superResult = devideCard.indexOf(result)
     console.log(superResult)
@@ -85,7 +84,6 @@ const GameFieldContainer: React.FC<OwnPropsType> = (props) => {
 
 
     const setGrade = (grade: number) => {
-        debugger
         const newGrade = (card.shots * card.grade + grade) / (card.shots + 1);
         const updatedCard = {...card, shots: card.shots + 1, grade};
         Math.floor(Math.random() * 5);

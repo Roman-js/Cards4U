@@ -6,7 +6,12 @@
     height: 377px;
 }
 .textQuestion {
-    padding-bottom: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    margin-left: 46px;
+    width: 196px;
+    height: 140px;
 }
 .textAnswer {
     padding-bottom: 120px;
@@ -17,7 +22,7 @@
     background-image: url(./../common/img/cardOnAnswer.png);
     width: 269px;
     height: 377px;
-    margin: 10px;
+    margin: 12.5px;
 
 }
 .gameFieldWrapper{
@@ -37,3 +42,6 @@
     width: 286px;
     height: 395px;
 }
+
+
+
